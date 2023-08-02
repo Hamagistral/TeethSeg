@@ -15,7 +15,6 @@ function Upload() {
     e.preventDefault();
     setThree(fileName);
     getImgData();
-    
   };
 
 
@@ -33,7 +32,7 @@ function Upload() {
   }
 
   return (
-    <div className="bg-gray-700 w-full px-10 py-10 rounded-md">
+    <div className="bg-gray-700 flex-box flex-col md:flex-row w-full px-10 py-10 rounded-md">
       <div className="w-full py-2 file flex-box flex-col">
         <label
           htmlFor="3d_file"

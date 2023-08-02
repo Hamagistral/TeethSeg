@@ -17,9 +17,9 @@ function Main() {
   }
   const model = "Predict Model";
 
-  const upload = async (e) => {
+  const update = async (e) => {
     e.preventDefault();
-    // console.log("You clicked upload button.");
+    // console.log("You clicked update button.");
     setLoading(true);
     displayImage();
     setImage("initial3Dfile.png");
@@ -29,7 +29,7 @@ function Main() {
   return (
     <div className="text-center w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
       <Order />
-      <div id="file" className="flex-box w-9/12 my-6" onDoubleClick={upload}>
+      <div id="file" className="flex-box w-9/12 my-6" onDoubleClickCapture={update}>
         <Upload />
       </div>
       <div className="img hide w-full flex-box">
