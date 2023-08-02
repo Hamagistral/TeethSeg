@@ -1,8 +1,8 @@
 
 function Logo() {
   return (
-    <div className="w-48 h-10 justify-start items-start gap-6 inline-flex">
-      <img className="w-10 h-10 border" src="logo.png" alt='logo' />
+    <div className="w-48 h-10 flex-box">
+      <img className="w-10 h-10 mx-1" src="logo.png" alt='logo' />
       <div className="">
         <span className="text-white text-3xl font-bold">Teeth</span>
         <span className="text-white text-3xl font-light">Seg</span>

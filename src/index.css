@@ -3,15 +3,23 @@
 @tailwind utilities;
 
 * {
-  padding:0;
+  padding: 0;
   margin: 0;
 }
 
 @layer components {
   .menu-item {
-    @apply p-2 text-stone-300 text-base font-normal;
+    @apply p-2 text-stone-300 text-base font-normal cursor-pointer flex-1 border-black rounded hover:text-blue-950 uppercase;
   }
   .flex-box {
     @apply flex items-center justify-center;
+  }
+  .hide {
+    @apply hidden;
+  }
+  .block {
+    width: 350px;
+    padding: 10px;
+    display: block;
   }
 }
