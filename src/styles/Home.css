@@ -1,0 +1,26 @@
+.file > input[type="file"] {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex : 0.1;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .file > label {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    flex: 1;
+    /* background-color: #666; */
+    border: 1px gray solid;
+    border-radius: 12px;
+    /* padding: 0 10px; */
+    color: #fff;
+    line-height: 30px;
+    /* text-align: center; */
+    cursor: pointer;
+  }
