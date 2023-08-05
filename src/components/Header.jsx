@@ -1,16 +1,20 @@
-import MenuItems from "../services/header/MenuItems";
 import Logo from "../services/header/Logo";
-import Contact from "../services/header/Contact";
+import MenuItems from "../services/header/MenuItems";
+import MobileMenu from "../services/header/MobileMenu";
 
 import "../styles/Header.css";
 
 function Header() {
   return (
-    <div className="header flex-box px-2 justify-around flex-col md:flex-row w-full h-full py-5 bg-gray-950 text-center">
-      <Logo />
-      <MenuItems />
-      <Contact />
-    </div>
+    <>
+      <nav className="bg-slate-900 w-full z-20 top-0 left-0 border-b border-slate-700">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <Logo />
+          <MobileMenu />
+          <MenuItems />
+        </div>
+      </nav>
+    </>
   );
 }
 

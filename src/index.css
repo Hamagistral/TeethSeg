@@ -18,7 +18,6 @@
     @apply hidden;
   }
   .block {
-    width: 350px;
     padding: 10px;
     display: block;
   }
