@@ -27,7 +27,7 @@ function Main() {
   };
 
   return (
-    <div className="text-center w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
+    <div className="text-center w-full py-32 flex-box flex-col scroll-smooth bg-slate-800">
       <Order />
       <div id="file" className="flex-box w-9/12 my-6" onDoubleClickCapture={update}>
         <Upload />
