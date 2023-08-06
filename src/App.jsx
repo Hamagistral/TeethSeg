@@ -10,7 +10,6 @@ import Contact from "./routes/Contact";
 
 function App() {
   return (
-<<<<<<< HEAD
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,14 +26,6 @@ function App() {
       </Routes>
     </Router>
   );
-=======
-    <div>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
-  )
->>>>>>> bf3c2ee7c321a937b5894f5690e92cb7596d1a2f
 }
 
 export default App;
