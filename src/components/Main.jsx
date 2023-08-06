@@ -1,7 +1,7 @@
-import Output from "../services/home/Output";
-import "../styles/Home.css";
-import Order from "../services/home/Order";
-import Upload from "../services/home/Upload";
+import Output from "../services/main/Output";
+import "../styles/Main.css";
+import Order from "../services/main/Order";
+import Upload from "../services/main/Upload";
 import { useState } from "react";
 
 function Main() {
@@ -27,7 +27,7 @@ function Main() {
   };
 
   return (
-    <div className="text-center w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
+    <div className="text-center lg:h-screen w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
       <Order />
       <div id="file" className="flex-box w-9/12 my-6" onDoubleClickCapture={update}>
         <Upload />
