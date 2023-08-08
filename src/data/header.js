@@ -5,7 +5,7 @@ const header = {
         
       },
       {
-        item: "About",
+        item: "Predict the Segmentation Model of a 3D file",
       },
     ],
   };

@@ -9,17 +9,26 @@
 
 @layer components {
   .menu-item {
-    @apply p-2 text-stone-300 text-base font-normal cursor-pointer flex-1 border-black rounded hover:text-blue-950 uppercase;
+    @apply flex-box sm:flex-col lg:flex-row p-2 md:mx-3 mx-1 text-stone-300 text-base font-normal cursor-pointer border-black rounded hover:text-blue-900 hover:bg-white uppercase;
   }
   .flex-box {
     @apply flex items-center justify-center;
   }
+  .home {
+    @apply bg-[image:url('./assets/3d-room.png')];
+  }
   .hide {
     @apply hidden;
   }
-  .block {
-    width: 350px;
-    padding: 10px;
-    display: block;
+  .team-img {
+    @apply rounded-full w-44 h-44 border-black;
+  }
+  .colab {
+    @apply flex-box flex-none p-3;
   }
 }
+/* @layer base {
+  .home {
+    @apply bg-home;
+  }
+} */
