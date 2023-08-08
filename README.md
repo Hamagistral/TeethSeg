@@ -1,4 +1,4 @@
-# TeethSeg-FrontEnd
+# 🦷 TeethSeg-FrontEnd
 
 ## React + Vite + TailwindCss + Vercel
 
