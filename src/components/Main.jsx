@@ -4,6 +4,7 @@ import Order from "../services/main/Order";
 import Upload from "../services/main/Upload";
 import { useState } from "react";
 
+
 function Main() {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState();
@@ -27,7 +28,7 @@ function Main() {
   };
 
   return (
-    <div className="text-center lg:h-screen w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
+    <div className="text-center lg:h-screen w-full py-10 flex-box flex-col scroll-smooth bg-slate-800">
       <Order />
       <div id="file" className="flex-box w-9/12 my-6" onDoubleClickCapture={update}>
         <Upload />
@@ -41,6 +42,9 @@ function Main() {
             <Output response={model} />
           </div>
         )}
+      </div>
+      <div className="w-96">
+        {/* <Spline scene="https://prod.spline.design/eyJf8UqWFNRPTW40/scene.splinecode"/> */}
       </div>
     </div>
   );

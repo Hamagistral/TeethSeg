@@ -8,23 +8,23 @@ function MenuItems() {
     <div className="flex p-5 sm:flex-row flex-col">
       <div onClick={() => navigate("/")} className="menu-item">
         <Home />
-        Home
+        <span className="px-2">Home</span>
       </div>
       <div onClick={() => navigate("/faq")} className="menu-item">
         <HelpCircle />
-        FAQ
+        <span className="px-2">FAQ</span>
       </div>
       <div onClick={() => navigate("/start")} className="menu-item">
         <Play />
-        Start
+        <span className="px-2">Start</span>
       </div>
       <div onClick={() => navigate("/about")} className="menu-item">
         <Info />
-        About
+        <span className="px-2">About</span>
       </div>
       <div onClick={() => navigate("/contact")} className="menu-item">
         <Contact />
-        Contact
+        <span className="px-2">Contact</span>
       </div>
     </div>
   );

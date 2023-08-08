@@ -6,7 +6,7 @@ function Logo() {
   return (
     <div onClick={() => navigate("/")} className="w-48 h-10 flex-box cursor-pointer">
       <img className="w-10 h-10 mx-1" src="logo.png" alt='logo' />
-      <div className="">
+      <div className="px-4">
         <span className="text-white text-3xl font-bold">Teeth</span>
         <span className="text-white text-3xl font-light">Seg</span>
       </div>

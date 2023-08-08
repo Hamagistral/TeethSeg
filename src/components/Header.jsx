@@ -8,7 +8,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box px-2 justify-between w-full py-5 bg-gray-950 text-center">
+    <div className="header flex-box justify-between w-full py-2 px-48 bg-slate-900 text-center">
       <Logo />
       <div className="hidden sm:block">
         <MenuItems />
@@ -17,7 +17,7 @@ function Header() {
         <Sign />
       </div>
       <div
-        className="text-white border p-2 rounded-md hover:text-blue-950 hover:bg-white cursor-pointer block sm:hidden"
+        className="text-white border p-2 rounded-md hover:text-slate-900 hover:bg-white cursor-pointer block sm:hidden"
         onClick={() => {
           setMenuOpen((open) => !open);
         }}
