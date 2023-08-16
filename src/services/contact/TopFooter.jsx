@@ -2,7 +2,7 @@ import { Mail, MapPin } from "lucide-react";
 
 function TopFooter() {
   return (
-    <div className="top-footer w-full h-screen flex-box justify-around flex-col md:flex-row p-12">
+    <div className="top-footer w-full flex-box justify-around flex-col md:flex-row pb-24">
       <div className="text-white text-3xl font-medium leading-10 py-5">
         Please feel free to
         <br />
