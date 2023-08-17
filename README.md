@@ -1,6 +1,6 @@
 # SegTeeth-api
 
-## create an venv
+## create a new venv
 
 ```bash
 py -m venv venv
