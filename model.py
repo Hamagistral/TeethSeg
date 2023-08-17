@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from meshsegnet import *
 import vedo
-import pandas as pd
+# import pandas as pd
 from losses_and_metrics_for_mesh import *
 from scipy.spatial import distance_matrix
 

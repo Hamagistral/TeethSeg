@@ -75,7 +75,7 @@ def read_root():
     return {"message": "Hi leeuw!"}
 
 
-@app.get("/predict")
+@app.post("/predict")
 async def predict_and_send(file: UploadFile = File(...)):
     # print("filename: " + type(file.filename))
 
