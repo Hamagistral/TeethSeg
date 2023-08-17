@@ -1,7 +1,7 @@
 /__pycache__
 /.space
 /frontend
-*json
+face_material_mapping.json
 /venv
 /temp
 /outputs
