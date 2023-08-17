@@ -3,7 +3,7 @@
 ## create an venv
 
 ```bash
-    py -m venv venv
+py -m venv venv
 ```
 
 ## activate venv
@@ -11,19 +11,19 @@
 only for windows
 
 ```bash
-    ./venv/Scripts/activate
+./venv/Scripts/activate
 ```
 
 ## install dependencies
 
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 # run server
 
 ```bash
-    uvicorn main:app --reload
+uvicorn main:app --reload
 ```
 
 ## Endpoints
