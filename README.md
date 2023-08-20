@@ -28,6 +28,13 @@ uvicorn main:app --reload
 
 ## Endpoints
 
-at the moment there is only one endpoint `/predict`
+### /api/v1/predict
 
-so you can use `localhost:8000/predict` make sure to call this endpoit with post method.
+Without post-proccessing (this will not give a good result)
+
+### /api/v1/predict/alpha
+
+With post-proccessing (the segmentation with post=proccessing will be mush precise)
+
+
+so you can use `localhost:8000/api/v1/predict` make sure to call this endpoit with post method.
