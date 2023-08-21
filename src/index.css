@@ -9,26 +9,46 @@
 
 @layer components {
   .menu-item {
-    @apply flex-box sm:flex-col lg:flex-row p-2 md:mx-3 mx-1 text-stone-300 text-base font-normal cursor-pointer border-black rounded hover:text-blue-900 hover:bg-white uppercase;
+    @apply flex-box bg-slate-900 sm:flex-col lg:flex-row p-2 md:mx-3 mx-1 text-slate-50 text-base font-normal cursor-pointer rounded hover:text-slate-900 hover:bg-white uppercase;
   }
+
   .flex-box {
     @apply flex items-center justify-center;
   }
+  
   .home {
     @apply bg-[image:url('./assets/3d-room.png')];
   }
+
   .hide {
     @apply hidden;
   }
+
   .team-img {
     @apply rounded-full w-44 h-44 border-black;
   }
+
   .colab {
     @apply flex-box flex-none p-3;
   }
-}
-/* @layer base {
-  .home {
-    @apply bg-home;
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (720 / 1280) */
+    overflow: hidden;
   }
-} */
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #vtk-container{
+    width: 1200px;
+    height: 550px;
+  }
+}
+
