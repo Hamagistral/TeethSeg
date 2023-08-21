@@ -16,25 +16,29 @@ function VTKViewer() {
   const [isPredicted, setIsPredicted] = useState(false);
 
   const handleUpload = async (event) => {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    event.preventDefault();
+      event.preventDefault();
 
-    console.log('Starting Segmentation...');
+      console.log('Starting Segmentation...');
 
-    const formData = new FormData(event.target);
-    const response = await fetch('http://127.0.0.1:8000/api/v1/predict/alpha', {
-      method: 'POST',
-      body: formData,
-    });
+      const formData = new FormData(event.target);
+      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/alpha', {
+        method: 'POST',
+        body: formData,
+      });
 
-    const jsonData = await response.json();
-    const objData = jsonData.prediction_file;
+      const jsonData = await response.json();
+      const objData = jsonData.prediction_file;
 
-    const blob = new Blob([objData], { type: 'text/xml' });
-    const vtpFilePath = URL.createObjectURL(blob);
+      const blob = new Blob([objData], { type: 'text/xml' });
+      const vtpFilePath = URL.createObjectURL(blob);
 
-    loadVTPTest(vtpFilePath);
+      loadVTPTest(vtpFilePath);
+    } catch {
+      console.log("Error");
+    }
   };
 
 
