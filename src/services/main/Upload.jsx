@@ -13,6 +13,7 @@ import { Loader } from './../../components/Loader';
 function VTKViewer() {
   const [file, setFile] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [isPredicted, setIsPredicted] = useState(false);
 
   const handleUpload = async (event) => {
     setIsLoading(true);
@@ -45,7 +46,7 @@ function VTKViewer() {
     
     // Create a VTP reader
     const reader = vtkXMLPolyDataReader.newInstance();
-    // reader.parseAsArrayBuffer(objData);
+
     console.log(objData);
   
     reader.setUrl(objData);
@@ -58,11 +59,6 @@ function VTKViewer() {
         // Get the materialid array from the VTP data
         // const materialidArray = vtpOutput.getCellData().getArrayByName('MaterialIds');
         const materialidArray = vtpOutput.getCellData().getArrayByName("Label");
-        
-        
-        // console.log(vtpOutput.getCellData())
-        // console.log(vtpOutput.getCellData().getArrayByName("MaterialIds").getData())
-        // console.log(vtpOutput.getPointData().getNormals().getElementComponentSize())
   
         // Map scalar array through the lookup table
         materialidArray.setName("Scalars"); // Make sure the array has a name
@@ -93,11 +89,6 @@ function VTKViewer() {
             [0.180, 0.180, 0.180]   // Dark Gray
         ];
   
-        // Assign colors to unique materialids
-        // if(materialidArray.getData()){
-        // }else{
-        //     console.log("materialidArray is null")
-        // }
         
         const uniqueMaterialIds = new Set(materialidArray.getData());
         const numColors = classColors.length;
@@ -153,6 +144,7 @@ function VTKViewer() {
         //Start rendering
         vtkRenderScreen.getRenderWindow().render();
         
+        setIsPredicted(true);
         setIsLoading(false);
     });
   }
@@ -174,7 +166,6 @@ function VTKViewer() {
               type="file" 
               name="file"
               accept=".obj"
-              // ref={model}
               onChange={(e) => {
                 setFile(e.target.files[0].name);
               }}
@@ -189,7 +180,7 @@ function VTKViewer() {
             <div className="text-center text-slate-300 text-md py-3">
               OBJ, STL, PLY, VTP, GLB, GLTG, FBX
             </div>
-            {file && isLoading ? 
+            {file ? 
             <button type="submit" className="px-10 py-3.5 my-4 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Start Prediction</button> : "" }
           </div>
         </form>
@@ -208,7 +199,7 @@ function VTKViewer() {
 
         <div id="vtk-container" />
 
-        {!isLoading ? <button type="submit" className="px-10 py-4 my-8 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Donwload Predicted File</button> : '' }
+        {isPredicted ? <button type="submit" className="px-10 py-4 my-8 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Donwload Predicted File</button> : '' }
       </div>
     </>
   );
