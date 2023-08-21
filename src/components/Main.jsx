@@ -1,8 +1,8 @@
 import Output from "../services/main/Output";
-import "../styles/Main.css";
 import Order from "../services/main/Order";
 import Upload from "../services/main/Upload";
 import { useState } from "react";
+import "../styles/Main.css";
 
 
 function Main() {

@@ -24,7 +24,7 @@ function Hero() {
                             See Demo
                         </a> 
                     </div>
-                    <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                    <div className="lg:mt-0 lg:col-span-5 lg:flex">
                         <Canvas className="h-full w-full">
                             <Stage environment="city" intensity={0.6}>
                                 <Teeths />
@@ -37,9 +37,9 @@ function Hero() {
             
             <section id="demo" className="bg-slate-800 w-full">
                 <div className="mx-auto max-w-screen-xl px-4 py-24 lg:flex lg:h-screen lg:items-center">
-                    <div className="mx-auto text-center">
+                    <div className="mx-auto text-center w-full">
                         <h2 className="bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl pb-14">Demo</h2>
-                        <iframe width="960" height="540" src="https://www.youtube.com/embed/0G8QvDTE9Gc" title="Demo TeethSeg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className="rounded-lg"></iframe>
+                        <iframe height="540" src="https://www.youtube.com/embed/0G8QvDTE9Gc" title="Demo TeethSeg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="md:w-content w-full rounded-lg"></iframe>
                     </div>
                 </div>
             </section>

@@ -8,7 +8,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box justify-between w-full py-2 px-48 bg-slate-900 text-center">
+    <div className="header flex-box h-20 justify-between w-full py-2 px-6 bg-slate-900 text-center">
       <Logo />
       <div className="hidden sm:block">
         <MenuItems />
@@ -23,7 +23,7 @@ function Header() {
         }}
       >
         <Menu />
-        <div className="absolute top-20 left-0 bg-gray-950 flex-box flex-col pb-8 w-full">
+        <div className="absolute top-20 left-0 bg-gray-900 flex-box flex-col pb-8 w-full">
           {menuOpen ? (
             <>
               {" "}

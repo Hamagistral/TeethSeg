@@ -10,15 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kitware/vtk.js": "^28.7.0",
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
     "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
     "lucide-react": "^0.263.1",
     "postcss": "^8.4.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
-    "vercel": "^31.2.1"
+    "vercel": "^24.2.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
