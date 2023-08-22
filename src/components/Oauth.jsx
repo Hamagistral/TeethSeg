@@ -67,7 +67,7 @@ const Oauth = ({ auth }) => {
 
 			<SignInWithGithubButton handle={handleGithubSingIn} />
 
-			<SignInWithXButton handle={handleXSingIn} />
+{/* 			<SignInWithXButton handle={handleXSingIn} /> */}
 		</div>
 	);
 };
