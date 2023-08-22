@@ -1,4 +1,4 @@
-const faq = 
+const faqs = 
 [
     {
         question: "Web-based",
