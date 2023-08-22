@@ -4,7 +4,7 @@ import SignInWithGoogleButton from "../components/shared/SignInWithGoogleButton.
 import SignInWithXButton from "../components/shared/SignInWithXButton.jsx";
 import SignInWithGithubButton from "../components/shared/SignInWithGithubButton";
 
-import { provider, auth } from "../config/firebase";
+import { provider } from "../config/firebase";
 
 import {
 	signInWithPopup,
@@ -80,7 +80,7 @@ const Oauth = ({ auth }) => {
 
 			<SignInWithGithubButton handle={handleGithubSingIn} />
 
-			{/* <SignInWithXButton handle={handleXSingIn} /> */}
+			<SignInWithXButton handle={handleXSingIn} />
 		</div>
 	);
 };

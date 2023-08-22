@@ -5,8 +5,10 @@ import { useState } from "react";
 import * as Yup from "yup"; // Import Yup for validation
 import { useFormik } from "formik"; // Import useFormik for form handling
 import { auth } from "../config/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import Oauth from "./../components/Oauth";
+import {
+	createUserWithEmailAndPassword,
+	sendEmailVerification,
+} from "firebase/auth";
 
 function SignUp() {
 	const [user, setUser] = useState(null);
@@ -224,7 +226,6 @@ function SignUp() {
 												</div>
 											</form>
 											{/* registration form end here */}
-											<Oauth auth={auth} />
 										</div>
 									</div>
 
