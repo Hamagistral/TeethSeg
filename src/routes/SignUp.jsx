@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "./../components/Header";
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import * as Yup from "yup"; // Import Yup for validation
@@ -8,210 +9,120 @@ import { auth } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Oauth from "./../components/Oauth";
 
+=======
+>>>>>>> parent of 6a508a6 (Merge branch 'main' of https://github.com/3DSF-Internship/TeethSeg-FrontEnd)
 function SignUp() {
-	const [user, setUser] = useState(null);
+  return (
+    <div className="flex-box flex-col">
+      <Header />
+      <div className="text-center text-white w-full py-10 flex-box flex-col scroll-smooth gradient-form h-full bg-slate-700">
+        <div className="container h-full p-10">
+          <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div className="w-full">
+              <div className="block rounded-lg shadow-lg bg-slate-900">
+                <div className="g-0 lg:flex lg:flex-wrap">
+                  <div className="px-4 md:px-0 lg:w-6/12">
+                    <div className="md:mx-6 md:p-12">
+                      <div className="text-center">
+                        <img
+                          className="mx-auto pt-5 pb-5 w-10 h-15"
+                          src="logo.png"
+                          alt="logo"
+                        />
+                        <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                          <span className="text-white text-3xl font-bold">
+                            Teeth
+                          </span>
+                          <span className="text-white text-3xl font-light">
+                            Seg
+                          </span>
+                        </h4>
+                      </div>
 
-	const navigate = useNavigate();
+                      <form>
+                        <p className="mb-4">Please login to your account</p>
+                        <div
+                          className="relative mb-4"
+                          data-te-input-wrapper-init
+                        >
+                          <input
+                            type="text"
+                            className="peer block min-h-[auto] w-full rounded border-0 bg-slate-800 p-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                            id="exampleFormControlInput1"
+                            placeholder="Username"
+                          />
+                          <label
+                            htmlFor="exampleFormControlInput1"
+                            className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.4rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.8rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                          >
+                            Username
+                          </label>
+                        </div>
 
-	const formik = useFormik({
-		initialValues: {
-			email: "",
-			password: "",
-			confirmPassword: "",
-		},
-		validationSchema: Yup.object({
-			email: Yup.string().email().required(),
-			password: Yup.string().required("Password is required").min(8),
-			confirmPassword: Yup.string()
-				.oneOf([Yup.ref("password"), null], "Passwords must match")
-				.required("Confirm password is required"),
-		}),
-		onSubmit: async (values, { setSubmitting }) => {
-			try {
-				await createUserWithEmailAndPassword(
-					auth,
-					values.email,
-					values.password
-				);
-				navigate("/sign-in");
-			} catch (error) {
-				console.error("Registration error: ", error.message);
-			} finally {
-				setSubmitting(false);
-			}
-		},
-		validateOnChange: false,
-		validateOnBlur: false,
-	});
+                        <div
+                          className="relative mb-4"
+                          data-te-input-wrapper-init
+                        >
+                          <input
+                            type="password"
+                            className="peer block min-h-[auto] w-full rounded border-0 bg-slate-800 p-4 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                            id="exampleFormControlInput11"
+                            placeholder="Password"
+                          />
+                          <label
+                            htmlFor="exampleFormControlInput11"
+                            className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.4rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                          >
+                            Password
+                          </label>
+                        </div>
 
-	return (
-		<div className="flex-box flex-col">
-			<Header />
-			<div className="text-center text-white w-full py-10 flex-box flex-col scroll-smooth gradient-form h-full bg-slate-800">
-				<div className="container h-full p-10">
-					<div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
-						<div className="w-full">
-							<div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
-								<div className="g-0 lg:flex lg:flex-wrap flex-row-reverse">
-									<div className="px-4 md:px-0 lg:w-6/12">
-										<div className="md:mx-6 md:p-12">
-											<div className="text-center">
-												<img
-													className="mx-auto pt-5 w-20 h-20"
-													src="logo.png"
-													alt="logo"
-												/>
-												<h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-													<span className="text-white text-3xl font-bold">
-														Teeth
-													</span>
-													<span className="text-white text-3xl font-light">
-														Seg
-													</span>
-												</h4>
-											</div>
-											{/* registration form starts here */}
-											<form
-												onSubmit={formik.handleSubmit}
-											>
-												<div>
-													<p className="mb-4">
-														Create an account to get
-														in the door
-													</p>
-													<div
-														className="relative mb-4"
-														data-te-input-wrapper-init
-													>
-														<input
-															type="text"
-															className={`${
-																formik.errors
-																	.email
-																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-															}`}
-															id="email"
-															placeholder="Email"
-															value={
-																formik.values
-																	.email
-															}
-															onChange={
-																formik.handleChange
-															}
-															onBlur={
-																formik.handleBlur
-															}
-														/>
-														{/* Display validation error */}
-														{formik.touched.email &&
-															formik.errors
-																.email && (
-																<p className="mt-2 text-sm text-red-500 dark:text-red-500">
-																	{
-																		formik
-																			.errors
-																			.email
-																	}
-																</p>
-															)}
-													</div>
+                        <div className="mb-12 pb-1 pt-1 text-center">
+                          <button
+                            className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] bg-gradient-to-r from-blue-400 to-green-500"
+                            type="button"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                          >
+                            Log in
+                          </button>
 
-													<div
-														className="relative mb-4"
-														data-te-input-wrapper-init
-													>
-														<input
-															type="password"
-															className={`${
-																formik.errors
-																	.password
-																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-															}`}
-															id="password"
-															placeholder="Password"
-															value={
-																formik.values
-																	.password
-															}
-															onChange={
-																formik.handleChange
-															}
-															onBlur={
-																formik.handleBlur
-															}
-														/>
-														{/* Display validation error */}
-														{formik.touched
-															.password &&
-															formik.errors
-																.password && (
-																<p className="mt-2 text-sm text-red-500 dark:text-red-500">
-																	{
-																		formik
-																			.errors
-																			.password
-																	}
-																</p>
-															)}
-													</div>
+                          <a href="#!" className="font-medium text-blue-100 hover:text-blue-300">Forgot password?</a>
+                        </div>
 
-													<div
-														className="relative mb-4"
-														data-te-input-wrapper-init
-													>
-														<input
-															type="password"
-															className={`${
-																formik.errors
-																	.confirmPassword
-																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-															}`}
-															id="confirmPassword"
-															placeholder="Confirm Password"
-															value={
-																formik.values
-																	.confirmPassword
-															}
-															onChange={
-																formik.handleChange
-															}
-															onBlur={
-																formik.handleBlur
-															}
-														/>
-														{/* Display validation error */}
-														{formik.touched
-															.confirmPassword &&
-															formik.errors
-																.confirmPassword && (
-																<p className="mt-2 text-sm text-red-500 dark:text-red-500">
-																	{
-																		formik
-																			.errors
-																			.confirmPassword
-																	}
-																</p>
-															)}
-													</div>
+                        <div className="flex items-center justify-between pb-6">
+                          <p className="mb-0 mr-2 font-medium text-blue-100">Don`t have an account?</p>
+                          <button
+                            type="button"
+                            className="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-blue-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700"
+                            data-te-ripple-init
+                            data-te-ripple-color="light"
+                          >
+                            Register
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
 
-													<div className="mb-12 pb-1 pt-1 text-center">
-														<button
-															className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] bg-gradient-to-r from-[#ee7724] to-[#b44593]"
-															type="submit"
-															data-te-ripple-init
-															data-te-ripple-color="light"
-															disabled={
-																formik.isSubmitting
-															}
-														>
-															Register
-														</button>
-													</div>
+                  <div className="flex-box rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none bg-gradient-to-r from-blue-400 to-green-500">
+                    <div className="flex-box flex-col px-4 py-6 text-white md:mx-6 md:p-12">
+                      <h4 className="mb-6 text-xl font-semibold">
+                        We are more than just Employees
+                      </h4>
+                      <p className="text-sm">
+                        We Are Interns
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+<<<<<<< HEAD
 													<div className="flex justify-end pb-6">
 														<Link
 															to="/sign-in"
@@ -248,6 +159,11 @@ function SignUp() {
 			<Footer />
 		</div>
 	);
+=======
+      <Footer />
+    </div>
+  );
+>>>>>>> parent of 6a508a6 (Merge branch 'main' of https://github.com/3DSF-Internship/TeethSeg-FrontEnd)
 }
 
 export default SignUp;
