@@ -1,12 +1,15 @@
-from fastapi import FastAPI, UploadFile, File, BackgroundTasks
-from fastapi.middleware.cors import CORSMiddleware
-import os
 import torch
 import vedo
-from meshsegnet import *
-from model import predict , predict_alpha
 import time
+import os
+
+from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from helpers import create_temp_file, delete_temp_file
+from fastapi.middleware.cors import CORSMiddleware
+from model import predict, predict_alpha
+from mangum import Mangum
+from meshsegnet import *
+
 app = FastAPI()
 
 # Define origins that are allowed to access the API
@@ -158,3 +161,5 @@ async def predict_and_sendPalpha(file: UploadFile = File(...)):
         "filename": out_filename + ".vtp",
         "prediction_file": prediction_file_data
     }
+
+handler = Mangum(app)

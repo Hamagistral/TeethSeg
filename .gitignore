@@ -6,3 +6,5 @@ face_material_mapping.json
 /temp
 /outputs
 Spacefile
+lib
+*.zip
