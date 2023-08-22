@@ -32,7 +32,7 @@ uvicorn main:app --reload
 
 Without post-proccessing (this will not give a good result)
 
-### /api/v1/predict/alpha
+### /api/v1/predict/post_processing
 
 With post-proccessing (the segmentation with post=proccessing will be mush precise)
 
