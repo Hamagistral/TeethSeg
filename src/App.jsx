@@ -6,6 +6,7 @@ import Faq from "./routes/FAQ";
 import Start from "./routes/Start";
 import About from "./routes/About";
 import SignUp from "./routes/SignUp";
+import SignIn from "./routes/SignIn";
 import Contact from "./routes/Contact";
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/start" element={<Start />} />
 
         <Route path="/about" element={<About />} />
+
+        <Route path="/sign-in" element={<SignIn />} />
 
         <Route path="/sign-up" element={<SignUp />} />
 
