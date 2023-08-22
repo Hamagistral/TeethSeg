@@ -19,14 +19,14 @@ function Features() {
                         </div>
                         <div>
                             <div className="flex  mx-auto justify-center items-center mb-8 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 bg-blue-400">
-                                <Zap />
+                                <Zap className="h-8 w-8"/>
                             </div>
                             <h3 className="mb-4 text-xl font-bold text-white">Fast Response</h3>
                             <p className="text-slate-400 dark:text-gray-400">We optimized our API to be as fast and reliable as possible.</p>
                         </div>
                         <div>
                             <div className="flex  mx-auto justify-center items-center mb-8 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 bg-blue-400">
-                                <Image />             
+                                <Image className="h-8 w-8"/>             
                             </div>
                             <h3 className="mb-4 text-xl font-bold text-white">Easy & Simple UI</h3>
                             <p className="text-slate-400 dark:text-gray-400">We developed our UI to be as easy and simple to use, with 3D integration.</p>
