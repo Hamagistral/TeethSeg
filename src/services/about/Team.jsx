@@ -6,8 +6,8 @@ function Team() {
     <div className="scroll-tap font-bold">
       <h2 className="flex-box text-7xl font-extrabold pb-16 text">Our Team</h2>
       <ul className="flex-box flex-col divide-y divide-gray-200">
-        {team.map((person) => (
-          <li key={person.name} className="colab py-4 flex-box flex-col">
+        {team.map((person, index) => (
+          <li key={index} className="colab py-4 flex-box flex-col">
             <img className="team-img" src={person.image} alt="img" />
             <div className="ml-3 flex-box flex-col">
               <p className="text-2xl font-medium text-blue-300">
