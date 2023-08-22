@@ -155,9 +155,9 @@ function VTKViewer() {
 
   return (
     <>        
-      <div className="bg-slate-700 px-96 rounded-md">
-        <form id="upload-form" onSubmit={handleUpload}>
-          <div className="py-12 file flex-box flex-col">
+      <div className="bg-slate-700 flex-box flex-col md:flex-row w-full md:px-10 rounded-md">
+        <form id="upload-form" onSubmit={handleUpload} className="w-full p-0">
+          <div className="w-full py-12 file flex-box flex-col">
             <label
               htmlFor="3d_file"
               className="flex-box flex-col p-3 my-auto text-center"
@@ -176,7 +176,7 @@ function VTKViewer() {
               id="3d_file"
             />
             <div className="fileName text-white">
-              <p className="bg-slate-800 py-4 px-8 rounded-xl font-normal text-slate-300"><FileAxis3d width={18} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span></p>
+              <p className="bg-slate-800 py-4 md🛫 px-8 rounded-xl font-normal text-slate-300"><FileAxis3d width={18} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span></p>
             </div>
             <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
               Supported files
@@ -190,18 +190,18 @@ function VTKViewer() {
         </form>
       </div>
 
-      <div className="mt-12">
-        {isLoading ? <div className="text-white my-8 text-3xl font-semibold  text-center">
+      <div className="h-full w-full">
+        {isLoading ? <div className="text-white my-8 text-3xl font-semibold text-center">
           Predicted segmentation:
         </div> : '' }
 
         {isLoading && (
-          <div className="p-8 rounded-lg w-full flex items-center justify-center bg-slate-700">
+          <div className="p-8 rounded-lg w-full flex-box bg-slate-700">
             <Loader />
           </div>
         )}
 
-        <div id="vtk-container" />
+        <div id="vtk-container" className='w-full'/>
 
         {isPredicted ? <button type="submit" className="px-10 py-4 my-8 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Donwload Predicted File</button> : '' }
       </div>

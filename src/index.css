@@ -5,6 +5,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 @layer components {
@@ -15,7 +16,7 @@
   .flex-box {
     @apply flex items-center justify-center;
   }
-  
+
   .home {
     @apply bg-[image:url('./assets/3d-room.png')];
   }
@@ -30,6 +31,10 @@
 
   .colab {
     @apply flex-box flex-none p-3;
+  }
+  
+  .vtk {
+    @apply w-full h-screen md:w-96 md:h-96;
   }
 
   .video-container {
@@ -46,9 +51,10 @@
     height: 100%;
   }
 
-  #vtk-container{
-    width: 1200px;
+  #vtk-container {
+    /* width: 1200px; */
+    width: 100%;
+    /* height: 100%; */
     height: 550px;
   }
 }
-

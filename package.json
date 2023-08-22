@@ -1,7 +1,7 @@
 {
   "name": "teethseg-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,6 +16,7 @@
     "autoprefixer": "^10.4.14",
     "firebase": "^10.2.0",
     "formik": "^2.4.3",
+    "axios": "^1.4.0",
     "leva": "^0.9.35",
     "lucide-react": "^0.263.1",
     "postcss": "^8.4.27",
