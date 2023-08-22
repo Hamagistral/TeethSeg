@@ -5,30 +5,30 @@ import Home from "./routes/Home";
 import Faq from "./routes/FAQ";
 import Start from "./routes/Start";
 import About from "./routes/About";
-import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
+import SignIn from "./routes/SignIn";
 import Contact from "./routes/Contact";
 
 function App() {
-	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<Home />} />
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-				<Route path="/faq" element={<Faq />} />
+        <Route path="/faq" element={<Faq />} />
 
-				<Route path="/start" element={<Start />} />
+        <Route path="/start" element={<Start />} />
 
-				<Route path="/about" element={<About />} />
+        <Route path="/about" element={<About />} />
 
-				<Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-in" element={<SignIn />} />
 
-				<Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-up" element={<SignUp />} />
 
-				<Route path="/contact" element={<Contact />} />
-			</Routes>
-		</Router>
-	);
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
