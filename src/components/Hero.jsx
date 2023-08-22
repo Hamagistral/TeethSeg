@@ -33,9 +33,8 @@ function Hero() {
                             us take care of it.
                         </p>
                         <a
-                            href="#"
-                            onClick={() => navigate("/start")}
-                            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300"
+                            onClick={() => navigate("/sign-in")}
+                            className="cursor-pointer inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300"
                         >
                             Get started
                             <svg
@@ -53,7 +52,7 @@ function Hero() {
                         </a>
                         <a
                             href="#demo"
-                            className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white/75 border rounded-lg focus:ring-4 focus:ring-gray-100  border-white/75 hover:bg-slate-700 dark:focus:ring-gray-800"
+                            className="cursor-pointer inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white/75 border rounded-lg focus:ring-4 focus:ring-gray-100  border-white/75 hover:bg-slate-700 dark:focus:ring-gray-800"
                         >
                             <Play className="w-3 h-3 mr-2" fill="currentColor" />
                             See Demo

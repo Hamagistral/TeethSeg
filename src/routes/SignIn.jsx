@@ -224,7 +224,7 @@ function SignIn() {
 														</Link>
 													</div>
 
-													<div className="flex 					justify-end pb-6">
+													<div className="flex justify-end pb-6">
 														<Link
 															to="/sign-up"
 															className="mb-0 mr-2 hover:underline text-neutral-500 transition duration-150 ease-in-out hover:text-neutral-700 dark:hover:text-neutral-200"
