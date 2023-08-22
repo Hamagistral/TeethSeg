@@ -1,18 +1,5 @@
 import Footer from "../components/Footer";
 import Header from "./../components/Header";
-<<<<<<< HEAD
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import * as Yup from "yup"; // Import Yup for validation
-import { useFormik } from "formik"; // Import useFormik for form handling
-import { auth } from "../config/firebase";
-import {
-	createUserWithEmailAndPassword,
-	sendEmailVerification,
-} from "firebase/auth";
-
-=======
->>>>>>> parent of 6a508a6 (Merge branch 'main' of https://github.com/3DSF-Internship/TeethSeg-FrontEnd)
 function SignUp() {
   return (
     <div className="flex-box flex-col">
@@ -124,47 +111,9 @@ function SignUp() {
         </div>
       </div>
 
-<<<<<<< HEAD
-													<div className="flex justify-end pb-6">
-														<Link
-															to="/sign-in"
-															className="mb-0 mr-2 hover:underline text-neutral-500 transition duration-150 ease-in-out hover:text-neutral-700 dark:hover:text-neutral-200"
-														>
-															Already have an
-															account?
-														</Link>
-													</div>
-												</div>
-											</form>
-											{/* registration form end here */}
-										</div>
-									</div>
-
-									<div className="flex-box rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none bg-gradient-to-r from-[#ee7724] to-[#b44593]">
-										<div className="flex-box flex-col px-4 py-6 text-white md:mx-6 md:p-12">
-											<h4 className="mb-6 text-xl font-semibold">
-												We are more than just Employees
-											</h4>
-											<p className="text-sm">
-												We Are Interns
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<Footer />
-		</div>
-	);
-=======
       <Footer />
     </div>
   );
->>>>>>> parent of 6a508a6 (Merge branch 'main' of https://github.com/3DSF-Internship/TeethSeg-FrontEnd)
 }
 
 export default SignUp;
