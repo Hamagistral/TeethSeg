@@ -14,8 +14,6 @@
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
     "autoprefixer": "^10.4.14",
-    "firebase": "^10.2.0",
-    "formik": "^2.4.3",
     "axios": "^1.4.0",
     "leva": "^0.9.35",
     "lucide-react": "^0.263.1",
@@ -24,8 +22,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
     "vercel": "^24.2.4",
-    "vtk.js": "^28.7.0",
-    "yup": "^1.2.0"
+    "vtk.js": "^28.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
