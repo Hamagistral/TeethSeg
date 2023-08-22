@@ -111,9 +111,9 @@ function SignIn() {
 														Please login to your
 														account
 													</p>
-													<div class="mb-4">
+													<div className="mb-4">
 														<label
-															for="email"
+															htmlFor="email"
 															className="mb-2 text-sm font-medium text-neutral-500 dark:text-neutral-200 flex"
 														>
 															Username
@@ -142,8 +142,8 @@ function SignIn() {
 														{formik.touched.email &&
 															formik.errors
 																.email && (
-																<p class="mt-2 text-sm text-red-500 dark:text-red-500">
-																	<span class="font-medium"></span>{" "}
+																<p className="mt-2 text-sm text-red-500 dark:text-red-500">
+																	<span className="font-medium"></span>{" "}
 																	{
 																		formik
 																			.errors
