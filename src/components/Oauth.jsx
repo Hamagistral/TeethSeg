@@ -19,7 +19,11 @@ const Oauth = ({ auth }) => {
 	const handleGoogleSingIn = async () => {
 		await signInWithPopup(auth, provider["google.com"])
 			.then((result) => {
-			
+				// const credential =
+				// 	GoogleAuthProvider.credentialFromResult(result);
+				// const token = credential.accessToken;
+				// const user = result.user;
+				// console.log(token);
 				navigate("/start");
 			})
 			.catch((error) => {
@@ -34,7 +38,11 @@ const Oauth = ({ auth }) => {
 	const handleGithubSingIn = async () => {
 		await signInWithPopup(auth, provider["github.com"])
 			.then((result) => {
-			
+				// const credential =
+				// 	GithubAuthProvider.credentialFromResult(result);
+				// const token = credential.accessToken;
+				// const user = result.user;
+				// console.log(token);
 				navigate("/start");
 			})
 			.catch((error) => {
@@ -49,7 +57,12 @@ const Oauth = ({ auth }) => {
 	const handleXSingIn = async () => {
 		await signInWithPopup(auth, provider["twitter.com"])
 			.then((result) => {
-	
+				// const credential =
+				// 	TwitterAuthProvider.credentialFromResult(result);
+				// const token = credential.accessToken;
+				// const secret = credential.secret;
+				// const user = result.user;
+				// console.log(token, secret, user);
 				navigate("/start");
 			})
 			.catch((error) => {
