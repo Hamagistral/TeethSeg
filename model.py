@@ -1,11 +1,8 @@
 import os
 import numpy as np
 import torch
-# import torch.nn as nn
 from meshsegnet import *
 import vedo
-# import pandas as pd
-from losses_and_metrics_for_mesh import *
 from scipy.spatial import distance_matrix
 from sklearn.svm import SVC 
 from sklearn.neighbors import KNeighborsClassifier
@@ -331,4 +328,4 @@ def predict_alpha(model, mesh, filename):
             # print('Sample filename: {} completed'.format(filename))
             # return output_file_name
 
-            return output_file_name_refined
+            return [output_file_name, output_file_name_d_refined, output_file_name_refined]
