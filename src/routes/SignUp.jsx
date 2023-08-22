@@ -6,8 +6,10 @@ import { useState } from "react";
 import * as Yup from "yup"; // Import Yup for validation
 import { useFormik } from "formik"; // Import useFormik for form handling
 import { auth } from "../config/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import Oauth from "./../components/Oauth";
+import {
+	createUserWithEmailAndPassword,
+	sendEmailVerification,
+} from "firebase/auth";
 
 =======
 >>>>>>> parent of 6a508a6 (Merge branch 'main' of https://github.com/3DSF-Internship/TeethSeg-FrontEnd)
@@ -135,7 +137,6 @@ function SignUp() {
 												</div>
 											</form>
 											{/* registration form end here */}
-											<Oauth auth={auth} />
 										</div>
 									</div>
 

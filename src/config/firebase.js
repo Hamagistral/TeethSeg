@@ -6,16 +6,14 @@ import {
 	TwitterAuthProvider,
 } from "firebase/auth";
 
-console.log(import.meta.env.VITE_API_KEY);
-
 const firebaseConfig = {
-	apiKey: import.meta.env.VITE_API_KEY,
-	authDomain: "teethsegmentation-42aaa.firebaseapp.com",
-	projectId: "teethsegmentation-42aaa",
-	storageBucket: "teethsegmentation-42aaa.appspot.com",
-	messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-	appId: import.meta.env.VITE_APP_ID,
-	measurementId: import.meta.env.VITE_MEASUREMENT_ID,
+	apiKey: "AIzaSyDn0wcIHv7vkn-AgWpgF0cWLD9dUoZnKrU",
+	authDomain: "teethseg-845e7.firebaseapp.com",
+	projectId: "teethseg-845e7",
+	storageBucket: "teethseg-845e7.appspot.com",
+	messagingSenderId: "112871786106",
+	appId: "1:112871786106:web:ffed1300e95d6b1ce3ddc3",
+	measurementId: "G-NCXRS337RC",
 };
 
 const googleProvider = new GoogleAuthProvider();
