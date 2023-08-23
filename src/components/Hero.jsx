@@ -49,15 +49,13 @@ function Hero() {
                 </div>
             </section>
 
-            <div id="demo" className="px-10 pb-20 bg-slate-800">
+            <div id="demo" className="px-24 pb-20 bg-slate-800">
                 <h2 className="text-center text-4xl text-white font-extrabold mb-14">Demo</h2>
-                <div className="video-container">
+                <div className="video-container" width="1100">
                     <iframe
-                    width="1280"
-                    height="720"
                     src="https://www.youtube.com/embed/0G8QvDTE9Gc"
                     title="YouTube video player"
-                    className="rounded-xl col-span-8 lg:col-span-12"
+                    className="rounded-xl"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     ></iframe>

@@ -24,7 +24,7 @@ function VTKViewer() {
       console.log('Starting Segmentation...');
 
       const formData = new FormData(event.target);
-      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/alpha', {
+      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/post_processing', {
         method: 'POST',
         body: formData,
       });
@@ -191,7 +191,7 @@ function VTKViewer() {
       </div>
 
       <div className="mt-12">
-        {isLoading ? <div className="text-white my-8 text-3xl font-semibold  text-center">
+        {isLoading || isPredicted ? <div className="text-white my-8 text-3xl font-semibold  text-center">
           Predicted segmentation:
         </div> : '' }
 
