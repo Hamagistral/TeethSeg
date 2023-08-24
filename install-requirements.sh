@@ -1,16 +1,15 @@
 #!/bin/bash
 
-#!/bin/bash
 
 echo "Creating venv..."
-if ! py -m venv venv; then
+if ! python3 -m venv venv; then
     echo "Error: Failed to create venv."
     exit 1
 fi
 echo "venv is created successfully."
 
 echo "Activating venv..."
-if ! source ./venv/Scripts/activate; then
+if ! source  venv/bin/activate; then
     echo "Error: Failed to activate venv."
     exit 1
 fi
