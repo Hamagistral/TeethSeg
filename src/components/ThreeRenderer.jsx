@@ -28,7 +28,7 @@ const ThreeDRenderer = ({ file }) => {
         >
             <ambientLight intensity={0.5} />
             <OrbitControls />
-            <Stage environment="city" >
+            <Stage environment="city">
                 <directionalLight intensity="3" castShadow />
                 {objModel && (
                     <mesh scale={[0.1, 0.1, 0.1]}>

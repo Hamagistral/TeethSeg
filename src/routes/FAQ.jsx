@@ -80,7 +80,7 @@ export default Faq;
 const AccordionItem = ({ header, text }) => {
   const [active, setActive] = useState(false);
 
-  const handleToggle = (event) => {
+  const handleToggle = () => {
     event.preventDefault();
     setActive(!active);
   };
