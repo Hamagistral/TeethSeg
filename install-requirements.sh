@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Checking Python availability..."
+if ! command -v python3 &> /dev/null; then
+    echo "Error: Python is not installed. Please install Python before running this script."
+    exit 1
+fi
 
 echo "Creating venv..."
 if ! python3 -m venv venv; then

@@ -13,7 +13,7 @@ config = AppConfig(app)
 
 @app.get("/")
 def read_root():
-    return {"message": "Hi leeuw!"}
+    return {"message": "3DSF Interns 2023 - Group 2!"}
 
 
 @app.post("/api/v1/predict")
