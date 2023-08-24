@@ -3,7 +3,7 @@ function ContactForm() {
         <>
             <section className="bg-slate-800 w-full pb-24">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-center text-transparent bg-gradient-to-r from-red-200 to-green-400 bg-clip-text">Contact Us</h2>
+                    <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-center bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent pb-4t">Contact Us</h2>
                     <p className="mb-8 lg:mb-16 font-light text-center text-slate-300 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Let us know.</p>
                     <form action="mailto:3dsmartfactory@gmail.com" className="space-y-8">
                         <div>

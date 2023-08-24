@@ -6,8 +6,8 @@ function Features() {
             <section className="bg-slate-800 w-full pb-24">
                 <div className="py-8 px-4 mx-auto text-center max-w-screen-xl sm:py-16 lg:px-6">
                     <div className="mx-auto max-w-screen-md mb-8 lg:mb-16">
-                        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Why TeethSeg</h2>
-                        <p className="text-slate-400 sm:text-xl dark:text-gray-400">3D tooth segmentation is an important task for digital orthodontics. Several Deep Learning methods have been proposed for automatic tooth segmentation from 3D dental models or intraoral scans.</p>
+                        <h2 className="mb-4 text-4xl tracking-tight font-extrabold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent pb-4">Why TeethSeg</h2>
+                        <p className="sm:text-xl text-slate-400 ">3D tooth segmentation is an important task for digital orthodontics. Several Deep Learning methods have been proposed for automatic tooth segmentation from 3D dental models or intraoral scans.</p>
                     </div>
                     <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
                         <div>

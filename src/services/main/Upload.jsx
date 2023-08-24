@@ -165,11 +165,11 @@ function VTKViewer() {
 
         const scalarBarActor = vtkScalarBarActor.newInstance();
         vtkRenderScreen.getRenderer().addActor(scalarBarActor);
+        scalarBarActor.setScalarsToColors(lut); // colorTransferFunction
   
         vtkRenderScreen.getRenderer().addActor(actor);
         vtkRenderScreen.getRenderer().resetCamera();
-        scalarBarActor.setScalarsToColors(lut);
-        
+
         //Start rendering
         vtkRenderScreen.getRenderWindow().render();
         
@@ -242,18 +242,18 @@ function VTKViewer() {
 
   return (
     <>    
-      <div className={`w-full h-screen scroll-smooth bg-slate-800 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
-        <div className='p-3 m-4 flex justify-end'>
+      <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
+        <div className='p-3 m-4 flex justify-end h-20'>
           <button 
-            className='text-white'
-            onClick={handleResizeWindow}  
-          >
-            {fullScreen ?
-            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
-            :
-            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span>  <AiOutlineFullscreen/></div>
-          }
-          </button>
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
+              :
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
+            }
+            </button>
         </div>
         <div className="text-center flex-box flex-col">
           <div className="text-white p-12 text-3xl font-semibold text-center">
@@ -286,7 +286,7 @@ function VTKViewer() {
                     Supported files
                   </div>
                   <div className="text-center text-slate-300 text-md py-3">
-                    Only .OBJ files are supported at the moment
+                    For the moment only *.obj files are supported
                   </div>
                 </div>
               </form>
@@ -296,10 +296,10 @@ function VTKViewer() {
       </div>
 
       {file && 
-        <div className='lg:px-48 px-12 w-full h-screen scroll-smooth bg-slate-800'>
-          <div className='p-3 m-4 flex justify-between'>
+        <div className='w-full h-screen scroll-smooth bg-slate-800 mt-4'>
+          <div className='p-3 m-4 flex justify-between max-h-20'>
             <button 
-              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded" 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg" 
               onClick={handleBackBtn}
             >
               <div className='flex items-center'>
@@ -307,26 +307,26 @@ function VTKViewer() {
               Back
               </div>
             </button>
+            <div className="text-center items-center text-white mb-12">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-normal text-slate-300">
+                  <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span>
+                </div>
+            </div>
             <button 
-              className='text-white'
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
               onClick={handleResizeWindow}  
             >
               {fullScreen ?
-              <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
               :
-              <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen/></div>
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
             }
             </button>
-          </div>
-          <div className="text-center items-center text-white mb-12">
-              <div className="bg-slate-900 py-6 px-8 max-w-xl mx-auto rounded-xl font-normal text-slate-300">
-                <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span>
-              </div>
           </div>
           <div className="text-center flex-box flex-col">
               <ThreeDRenderer file={fileBlob} />
           </div>
-          <div className='text-center my-3'>
+          <div className='text-center mt-8'>
             <button 
               onClick={handlePredictBtn} 
               className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg">
@@ -340,7 +340,7 @@ function VTKViewer() {
       }
 
       {isLoading ? 
-        <div className="p-8 w-full h-screen flex-box bg-slate-800">
+        <div className="p-8 w-full h-screen flex-box bg-slate-800 mt-8">
           <div className='flex flex-col items-center'>
             <div>
               <HashLoader color="#36d7b7" />
@@ -354,30 +354,30 @@ function VTKViewer() {
         </div>
       : null}
        
-      <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800 lg:px-48 px-12`}>
-        <div className='p-3 m-4 flex justify-between'>
-          <button 
-            className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded" 
-            onClick={handleBackBtn}
-          >
-            <div className='flex items-center'>
-            <AiOutlineArrowLeft className="mx-2"/>
-            Back
-            </div>
-          </button>
-          <button 
-            className='text-white'
-            onClick={handleResizeWindow}  
-          >
-            {fullScreen ?
-            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
-            :
-            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen/></div>
-          }
-          </button>
+      <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800 mt-4`}>
+        <div className='p-3 m-4 flex justify-between h-20'>
+            <button 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg" 
+              onClick={handleBackBtn}
+            >
+              <div className='flex items-center'>
+              <AiOutlineArrowLeft className="mx-2"/>
+              Back
+              </div>
+            </button>
+            <button 
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
+              :
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
+            }
+            </button>
         </div>
 
-        <div className="text-white text-3xl font-semibold text-center pb-8">
+        <div className="text-white text-3xl font-semibold text-center pt-4 pb-8">
           Predicted segmentation:
         </div>
       </div>

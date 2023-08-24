@@ -66,7 +66,7 @@ function Hero() {
                         </a>
                         <a
                             href="#demo"
-                            className="cursor-pointer inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white/75 border rounded-lg focus:ring-4 focus:ring-gray-100  border-white/75 hover:bg-slate-700 dark:focus:ring-gray-800"
+                            className="bg-slate-200 font-semibold text-slate-700 py-3 px-6 hover:bg-slate-100 rounded-lg cursor-pointer inline-flex items-center justify-center text-center border focus:ring-4 focus:ring-gray-100  border-white/75"
                         >
                             <Play className="w-3 h-3 mr-2" fill="currentColor" />
                             See Demo

@@ -12,10 +12,10 @@ const Faq = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-                <span className="mb-2 block text-lg font-semibold text-slate-100">
+                <span className="mb-2 block text-xl font-semibold bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent">
                   FAQs
                 </span>
-                <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-[40px]">
+                <h2 className="text-white text-3xl font-extrabold sm:text-5xl pb-14">
                   Any Questions ?
                 </h2>
               </div>
