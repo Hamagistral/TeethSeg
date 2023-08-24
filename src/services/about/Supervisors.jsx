@@ -2,24 +2,23 @@ import { supervisors } from "../../data";
 
 function Supervisors() {
   return (
-    <div className="scroll-tap font-bold my-56 w-full">
-      <h2 className="flex-box text-7xl font-extrabold pb-16 text">Our Supervisors</h2>
-      <ul className="flex-box flex-col md:divide-y-0 justify-around md:flex-row divide-y">
-        {supervisors.map((person) => (
-          <li key={person.name} className="colab py-4 flex-box flex-col">
-            <img className="team-img" src={person.image} alt="img" />
-            <div className="ml-3 flex-box flex-col">
-              <p className="text-2xl font-medium text-blue-300">
-                {person.name}
-              </p>
-              <p className="p-3 text-blue-700 text-sm">{person.job}</p>
-              
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+          <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+            <h2 className="mb-24 text-4xl tracking-tight font-bold text-white">Our Supervisors</h2>
+          </div> 
+          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+              {supervisors.map((person) => (
+                <div key={person.name} className="text-center text-md text-slate-300">
+                    <img className="mx-auto mb-4 w-36 h-36 rounded-full" src={person.image} alt="img" />
+                    <h3 className="mb-1 text-2xl font-bold tracking-tight text-white">
+                        {person.name}
+                    </h3>
+                    <p className="py-2">{person.job}</p>
+                </div>
+              ))}
+          </div>
+      </div> 
+    );
 }
 
 export default Supervisors;

@@ -15,10 +15,14 @@
     left: 0;
     bottom: 0;
     flex: 1;
-    background-color: #666;
-    border: 1px gray solid;
+    background-color: #475569;
+    border: 2px #64748b solid;
     border-radius: 12px;
-    color: #fff;
+    color: white;
     line-height: 30px;
     cursor: pointer;
+  }  
+
+  .file > label:hover {
+    background-color: #334155;
   }

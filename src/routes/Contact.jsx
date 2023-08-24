@@ -1,11 +1,13 @@
+import ContactForm from "../components/ContactForm";
 import Header from "../components/Header";
 import Footer from "./../components/Footer";
 import TopFooter from './../services/contact/TopFooter';
 
 function Contact() {
   return (
-    <div className="flex-box flex-col w-full h-full flex-box bg-gray-900 scroll-smooth text-center">
+    <div className="flex-box flex-col w-full h-full flex-box bg-slate-800 scroll-smooth text-center">
       <Header />
+      <ContactForm />
       <TopFooter />
       <Footer />
     </div>
