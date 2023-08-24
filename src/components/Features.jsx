@@ -15,7 +15,7 @@ function Features() {
                                 <BrainCircuit className="h-8 w-8"/>
                             </div>
                             <h3 className="mb-4 text-xl font-bold text-white">Best AI Model</h3>
-                            <p className="text-slate-400">To do our segmentation we are using one of the most accurate teeth segmentation model, the <strong>TSGCNet.</strong></p>
+                            <p className="text-slate-400">To do our segmentation we are using one of the most accurate teeth segmentation model, the <strong>MeshSetNet.</strong></p>
                         </div>
                         <div>
                             <div className="flex  mx-auto justify-center items-center mb-8 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 bg-blue-400">

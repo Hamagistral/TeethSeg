@@ -1,3 +1,4 @@
+import {useRef } from 'react'
 import vtkFullScreenRenderWindow from '@kitware/vtk.js/Rendering/Misc/FullScreenRenderWindow';
 import '@kitware/vtk.js/Rendering/Profiles/Geometry';
 import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
@@ -7,19 +8,27 @@ import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
 import vtkAxesActor from '@kitware/vtk.js/Rendering/Core/AxesActor';
 import vtkOrientationMarkerWidget from '@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget';
 import { useState } from 'react';
-import { FileAxis3d, UploadCloud } from 'lucide-react';
-import { Loader } from './../../components/Loader';
+import { Bot, FileAxis3d, UploadCloud } from 'lucide-react';
+import {AiOutlineArrowLeft} from "react-icons/ai";
+import {AiOutlineFullscreen} from "react-icons/ai";
+import {AiOutlineFullscreenExit} from 'react-icons/ai';
+import {FaDownload} from 'react-icons/fa';
+import HashLoader from "react-spinners/HashLoader";
+import ThreeDRenderer from '../../components/ThreeRenderer';
 
 function VTKViewer() {
-  const [file, setFile] = useState();
+  const formRef = useRef(null);
+  const [file, setFile] = useState(null);
+  const [fileBlob, setFileBlob] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isPredicted, setIsPredicted] = useState(false);
+  const [data, setData] = useState(null)
+  const [fullScreen, setFullScreen] = useState(false);
 
   const handleUpload = async (event) => {
+    event.preventDefault();
     try {
       setIsLoading(true);
-
-      event.preventDefault();
 
       console.log('Starting Segmentation...');
 
@@ -30,28 +39,33 @@ function VTKViewer() {
       });
 
       const jsonData = await response.json();
+      setData(jsonData)
       const objData = jsonData.prediction_file;
 
       const blob = new Blob([objData], { type: 'text/xml' });
       const vtpFilePath = URL.createObjectURL(blob);
 
       loadVTPTest(vtpFilePath);
-    } catch {
-      console.log("Error");
+      setIsLoading(false);
+    } catch(err){
+      console.err("Error");
+      setIsLoading(false);
     }
   };
 
 
   const loadVTPTest = (objData) => {
+    document.querySelector('#vtk-container').style.display = 'block'
     const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
         container: document.querySelector('#vtk-container'),
-        background: [0.118, 0.161, 0.231]
+        background: [0.118, 0.161, 0.231],
+        height: 550,
     });
     
     // Create a VTP reader
     const reader = vtkXMLPolyDataReader.newInstance();
 
-    console.log(objData);
+    // console.log(objData);
   
     reader.setUrl(objData);
     
@@ -68,14 +82,14 @@ function VTKViewer() {
         materialidArray.setName("Scalars"); // Make sure the array has a name
         vtpOutput.getCellData().setScalars(materialidArray);
   
-        console.log("materialidArray.getData(): ", materialidArray.getData())
+        // console.log("materialidArray.getData(): ", materialidArray.getData())
   
         // Create a color transfer function
         const colorTransferFunction = vtkColorTransferFunction.newInstance();
         
         // Create colors for 15 different classes (you can adjust these)
         const classColors = [
-            [0.878, 0.878, 0.878],
+            [0.878, 0.878, 0.878],  // Gray
             [0.839, 0.153, 0.157],  // Red
             [0.121, 0.466, 0.705],  // Blue
             [0.172, 0.627, 0.172],  // Green
@@ -153,58 +167,223 @@ function VTKViewer() {
     });
   }
 
+  const hanldeDownloadVtpFile = () => {
+    const objContent = data.prediction_file;
+
+    const blob = new Blob([objContent], { type: 'text/plain' });
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = data.filename
+    document.body.appendChild(a);
+    a.click();
+
+    URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  }
+
+  const handleBackBtn = () => {
+    setFile(null)
+    setFileBlob(null)
+    setIsPredicted(null)
+    setFullScreen(false)
+    setData(null)
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+    document.querySelector("#vtk-container").innerHTML = null;
+    document.querySelector('#vtk-container').style.display = 'none'
+  }
+
+  const handleResizeWindow = () => {
+    const headerElement = document.querySelector('.header');
+    const footerElement = document.querySelector('.footer');
+    
+    setFullScreen(!fullScreen);
+
+    if(!fullScreen){
+      if (headerElement) {
+        headerElement.style.display = 'none';
+      }
+      if(footerElement){
+        footerElement.style.display = 'none';
+      }
+    }else{
+      if(headerElement) {
+        headerElement.style.display = 'block';
+      }
+      if(footerElement){
+        footerElement.style.display = 'block';
+      }
+    }
+  }
+
+  const handlePredictBtn = () => {
+    if (formRef.current) {
+      const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+      formRef.current.dispatchEvent(submitEvent);
+    }
+    setFile(null);
+  };
+
+
   return (
-    <>        
-      <div className="bg-slate-700 px-96 rounded-md">
-        <form id="upload-form" onSubmit={handleUpload}>
-          <div className="py-12 file flex-box flex-col">
-            <label
-              htmlFor="3d_file"
-              className="flex-box flex-col p-3 my-auto text-center"
+    <>    
+      <div className={`w-full h-screen scroll-smooth bg-slate-800 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
+        <div className='p-3 m-4 flex justify-end'>
+          <button 
+            className='text-white'
+            onClick={handleResizeWindow}  
+          >
+            {fullScreen ?
+            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
+            :
+            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span>  <AiOutlineFullscreen/></div>
+          }
+          </button>
+        </div>
+        <div className="text-center flex-box flex-col">
+          <div className="text-white p-12 text-3xl font-semibold text-center">
+            Please choose a file to upload to start the prediction
+          </div>
+          <div>  
+            <div className="bg-slate-700 flex-box flex-col md:flex-row w-full lg:px-96 rounded-md ">
+              <form ref={formRef} id="upload-form" onSubmit={handleUpload} className="w-full p-0">
+                <div className="w-full py-12 file flex-box flex-col">
+                  <label
+                    htmlFor="3d_file"
+                    className="flex-box flex-col p-3 my-auto text-center hover:bg-slate-300"
+                  >
+                    <UploadCloud size={28} strokeWidth={2.5} />
+                    <p>Click to upload or drag and drop</p>
+                  </label>
+                  <input
+                    className="3d-file"
+                    type="file" 
+                    name="file"
+                    accept=".obj"
+                    onChange={(e) => {
+                      setFileBlob(e.target.files[0])
+                      setFile(e.target.files[0].name);
+                    }}
+                    id="3d_file"
+                  />
+                  <input type="submit" id="hidden-submit" style={{ display: 'none' }} />
+                  <div className="fileName text-white">
+                    <p className="bg-slate-800 py-4 md🛫 px-8 rounded-xl font-normal text-slate-300"><FileAxis3d width={18} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span></p>
+                  </div>
+                  <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
+                    Supported files
+                  </div>
+                  <div className="text-center text-slate-300 text-md py-3">
+                    Only OBJ files are Supported at the moment
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {file && 
+        <div className='lg:px-48 px-12 w-full h-screen scroll-smooth bg-slate-800'>
+          <div className='p-3 m-4 flex justify-between'>
+            <button 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded" 
+              onClick={handleBackBtn}
             >
-              <UploadCloud size={28} strokeWidth={2.5} />
-              <p>Click to upload or drag and drop</p>
-            </label>
-            <input
-              className="3d-file"
-              type="file" 
-              name="file"
-              accept=".obj"
-              onChange={(e) => {
-                setFile(e.target.files[0].name);
-              }}
-              id="3d_file"
-            />
-            <div className="fileName text-white">
-              <p className="bg-slate-800 py-4 px-8 rounded-xl font-normal text-slate-300"><FileAxis3d width={18} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span></p>
-            </div>
-            <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
-              Supported files
-            </div>
-            <div className="text-center text-slate-300 text-md py-3">
-              OBJ, STL, PLY, VTP, GLB, GLTG, FBX
-            </div>
-            {file ? 
-            <button type="submit" className="px-10 py-3.5 my-4 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Start Prediction</button> : "" }
+              <div className='flex items-center'>
+              <AiOutlineArrowLeft className="mx-2"/>
+              Back
+              </div>
+            </button>
+            <button 
+              className='text-white'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
+              :
+              <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen/></div>
+            }
+            </button>
           </div>
-        </form>
-      </div>
+          <div className="text-center flex-box flex-col">
+              <ThreeDRenderer file={fileBlob} />
+          </div>
+          <div className='text-center my-3'>
+            <button 
+              onClick={handlePredictBtn} 
+              // type="submit" form="upload-form"
+              className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg">
+                <div className='flex items-center'>
+                  <Bot className='mx-2'/>
+                  Start Prediction
+                </div>
+            </button>
+          </div>
+        </div>
+      }
 
-      <div className="mt-12">
-        {isLoading || isPredicted ? <div className="text-white my-8 text-3xl font-semibold  text-center">
+      {isLoading ? 
+        <div className="p-8 w-full h-screen flex-box bg-slate-800">
+          <div className='flex flex-col items-center'>
+            <div>
+              <HashLoader color="#36d7b7" />
+            </div>
+            <div>
+              <p className="text-md font-medium text-slate-100 pt-8">
+                  TeethSeg is predicting...
+              </p>
+            </div>
+          </div>
+        </div>
+      : null}
+       
+      <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800 lg:px-48 px-12`}>
+        <div className='p-3 m-4 flex justify-between'>
+          <button 
+            className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded" 
+            onClick={handleBackBtn}
+          >
+            <div className='flex items-center'>
+            <AiOutlineArrowLeft className="mx-2"/>
+            Back
+            </div>
+          </button>
+          <button 
+            className='text-white'
+            onClick={handleResizeWindow}  
+          >
+            {fullScreen ?
+            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit /></div>
+            :
+            <div className='flex items-center font-semibold text-blue-200'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen/></div>
+          }
+          </button>
+        </div>
+
+        <div className="text-white text-3xl font-semibold text-center pb-12">
           Predicted segmentation:
-        </div> : '' }
-
-        {isLoading && (
-          <div className="p-8 rounded-lg w-full flex items-center justify-center bg-slate-700">
-            <Loader />
-          </div>
-        )}
-
-        <div id="vtk-container" />
-
-        {isPredicted ? <button type="submit" className="px-10 py-4 my-8 bg-slate-500 hover:bg-slate-400 text-center text-white text-base font-semibold leading-tight mx-2 rounded-lg">Donwload Predicted File</button> : '' }
+        </div>
       </div>
+
+      { isPredicted ? <div id="vtk-container" className='w-full'></div> : <div id="vtk-container" className='h-0'></div> }
+
+      {isPredicted ? 
+        <div className='flex justify-center pb-12 mb-44'>
+          <button 
+                onClick={hanldeDownloadVtpFile} 
+                className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg"
+              >
+                <div className='flex items-center'>
+                  <FaDownload className="mx-2"/>
+                  <span className='mx-1'>Download Predicted File</span>
+                </div>
+          </button> 
+        </div> : "" }
     </>
   );
 }

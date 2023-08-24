@@ -1,88 +1,89 @@
+import Footer from "../components/Footer";
+import Header from "./../components/Header";
 import { useState } from "react";
-import Header from "../components/Header";
-import Footer from './../components/Footer';
 
 const Faq = () => {
+  
   return (
     <>
       <Header />
-        <section className="relative z-20 overflow-hidden bg-slate-800 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
-          <div className="container mx-auto">
-            <div className="-mx-4 flex flex-wrap">
-              <div className="w-full px-4">
-                <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-                  <span className="mb-2 block text-lg font-semibold text-slate-100">
-                    FAQ
-                  </span>
-                  <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-[40px]">
-                    Any Questions?
-                  </h2>
-                </div>
+      <section className="relative z-20 overflow-hidden bg-slate-800 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+        <div className="container mx-auto">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4">
+              <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
+                <span className="mb-2 block text-lg font-semibold text-slate-100">
+                  FAQ
+                </span>
+                <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-[40px]">
+                  Any Questions?
+                </h2>
               </div>
             </div>
+          </div>
 
-            <div className="-mx-4 flex flex-wrap">
-              <div className="w-full px-4 lg:w-1/2">
-                <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-                <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-                <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-              </div>
-              <div className="w-full px-4 lg:w-1/2">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4 lg:w-1/2">
               <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-                <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-                <AccordionItem
-                  header="How does TeethSeg work?"
-                  text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
-                />
-              </div>
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
+              <AccordionItem
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
+              <AccordionItem
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
+            </div>
+            <div className="w-full px-4 lg:w-1/2">
+              <AccordionItem
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
+              <AccordionItem
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
+              <AccordionItem
+                header="How does TeethSeg work?"
+                text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
+              />
             </div>
           </div>
+        </div>
 
-          <div className="absolute bottom-0 right-0 z-[-1]">
-            <svg
-              width="1440"
-              height="886"
-              viewBox="0 0 1440 886"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                opacity="0.5"
-                d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
-                fill="url(#paint0_linear)"
-              />
-              <defs>
-                <linearGradient
-                  id="paint0_linear"
-                  x1="1308.65"
-                  y1="1142.58"
-                  x2="602.827"
-                  y2="-418.681"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#3056D3" stopOpacity="0.36" />
-                  <stop offset="1" stopColor="#F5F2FD" stopOpacity="0" />
-                  <stop offset="1" stopColor="#F5F2FD" stopOpacity="0.096144" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </section>
+        <div className="absolute bottom-0 right-0 z-[-1]">
+          <svg
+            width="1440"
+            height="886"
+            viewBox="0 0 1440 886"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.5"
+              d="M193.307 -273.321L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.231 478.513 729.927C225.976 477.317 -165.714 85.6993 -165.714 85.6993L193.307 -273.321Z"
+              fill="url(#paint0_linear)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="1308.65"
+                y1="1142.58"
+                x2="602.827"
+                y2="-418.681"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#3056D3" stopOpacity="0.36" />
+                <stop offset="1" stopColor="#F5F2FD" stopOpacity="0" />
+                <stop offset="1" stopColor="#F5F2FD" stopOpacity="0.096144" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </section>
       <Footer />
     </>
   );
@@ -105,9 +106,8 @@ const AccordionItem = ({ header, text }) => {
       >
         <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
           <svg
-            className={`duration-200 ease-in-out fill-primary stroke-primary ${
-              active ? "rotate-180" : ""
-            }`}
+            className={`duration-200 ease-in-out fill-primary stroke-primary ${active ? "rotate-180" : ""
+              }`}
             width="17"
             height="10"
             viewBox="0 0 17 10"
@@ -127,12 +127,11 @@ const AccordionItem = ({ header, text }) => {
       </button>
 
       <div
-        className={`pl-[62px] duration-200 ease-in-out ${
-          active ? "block" : "hidden"
-        }`}
+        className={`pl-[62px] duration-200 ease-in-out ${active ? "block" : "hidden"
+          }`}
       >
         <p className="py-3 text-base leading-relaxed text-body-color">{text}</p>
       </div>
     </div>
   );
-};
+}
