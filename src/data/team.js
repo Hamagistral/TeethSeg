@@ -14,11 +14,11 @@ const team = [
     github: "http://github.com/mohamed2020m",
   },
   {
-    name: "Yahya Rochdi",
-    job: "Data Engineering Student (INSEA)",
-    image: "team/rochdi.jpg",
-    linkedIn: "http://linkedin.com/in/yahya-rochdi-51187b218",
-    github: "http://github.com/YahyaRochdi",
+    name: "Hamza ElBelghiti",
+    job: "Data Science & Engineering Student (FSR)",
+    image: "team/belghiti.jpg",
+    linkedIn: "http://linkedin.com/in/hamza-elbelghiti",
+    github: "http://github.com/Hamagistral",
   },
   {
     name: "Tariq ElQessouar",
@@ -28,11 +28,11 @@ const team = [
     github: "http://github.com/elqessouartariq",
   },
   {
-    name: "Hamza ElBelghiti",
-    job: "Data Science Engineering Student (FSR)",
-    image: "team/belghiti.jpg",
-    linkedIn: "http://linkedin.com/in/hamza-elbelghiti",
-    github: "http://github.com/Hamagistral",
+    name: "Yahya Rochdi",
+    job: "Data Engineering Student (INSEA)",
+    image: "team/rochdi.jpg",
+    linkedIn: "http://linkedin.com/in/yahya-rochdi-51187b218",
+    github: "http://github.com/YahyaRochdi",
   },
   {
     name: "Abdelmajid Habouch",
@@ -42,7 +42,7 @@ const team = [
     github: "http://github.com/mjiid",
   },
   {
-    name: "Mohamed Elhaddioui",
+    name: "Mohamed El Haddioui",
     job: "BD & Cloud Engineering Student (ENSET)",
     image: "team/haddioui.jpg",
     linkedIn: "http://linkedin.com/in/mohamed-el-haddioui-ba8ba8170",

@@ -1,20 +1,24 @@
-import {useRef } from 'react'
-import vtkFullScreenRenderWindow from '@kitware/vtk.js/Rendering/Misc/FullScreenRenderWindow';
-import '@kitware/vtk.js/Rendering/Profiles/Geometry';
-import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
-import vtkColorTransferFunction from '@kitware/vtk.js/Rendering/Core/ColorTransferFunction';
-import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
-import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
-import vtkAxesActor from '@kitware/vtk.js/Rendering/Core/AxesActor';
-import vtkOrientationMarkerWidget from '@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget';
-import { useState } from 'react';
+import { useRef, useState  } from 'react';
+
 import { Bot, FileAxis3d, UploadCloud } from 'lucide-react';
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import {AiOutlineFullscreen} from "react-icons/ai";
 import {AiOutlineFullscreenExit} from 'react-icons/ai';
 import {FaDownload} from 'react-icons/fa';
 import HashLoader from "react-spinners/HashLoader";
+
+import '@kitware/vtk.js/Rendering/Profiles/Geometry';
+import vtkFullScreenRenderWindow from '@kitware/vtk.js/Rendering/Misc/FullScreenRenderWindow';
+import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
+import vtkColorTransferFunction from '@kitware/vtk.js/Rendering/Core/ColorTransferFunction';
+import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
+import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
+import vtkAxesActor from '@kitware/vtk.js/Rendering/Core/AxesActor';
+import vtkOrientationMarkerWidget from '@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget';
+import vtkScalarBarActor from '@kitware/vtk.js/Rendering/Core/ScalarBarActor';
+
 import ThreeDRenderer from '../../components/ThreeRenderer';
+import { toast } from 'react-hot-toast';
 
 function VTKViewer() {
   const formRef = useRef(null);
@@ -28,14 +32,15 @@ function VTKViewer() {
   const handleUpload = async (event) => {
     event.preventDefault();
     try {
-      setIsLoading(true);
-
       console.log('Starting Segmentation...');
 
+      setIsLoading(true);
       const formData = new FormData(event.target);
       const response = await fetch('http://127.0.0.1:8000/api/v1/predict/post_processing', {
         method: 'POST',
         body: formData,
+      }).catch(err => {
+        setIsLoading(false);
       });
 
       const jsonData = await response.json();
@@ -47,9 +52,9 @@ function VTKViewer() {
 
       loadVTPTest(vtpFilePath);
       setIsLoading(false);
-    } catch(err){
-      console.err("Error");
+    } catch(err) {
       setIsLoading(false);
+      toast.error("Oups! Something went wrong.");
     }
   };
 
@@ -149,15 +154,21 @@ function VTKViewer() {
             });
             orientationWidget.setEnabled(true);
             orientationWidget.setViewportCorner(
-            vtkOrientationMarkerWidget.Corners.BOTTOM_RIGHT
+            vtkOrientationMarkerWidget.Corners.BOTTOM_LEFT
         );
   
         orientationWidget.setViewportSize(0.15);
         orientationWidget.setMinPixelSize(100);
         orientationWidget.setMaxPixelSize(300);
+        
+        let lut = mapper.getLookupTable();
+
+        const scalarBarActor = vtkScalarBarActor.newInstance();
+        vtkRenderScreen.getRenderer().addActor(scalarBarActor);
   
         vtkRenderScreen.getRenderer().addActor(actor);
         vtkRenderScreen.getRenderer().resetCamera();
+        scalarBarActor.setScalarsToColors(lut);
         
         //Start rendering
         vtkRenderScreen.getRenderWindow().render();
@@ -221,11 +232,11 @@ function VTKViewer() {
   }
 
   const handlePredictBtn = () => {
-    if (formRef.current) {
-      const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-      formRef.current.dispatchEvent(submitEvent);
-    }
-    setFile(null);
+      if (formRef.current) {
+        const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+        formRef.current.dispatchEvent(submitEvent);
+      }
+      setFile(null);
   };
 
 
@@ -249,7 +260,7 @@ function VTKViewer() {
             Please choose a file to upload to start the prediction
           </div>
           <div>  
-            <div className="bg-slate-700 flex-box flex-col md:flex-row w-full lg:px-96 rounded-md ">
+            <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md ">
               <form ref={formRef} id="upload-form" onSubmit={handleUpload} className="w-full p-0">
                 <div className="w-full py-12 file flex-box flex-col">
                   <label
@@ -271,14 +282,11 @@ function VTKViewer() {
                     id="3d_file"
                   />
                   <input type="submit" id="hidden-submit" style={{ display: 'none' }} />
-                  <div className="fileName text-white">
-                    <p className="bg-slate-800 py-4 md🛫 px-8 rounded-xl font-normal text-slate-300"><FileAxis3d width={18} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span></p>
-                  </div>
                   <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
                     Supported files
                   </div>
                   <div className="text-center text-slate-300 text-md py-3">
-                    Only OBJ files are Supported at the moment
+                    Only .OBJ files are supported at the moment
                   </div>
                 </div>
               </form>
@@ -310,13 +318,17 @@ function VTKViewer() {
             }
             </button>
           </div>
+          <div className="text-center items-center text-white mb-12">
+              <div className="bg-slate-900 py-6 px-8 max-w-xl mx-auto rounded-xl font-normal text-slate-300">
+                <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span>
+              </div>
+          </div>
           <div className="text-center flex-box flex-col">
               <ThreeDRenderer file={fileBlob} />
           </div>
           <div className='text-center my-3'>
             <button 
               onClick={handlePredictBtn} 
-              // type="submit" form="upload-form"
               className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg">
                 <div className='flex items-center'>
                   <Bot className='mx-2'/>
@@ -365,14 +377,14 @@ function VTKViewer() {
           </button>
         </div>
 
-        <div className="text-white text-3xl font-semibold text-center pb-12">
+        <div className="text-white text-3xl font-semibold text-center pb-8">
           Predicted segmentation:
         </div>
       </div>
 
-      { isPredicted ? <div id="vtk-container" className='w-full'></div> : <div id="vtk-container" className='h-0'></div> }
+      { isPredicted ? <div id="vtk-container" className="w-full mb-8"></div> : <div id="vtk-container"></div> }
 
-      {isPredicted ? 
+      { isPredicted ? 
         <div className='flex justify-center pb-12 mb-44'>
           <button 
                 onClick={hanldeDownloadVtpFile} 

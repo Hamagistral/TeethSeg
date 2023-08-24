@@ -8,17 +8,17 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box h-20 md:h-full justify-between w-full px-8 lg:px-72 bg-slate-900 text-center">
+    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:px-72 bg-slate-900 text-center">
       <div className="header fixed-top flex-box justify-between w-full py-2 bg-slate-900 text-center">
         <Logo />
-        <div className="hidden sm:block">
+        <div className="hidden lg:block">
           <MenuItems />
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden lg:block">
           <Sign />
         </div>
         <div
-          className="text-white border p-2 rounded-md hover:text-slate-900 hover:bg-white cursor-pointer block sm:hidden"
+          className="text-white border p-2 rounded-md hover:text-slate-900 hover:bg-white cursor-pointer block lg:hidden"
           onClick={() => {
             setMenuOpen((open) => !open);
           }}

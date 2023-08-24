@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <>
       <Header />
-      <div className="relative z-20 overflow-hidden bg-slate-800 pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+      <div className="relative z-20 overflow-hidden bg-slate-800 p-16">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
@@ -16,14 +16,14 @@ const Faq = () => {
                   FAQs
                 </span>
                 <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-[40px]">
-                  Any Questions?
+                  Any Questions ?
                 </h2>
               </div>
             </div>
           </div>
 
           <div className="px-3 -mx-4 flex-box flex-wrap w-full">
-            <div className="w-full px-4 grid md:grid-cols-2 gap-2">
+            <div className="w-full px-4 grid md:grid-cols-2 gap-8">
               <AccordionItem
                 header="How does TeethSeg work?"
                 text="TeethSeg uses MeshSegNet for segmenting the 3D model of Teeths"
@@ -34,7 +34,6 @@ const Faq = () => {
                   text={faq.answer}
                 />
               ))}
-
             </div>
 
           </div>

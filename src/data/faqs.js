@@ -1,16 +1,11 @@
 const faqs = [
   {
-    question: "Web-based",
-    answer:
-      "Obtain a smooth and ultra-fast performance with our solution that doesn't rely on cloud computing! For best outcomes, access it through Google Chrome on a computer equipped with a GPU..",
-  },
-  {
     question: "User-friendly",
     answer:
       "Discover the cutting-edge of Teeth segmentation through our radiologist-designed, user-friendly tool. Enjoy streamlined workflows and enhanced precision thanks to our gaming-inspired controls and radiology expertise.",
   },
   {
-    question: "3D",
+    question: "3D Segmentation",
     answer:
       "TeethSeg offers advanced 3D dental segmentation functionalities This allows users to obtain accurate and detailed results for their three-dimensional dental models.",
   },
