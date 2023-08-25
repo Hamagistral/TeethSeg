@@ -1,9 +1,9 @@
-from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import os
-import torch
+from fastapi import FastAPI
 from meshsegnet import *
 
+import os
+import torch
 
 class AppConfig:
     def __init__(self, app):
@@ -45,14 +45,14 @@ class AppConfig:
     def create_necessary_folders(self):
 
         # Directory to store temporary output files
-        self.OUTPUT_FOLDER = "outputs"
+        self.OUTPUT_FOLDER = "/tmp/outputs"
 
         # Ensure the output folder exists
         if not os.path.exists(self.OUTPUT_FOLDER):
             os.makedirs(self.OUTPUT_FOLDER, exist_ok=True)
 
         # Directory to store temporary files
-        self.TEMP_FOLDER = "temp"
+        self.TEMP_FOLDER = "/tmp/temp"
 
         # Ensure the temporary folder exists
         if not os.path.exists(self.TEMP_FOLDER):
