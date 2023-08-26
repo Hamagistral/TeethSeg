@@ -4,7 +4,10 @@ from model import predict_alpha
 from config import AppConfig
 from mangum import Mangum
 
+import xmltodict
 import uvicorn
+import base64
+import json
 import vedo
 import os
 
@@ -53,11 +56,19 @@ async def predict_and_sendPalpha(file: UploadFile = File(...)):
         for i in range(3):
             delete_temp_file(config.OUTPUT_FOLDER, out_filename[i])
 
-        return {
+        prediction = {
             "filename": fileNameWithExt,
-            "prediction_file": prediction_file_data
+            # xmltodict is needed to be able to add it to json.dumps() otherwise its an error
+            "prediction_file": xmltodict.parse(prediction_file_data)
         }
-    
+
+        return {
+            'statusCode': 200,
+            'headers': {'Content-Type': 'application/json'},
+            'body': json.dumps(prediction),
+            'isBase64Encoded': False
+        }
+
     except Exception as e:
         print(e)
         
