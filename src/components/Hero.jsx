@@ -1,11 +1,11 @@
 import { Play } from "lucide-react";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stage, Html, useProgress } from "@react-three/drei";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import TypewriterComponent from "typewriter-effect";
-import SegmentedTeeths from "./SegmentedTeeths";
+import { loadVTP } from "../helpers/helpers";
 // import Teeths from "./Teeth";
 
 function Scene() {
@@ -21,13 +21,16 @@ function Loader() {
 function Hero() {
     const navigate = useNavigate();
 
-   
+    useEffect(() => {
+        loadVTP('/TeethsSegmented.vtp', "MaterialIds")
+
+    }, [])
 
     return (
         <>
             <div className="bg-slate-800">
                 <div className="grid max-w-screen-xl px-4 py-8 mt-12 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
-                    <div className="mr-auto place-self-center lg:col-span-6">
+                    <div className="mr-auto place-self-center lg:col-span-8">
                         <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl pb-6 font-extrabold text-transparent sm:text-5xl">
                             TeethSeg
                         </h1>
@@ -73,9 +76,7 @@ function Hero() {
                             See Demo
                         </a>
                     </div>
-                    <div className="relative lg:mt-0 lg:col-span-6 lg:flex h-full" >
-                        <SegmentedTeeths />
-                    </div>
+                    <div id="teeth-segmented" className="lg:mt-0 lg:col-span-4 lg:flex h-full"></div>
                 </div>
             </div>
 
