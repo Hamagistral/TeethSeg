@@ -4,9 +4,7 @@ from model import predict_alpha
 from config import AppConfig
 from mangum import Mangum
 
-import xmltodict
 import uvicorn
-import base64
 import json
 import vedo
 import os
@@ -46,7 +44,7 @@ async def predict_and_sendPalpha(file: UploadFile = File(...)):
         fileNameWithExt = out_filename[1] + ".vtp"
 
         # Send the prediction result file to the frontend
-        with open(os.path.join(config.OUTPUT_FOLDER, fileNameWithExt), "rb") as out_file:
+        with open(os.path.join(config.OUTPUT_FOLDER, fileNameWithExt), "r") as out_file:
             prediction_file_data = out_file.read()
         
         # Delete the temporary file
@@ -58,15 +56,13 @@ async def predict_and_sendPalpha(file: UploadFile = File(...)):
 
         prediction = {
             "filename": fileNameWithExt,
-            # xmltodict is needed to be able to add it to json.dumps() otherwise its an error
-            "prediction_file": xmltodict.parse(prediction_file_data)
+            "prediction_file": prediction_file_data
         }
 
         return {
             'statusCode': 200,
             'headers': {'Content-Type': 'application/json'},
-            'body': json.dumps(prediction),
-            'isBase64Encoded': False
+            'body': json.dumps(prediction)
         }
 
     except Exception as e:
