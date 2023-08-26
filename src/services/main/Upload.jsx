@@ -380,10 +380,7 @@ function VTKViewer() {
           Predicted segmentation:
         </div>
       </div>
-      
-      <div className='rootController'>
 
-      </div>
       { isPredicted ? <div id="vtk-container" className="w-full mb-8"></div> : <div id="vtk-container" style={{display: 'none'}}></div> }
 
       { isPredicted ? 

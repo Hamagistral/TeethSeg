@@ -55,4 +55,9 @@
     width: 100%;
     height: 550px;
   }
+
+  #teeth-segmented {
+    width: 300px !important;
+    height: 300px !important;
+  }
 }

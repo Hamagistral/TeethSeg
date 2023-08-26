@@ -5,6 +5,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stage, Html, useProgress } from "@react-three/drei";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import TypewriterComponent from "typewriter-effect";
+import SegmentedTeeths from "./SegmentedTeeths";
 // import Teeths from "./Teeth";
 
 function Scene() {
@@ -72,16 +73,8 @@ function Hero() {
                             See Demo
                         </a>
                     </div>
-                    <div className="lg:mt-0 lg:col-span-6 lg:flex h-full" >
-                        <Canvas className="h-full w-full" shadows>
-                            <Suspense fallback={<Loader />}>
-                                <Stage environment="city" intensity={1}>
-                                    <directionalLight intensity="2" castShadow />
-                                    <Scene />
-                                </Stage>
-                                <OrbitControls autoRotate="true" rotation={[10, 0, 0]} />
-                            </Suspense>
-                        </Canvas>
+                    <div className="relative lg:mt-0 lg:col-span-6 lg:flex h-full" >
+                        <SegmentedTeeths />
                     </div>
                 </div>
             </div>
