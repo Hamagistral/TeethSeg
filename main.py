@@ -17,7 +17,7 @@ config = AppConfig(app)
 
 @app.get("/")
 def read_root():
-    return {"message": "TeethSeg MeshSegNet API by 3DSF Interns! Routes possibl: '/api/v1/predict/post_processing' Prediction with post-processing."}
+    return {"message": "TeethSeg MeshSegNet API by 3DSF Interns! Routee possible: '/api/v1/predict/post_processing' Prediction with post-processing."}
 
 
 @app.post("/api/v1/predict/post_processing")
