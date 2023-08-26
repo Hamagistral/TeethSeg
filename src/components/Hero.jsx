@@ -76,7 +76,7 @@ function Hero() {
                             See Demo
                         </a>
                     </div>
-                    <div id="teeth-segmented" className="lg:mt-0 lg:col-span-4 lg:flex h-full"></div>
+                    <div id="teeth-segmented" className="place-self-center lg:mt-0 lg:col-span-4 lg:flex h-full"></div>
                 </div>
             </div>
 
