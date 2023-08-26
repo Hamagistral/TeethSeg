@@ -48,7 +48,7 @@ function Hero() {
                         </h2>
                         <a
                             onClick={() => navigate("/sign-in")}
-                            className="cursor-pointer inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300"
+                            className="cursor-pointer inline-flex transition ease-linear items-center justify-center py-3 px-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-600 hover:bg-blue-700"
                         >
                             Get started
                             <svg
@@ -66,7 +66,7 @@ function Hero() {
                         </a>
                         <a
                             href="#demo"
-                            className="bg-slate-200 font-semibold text-slate-700 py-3 px-6 hover:bg-slate-100 rounded-lg cursor-pointer inline-flex items-center justify-center text-center border focus:ring-4 focus:ring-gray-100  border-white/75"
+                            className="bg-slate-100 font-semibold transition ease-linear text-slate-700 py-3 px-6 hover:bg-slate-200 rounded-lg cursor-pointer inline-flex items-center justify-center text-center"
                         >
                             <Play className="w-3 h-3 mr-2" fill="currentColor" />
                             See Demo
@@ -86,7 +86,7 @@ function Hero() {
                 </div>
             </div>
 
-            <div id="demo" className="bg-slate-800 w-full">
+            <div id="demo" className="bg-slate-800 w-full pt-12">
                 <div className="mx-auto max-w-screen-xl px-4 py-24 lg:flex lg:h-screen lg:items-center">
                     <div className="mx-auto text-center w-full">
                         <h2 className="bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl pb-14">

@@ -1,3 +1,5 @@
+import { SendHorizonal } from "lucide-react";
+
 function ContactForm() {
     return (
         <>
@@ -18,7 +20,10 @@ function ContactForm() {
                             <label htmlFor="message" className="block mb-2 text-sm font-medium text-slate-300">Your message</label>
                             <textarea id="message" rows="6" className="block p-4 w-full text-sm text-white bg-slate-600 rounded-lg shadow-sm " placeholder="Leave a comment..."></textarea>
                         </div>
-                        <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:bg-blue-600">Send message</button>
+                        <button type="submit" className="py-4 px-6 text-sm transition ease-linear inline-flex items-center justify-center gap-2 font-medium text-center text-white rounded bg-blue-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:bg-blue-600">
+                            <SendHorizonal size={16}/>
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </section>

@@ -1,4 +1,5 @@
 import { useRef, useState  } from 'react';
+import { toast } from 'react-hot-toast';
 
 import { Bot, FileAxis3d, UploadCloud } from 'lucide-react';
 import {AiOutlineArrowLeft} from "react-icons/ai";
@@ -18,7 +19,7 @@ import vtkOrientationMarkerWidget from '@kitware/vtk.js/Interaction/Widgets/Orie
 import vtkScalarBarActor from '@kitware/vtk.js/Rendering/Core/ScalarBarActor';
 
 import ThreeDRenderer from '../../components/ThreeRenderer';
-import { toast } from 'react-hot-toast';
+
 
 function VTKViewer() {
   const formRef = useRef(null);
@@ -42,12 +43,16 @@ function VTKViewer() {
       }).catch(err => {
         setIsLoading(false);
       });
+      
 
       const jsonData = await response.json();
-      setData(jsonData)
-      const objData = jsonData.prediction_file;
 
-      const blob = new Blob([objData], { type: 'text/xml' });
+      const objData = JSON.parse(jsonData.body);
+      setData(objData);
+
+      const vtpFile = objData.prediction_file;
+      
+      const blob = new Blob([vtpFile], { type: 'text/xml' });
       const vtpFilePath = URL.createObjectURL(blob);
 
       loadVTPTest(vtpFilePath);
@@ -60,7 +65,7 @@ function VTKViewer() {
 
 
   const loadVTPTest = (objData) => {
-    document.querySelector('#vtk-container').style.display = 'block'
+    document.querySelector('#vtk-container').style.display = 'block';
     const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
         container: document.querySelector('#vtk-container'),
         background: [0.118, 0.161, 0.231],
@@ -69,8 +74,6 @@ function VTKViewer() {
     
     // Create a VTP reader
     const reader = vtkXMLPolyDataReader.newInstance();
-
-    // console.log(objData);
   
     reader.setUrl(objData);
     
@@ -86,8 +89,6 @@ function VTKViewer() {
         // Map scalar array through the lookup table
         materialidArray.setName("Scalars"); // Make sure the array has a name
         vtpOutput.getCellData().setScalars(materialidArray);
-  
-        // console.log("materialidArray.getData(): ", materialidArray.getData())
   
         // Create a color transfer function
         const colorTransferFunction = vtkColorTransferFunction.newInstance();
@@ -126,9 +127,6 @@ function VTKViewer() {
             const color = classColors[colorIndex];
             colorTransferFunction.addRGBPoint(materialid, color[0], color[1], color[2]);
         });
-        
-        // Apply symmetric colorization
-        
   
         // Create mapper and actor
         const mapper = vtkMapper.newInstance();
@@ -164,8 +162,9 @@ function VTKViewer() {
         let lut = mapper.getLookupTable();
 
         const scalarBarActor = vtkScalarBarActor.newInstance();
+        scalarBarActor.setScalarsToColors(lut); 
+
         vtkRenderScreen.getRenderer().addActor(scalarBarActor);
-        scalarBarActor.setScalarsToColors(lut); // colorTransferFunction
   
         vtkRenderScreen.getRenderer().addActor(actor);
         vtkRenderScreen.getRenderer().resetCamera();
@@ -205,7 +204,7 @@ function VTKViewer() {
       formRef.current.reset();
     }
     document.querySelector("#vtk-container").innerHTML = null;
-    document.querySelector('#vtk-container').style.display = 'none'
+    document.querySelector('#vtk-container').style.display = 'none';
   }
 
   const handleResizeWindow = () => {
@@ -245,7 +244,7 @@ function VTKViewer() {
       <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
         <div className='p-3 m-4 flex justify-end h-20'>
           <button 
-              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
               onClick={handleResizeWindow}  
             >
               {fullScreen ?
@@ -265,7 +264,7 @@ function VTKViewer() {
                 <div className="w-full py-12 file flex-box flex-col">
                   <label
                     htmlFor="3d_file"
-                    className="flex-box flex-col p-3 my-auto text-center hover:bg-slate-300"
+                    className="flex-box flex-col p-3 my-auto text-center hover:bg-slate-300 transition ease-linear"
                   >
                     <UploadCloud size={28} strokeWidth={2.5} />
                     <p>Click to upload or drag and drop</p>
@@ -276,7 +275,7 @@ function VTKViewer() {
                     name="file"
                     accept=".obj"
                     onChange={(e) => {
-                      setFileBlob(e.target.files[0])
+                      setFileBlob(e.target.files[0]);
                       setFile(e.target.files[0].name);
                     }}
                     id="3d_file"
@@ -296,10 +295,10 @@ function VTKViewer() {
       </div>
 
       {file && 
-        <div className='w-full h-screen scroll-smooth bg-slate-800 mt-4'>
+        <div className='w-full h-screen scroll-smooth bg-slate-800 mt-2'>
           <div className='p-3 m-4 flex justify-between max-h-20'>
             <button 
-              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg" 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear" 
               onClick={handleBackBtn}
             >
               <div className='flex items-center'>
@@ -313,7 +312,7 @@ function VTKViewer() {
                 </div>
             </div>
             <button 
-              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
               onClick={handleResizeWindow}  
             >
               {fullScreen ?
@@ -329,7 +328,7 @@ function VTKViewer() {
           <div className='text-center mt-8'>
             <button 
               onClick={handlePredictBtn} 
-              className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg">
+              className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg transition ease-linear">
                 <div className='flex items-center'>
                   <Bot className='mx-2'/>
                   Start Prediction
@@ -340,7 +339,7 @@ function VTKViewer() {
       }
 
       {isLoading ? 
-        <div className="p-8 w-full h-screen flex-box bg-slate-800 mt-8">
+        <div className="p-8 w-full h-screen flex-box bg-slate-800">
           <div className='flex flex-col items-center'>
             <div>
               <HashLoader color="#36d7b7" />
@@ -354,10 +353,10 @@ function VTKViewer() {
         </div>
       : null}
        
-      <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800 mt-4`}>
+      <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800`}>
         <div className='p-3 m-4 flex justify-between h-20'>
             <button 
-              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg" 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear" 
               onClick={handleBackBtn}
             >
               <div className='flex items-center'>
@@ -366,7 +365,7 @@ function VTKViewer() {
               </div>
             </button>
             <button 
-              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg'
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
               onClick={handleResizeWindow}  
             >
               {fullScreen ?
@@ -377,18 +376,21 @@ function VTKViewer() {
             </button>
         </div>
 
-        <div className="text-white text-3xl font-semibold text-center pt-4 pb-8">
+        <div className="text-white text-3xl font-semibold text-center pt-2 pb-8">
           Predicted segmentation:
         </div>
       </div>
+      
+      <div className='rootController'>
 
-      { isPredicted ? <div id="vtk-container" className="w-full mb-8"></div> : <div id="vtk-container"></div> }
+      </div>
+      { isPredicted ? <div id="vtk-container" className="w-full mb-8"></div> : <div id="vtk-container" style={{display: 'none'}}></div> }
 
       { isPredicted ? 
-        <div className='flex justify-center pb-12 mb-44'>
+        <div className='flex justify-center pb-12 mb-24'>
           <button 
                 onClick={hanldeDownloadVtpFile} 
-                className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg"
+                className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg transition ease-linear"
               >
                 <div className='flex items-center'>
                   <FaDownload className="mx-2"/>

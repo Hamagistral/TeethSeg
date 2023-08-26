@@ -23,7 +23,7 @@ const ThreeDRenderer = ({ file }) => {
         <Canvas dpr={[1, 2]} shadowscamera={{ fov: 15 }}
             style={{
                 backgroundColor: "transparent",
-                height: "50vh"
+                height: "60vh"
             }}
         >
             <ambientLight intensity={0.5} />

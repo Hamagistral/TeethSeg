@@ -3,7 +3,7 @@ import { BrainCircuit, Image, Zap } from "lucide-react";
 function Features() {
     return (
         <>
-            <section className="bg-slate-800 w-full pb-24">
+            <section className="bg-slate-800 w-full pb-24 pt-12">
                 <div className="py-8 px-4 mx-auto text-center max-w-screen-xl sm:py-16 lg:px-6">
                     <div className="mx-auto max-w-screen-md mb-8 lg:mb-16">
                         <h2 className="mb-4 text-4xl tracking-tight font-extrabold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent pb-4">Why TeethSeg</h2>
