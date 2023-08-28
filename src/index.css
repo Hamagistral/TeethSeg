@@ -60,4 +60,8 @@
     width: 300px !important;
     height: 300px !important;
   }
+
+  .uploadfile {
+    color: white;
+  }
 }

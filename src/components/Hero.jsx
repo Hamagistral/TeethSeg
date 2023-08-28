@@ -1,36 +1,35 @@
 import { Play } from "lucide-react";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls, Stage, Html, useProgress } from "@react-three/drei";
-import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
-import TypewriterComponent from "typewriter-effect";
 import { loadVTP } from "../helpers/helpers";
-// import Teeths from "./Teeth";
 
-function Scene() {
-    const teeth = useLoader(OBJLoader, "/teethsObj.obj");
-    return <primitive object={teeth} />;
-}
+import TypewriterComponent from "typewriter-effect";
+import { getAuth } from "firebase/auth";
 
-function Loader() {
-    const { progress } = useProgress();
-    return <Html center className="text-white">In progress {progress}% ...</Html>;
-}
 
 function Hero() {
     const navigate = useNavigate();
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    const handleStart = () => {
+        if(!user) {
+            navigate("/sign-in")
+        } else {
+            navigate("/start")
+        }
+    }
+
     useEffect(() => {
         loadVTP('/TeethsSegmented.vtp', "MaterialIds")
-
     }, [])
 
     return (
         <>
             <div className="bg-slate-800">
-                <div className="grid max-w-screen-xl px-4 py-8 mt-12 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
-                    <div className="mr-auto place-self-center lg:col-span-8">
+                <div className="grid max-w-screen-xl py-8 mt-12 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
+                    <div className="mr-auto place-self-center lg:col-span-7">
                         <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl pb-6 font-extrabold text-transparent sm:text-5xl">
                             TeethSeg
                         </h1>
@@ -51,7 +50,7 @@ function Hero() {
                             />
                         </h2>
                         <a
-                            onClick={() => navigate("/sign-in")}
+                            onClick={handleStart}
                             className="cursor-pointer inline-flex transition ease-linear items-center justify-center py-3 px-6 mr-3 text-base font-medium text-center text-white rounded-lg bg-blue-600 hover:bg-blue-700"
                         >
                             Get started
@@ -76,7 +75,7 @@ function Hero() {
                             See Demo
                         </a>
                     </div>
-                    <div id="teeth-segmented" className="place-self-center lg:mt-0 lg:col-span-4 lg:flex h-full"></div>
+                    <div id="teeth-segmented" className="place-self-center lg:mt-0 lg:col-span-5 lg:flex h-full"></div>
                 </div>
             </div>
 
@@ -92,7 +91,7 @@ function Hero() {
                             title="Demo TeethSeg"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
-                            className="md:w-content w-full rounded-lg"
+                            className="lg:w-content w-full rounded-lg max-h-72 lg:max-h-screen"
                         ></iframe>
                     </div>
                 </div>

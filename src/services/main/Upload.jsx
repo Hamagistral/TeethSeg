@@ -1,7 +1,7 @@
 import { useRef, useState  } from 'react';
 import { toast } from 'react-hot-toast';
 
-import { Bot, FileAxis3d, UploadCloud } from 'lucide-react';
+import { Bot, Crop, FileAxis3d, Microscope, UploadCloud } from 'lucide-react';
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import {AiOutlineFullscreen} from "react-icons/ai";
 import {AiOutlineFullscreenExit} from 'react-icons/ai';
@@ -17,9 +17,8 @@ import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
 import vtkAxesActor from '@kitware/vtk.js/Rendering/Core/AxesActor';
 import vtkOrientationMarkerWidget from '@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget';
 import vtkScalarBarActor from '@kitware/vtk.js/Rendering/Core/ScalarBarActor';
-
-import ThreeDRenderer from '../../components/ThreeRenderer';
-
+import ThreeDRenderer from './../../components/ThreeRenderer';
+import { FileUploader } from 'react-drag-drop-files';
 
 function VTKViewer() {
   const formRef = useRef(null);
@@ -29,6 +28,8 @@ function VTKViewer() {
   const [isPredicted, setIsPredicted] = useState(false);
   const [data, setData] = useState(null)
   const [fullScreen, setFullScreen] = useState(false);
+  const [segment, setSegment] = useState(false);
+  const [visualize, setVisualize] = useState(false);
 
   const handleUpload = async (event) => {
     event.preventDefault();
@@ -37,7 +38,7 @@ function VTKViewer() {
 
       setIsLoading(true);
       const formData = new FormData(event.target);
-      const response = await fetch('http://127.0.0.1:8000/api/v1/predict/post_processing', {
+      const response = await fetch('http://localhost:8000/api/v1/predict/post_processing', {
         method: 'POST',
         body: formData,
       }).catch(err => {
@@ -55,6 +56,7 @@ function VTKViewer() {
       const blob = new Blob([vtpFile], { type: 'text/xml' });
       const vtpFilePath = URL.createObjectURL(blob);
 
+      setIsPredicted(true);
       loadVTPTest(vtpFilePath);
       setIsLoading(false);
     } catch(err) {
@@ -63,7 +65,27 @@ function VTKViewer() {
     }
   };
 
+  // LOAD VTP AND VISUALIZE
+  const handleVisualize = (file) => {
+    setFile(file);
+    setFileBlob(file[0]);
 
+    const selectedFile = file[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      // Save the VTP XML data to a temporary file
+      const vtpBlob = new Blob([file[0]], { type: 'application/octet-stream' });
+      const vtpFilePath = URL.createObjectURL(vtpBlob);
+      
+      // Load the VTP data
+      loadVTPTest(vtpFilePath, "MaterialIds");
+    };
+
+    reader.readAsArrayBuffer(selectedFile);
+  };
+
+  
   const loadVTPTest = (objData) => {
     document.querySelector('#vtk-container').style.display = 'block';
     const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
@@ -83,7 +105,6 @@ function VTKViewer() {
         const vtpOutput = reader.getOutputData();
         
         // Get the materialid array from the VTP data
-        // const materialidArray = vtpOutput.getCellData().getArrayByName('MaterialIds');
         const materialidArray = vtpOutput.getCellData().getArrayByName("Label");
   
         // Map scalar array through the lookup table
@@ -171,8 +192,7 @@ function VTKViewer() {
 
         //Start rendering
         vtkRenderScreen.getRenderWindow().render();
-        
-        setIsPredicted(true);
+
         setIsLoading(false);
     });
   }
@@ -195,11 +215,13 @@ function VTKViewer() {
   }
 
   const handleBackBtn = () => {
-    setFile(null)
-    setFileBlob(null)
-    setIsPredicted(null)
-    setFullScreen(false)
-    setData(null)
+    setFile(null);
+    setFileBlob(null);
+    setIsPredicted(null);
+    setFullScreen(false);
+    setData(null);
+    setVisualize(false);
+    setSegment(false);
     if (formRef.current) {
       formRef.current.reset();
     }
@@ -238,10 +260,40 @@ function VTKViewer() {
       setFile(null);
   };
 
+  const fileOBJTypes = ["OBJ"];
+  const fileVTPTypes = ["VTP"];
+  
+  const handleChange = (file) => {
+    setFile(file);
+    setFileBlob(file[0]);
+  };
+
+  const handleVisualizeBtn = () => {
+    setVisualize(true);
+  }
+
+  const handleSegmentBtn = () => {
+    setSegment(true);
+  }
+
+  const style = (
+    <div className="container border-2 border-slate-400 bg-slate-600 hover:bg-slate-700 transition ease-linear rounded-xl px-8 py-6 cursor-pointer">
+      <div className="flex box box-1">
+        <div className="w-12 h-12 mx-auto text-white">
+          <UploadCloud size={32} strokeWidth={2.5} />
+        </div>
+      </div>
+      <div className="box box-2">
+        <p className="font-medium text-slate-200">
+          Upload or Drag and Drop a File
+        </p>
+      </div>
+    </div>
+  );
 
   return (
-    <>    
-      <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
+    <> 
+      <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file && !segment && !visualize ? 'block' : 'hidden'}`}>
         <div className='p-3 m-4 flex justify-end h-20'>
           <button 
               className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
@@ -256,45 +308,139 @@ function VTKViewer() {
         </div>
         <div className="text-center flex-box flex-col">
           <div className="text-white p-12 text-3xl font-semibold text-center">
-            Please choose a file to upload to start the prediction
+            Please choose an option to start
+          </div>
+          <div>  
+            <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
+              <div className='text-center grid lg:grid-cols-2 gap-4 grid-col'>
+                <button 
+                  onClick={handleVisualizeBtn} 
+                  className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
+                    <div className='flex items-center'>
+                      <Microscope className='mx-2'/>
+                      Visualize VTP File
+                    </div>
+                </button>
+                <button 
+                  onClick={handleSegmentBtn} 
+                  className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
+                    <div className='flex items-center'>
+                      <Crop className='mx-2'/>
+                      Segment OBJ File
+                    </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {visualize &&
+      <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
+        <div className='p-3 m-4 flex justify-between max-h-20'>
+            <button 
+              className="bg-slate-100 font-semibold text-slate-800 py-4 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear" 
+              onClick={handleBackBtn}
+            >
+              <div className='flex items-center'>
+                <AiOutlineArrowLeft className="mx-2"/>
+                Back
+              </div>
+            </button>
+            <button 
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
+              :
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
+            }
+            </button>
+        </div>
+        <div className="text-center flex-box flex-col">
+          <div className="text-white p-12 text-3xl font-semibold text-center">
+            Please choose a file to start the Visualization
+          </div>
+          <div>  
+            <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md ">
+                <div className="w-full py-12 file flex-box flex-col">
+                  <div className="App">
+                    <FileUploader
+                      multiple={true}
+                      handleChange={handleVisualize}
+                      name="file"
+                      types={fileVTPTypes}
+                      children={style}
+                    />
+                  </div>
+                  <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
+                    Supported files
+                  </div>
+                  <div className="text-center text-slate-300 text-md py-3">
+                    Only VTP files are supported
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+
+      {segment && 
+      <div className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${!isLoading && !isPredicted && !file ? 'block' : 'hidden'}`}>
+        <div className='p-3 m-4 flex justify-between max-h-20'>
+            <button 
+              className="bg-slate-100 font-semibold text-slate-800 py-4 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear" 
+              onClick={handleBackBtn}
+            >
+              <div className='flex items-center'>
+                <AiOutlineArrowLeft className="mx-2"/>
+                Back
+              </div>
+            </button>
+            <button 
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
+              :
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
+            }
+            </button>
+        </div>
+        <div className="text-center flex-box flex-col">
+          <div className="text-white p-12 text-3xl font-semibold text-center">
+            Please choose a file to start the Segmentation
           </div>
           <div>  
             <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md ">
               <form ref={formRef} id="upload-form" onSubmit={handleUpload} className="w-full p-0">
                 <div className="w-full py-12 file flex-box flex-col">
-                  <label
-                    htmlFor="3d_file"
-                    className="flex-box flex-col p-3 my-auto text-center hover:bg-slate-300 transition ease-linear"
-                  >
-                    <UploadCloud size={28} strokeWidth={2.5} />
-                    <p>Click to upload or drag and drop</p>
-                  </label>
-                  <input
-                    className="3d-file"
-                    type="file" 
-                    name="file"
-                    accept=".obj"
-                    onChange={(e) => {
-                      setFileBlob(e.target.files[0]);
-                      setFile(e.target.files[0].name);
-                    }}
-                    id="3d_file"
-                  />
-                  <input type="submit" id="hidden-submit" style={{ display: 'none' }} />
+                  <div>
+                    <FileUploader
+                      multiple={true}
+                      handleChange={handleChange}
+                      name="file"
+                      types={fileOBJTypes}
+                      children={style}
+                    />
+                  </div>
                   <div className="text-center pt-8 text-slate-100 text-xl font-semibold">
                     Supported files
                   </div>
                   <div className="text-center text-slate-300 text-md py-3">
-                    For the moment only *.obj files are supported
+                    Only OBJ files are supported
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-      </div>
+      </div>}
 
-      {file && 
+      {file && visualize &&
         <div className='w-full h-screen scroll-smooth bg-slate-800 mt-2'>
           <div className='p-3 m-4 flex justify-between max-h-20'>
             <button 
@@ -302,13 +448,51 @@ function VTKViewer() {
               onClick={handleBackBtn}
             >
               <div className='flex items-center'>
-              <AiOutlineArrowLeft className="mx-2"/>
-              Back
+                <AiOutlineArrowLeft className="mx-2"/>
+                Back
               </div>
             </button>
             <div className="text-center items-center text-white mb-12">
                 <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-normal text-slate-300">
-                  <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? file : "None"}</span>
+                  <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? `${file[0].name}` : "None"}</span>
+                </div>
+            </div>
+            <button 
+              className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
+              onClick={handleResizeWindow}  
+            >
+              {fullScreen ?
+              <div className='flex items-center font-semibold'><span className='mx-2'>Exit Full Screen</span> <AiOutlineFullscreenExit size={20}/></div>
+              :
+              <div className='flex items-center font-semibold'><span className='mx-2'>Mode Full Screen</span> <AiOutlineFullscreen size={20}/></div>
+            }
+            </button>
+          </div>
+
+          <div className="text-white p-4 text-3xl font-semibold text-center">
+            Your Uploaded VTP File:
+          </div>
+
+          <div id="vtk-container" className="w-full mb-8"></div>
+        </div>
+      }
+
+      
+      {file && segment &&
+        <div className='w-full h-screen scroll-smooth bg-slate-800 mt-2'>
+          <div className='p-3 m-4 flex justify-between max-h-20'>
+            <button 
+              className="bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear" 
+              onClick={handleBackBtn}
+            >
+              <div className='flex items-center'>
+                <AiOutlineArrowLeft className="mx-2"/>
+                Back
+              </div>
+            </button>
+            <div className="text-center items-center text-white mb-12">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-normal text-slate-300">
+                  <FileAxis3d width={20} style={{display: 'inline-block'}}/> Uploaded file: <span className="font-semibold text-white">{file ? `${file[0].name}` : "None"}</span>
                 </div>
             </div>
             <button 
@@ -331,13 +515,14 @@ function VTKViewer() {
               className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg transition ease-linear">
                 <div className='flex items-center'>
                   <Bot className='mx-2'/>
-                  Start Prediction
+                  Start Segmentation
                 </div>
             </button>
           </div>
         </div>
       }
 
+      {/* Loading Section */}
       {isLoading ? 
         <div className="p-8 w-full h-screen flex-box bg-slate-800">
           <div className='flex flex-col items-center'>
@@ -352,7 +537,8 @@ function VTKViewer() {
           </div>
         </div>
       : null}
-       
+      
+      {/* Segmentation Page */}
       <div className={`${isPredicted ? 'block' : 'hidden'} w-full scroll-smooth bg-slate-800`}>
         <div className='p-3 m-4 flex justify-between h-20'>
             <button 
@@ -377,7 +563,7 @@ function VTKViewer() {
         </div>
 
         <div className="text-white text-3xl font-semibold text-center pt-2 pb-8">
-          Predicted segmentation:
+          Predicted Segmentation:
         </div>
       </div>
 

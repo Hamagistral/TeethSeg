@@ -7,13 +7,15 @@ import Hero from "../components/Hero";
 function Home() {
 
   return (
-    <div className="w-full flex flex-col">
+    <>
       <Header />
-      <Hero />
-      <Features />
-      <ContactForm />
-      <Footer />
-    </div>
+      <div className="w-full flex flex-col">
+        <Hero />
+        <Features />
+        <ContactForm />
+        <Footer />
+      </div>
+    </>
   );
 }
 

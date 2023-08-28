@@ -5,7 +5,6 @@ import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
 import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
 import vtkColorTransferFunction from '@kitware/vtk.js/Rendering/Core/ColorTransferFunction';
 
-
 export const loadVTP = (objData) => {
     const container = document.querySelector('#teeth-segmented');
 
@@ -123,6 +122,5 @@ export const loadVTP = (objData) => {
         };
         
         animate();
-
     });
 }
