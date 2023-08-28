@@ -28,7 +28,7 @@ function Hero() {
     return (
         <>
             <div className="bg-slate-800">
-                <div className="grid max-w-screen-xl py-8 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
+                <div className="grid max-w-screen-xl py-8 mb-12 px-4 lg:px-0 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
                         <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl pb-6 font-extrabold text-transparent sm:text-5xl">
                             TeethSeg
@@ -87,7 +87,7 @@ function Hero() {
                         </h2>
                         <iframe
                             height="720"
-                            src="https://www.youtube.com/embed/0G8QvDTE9Gc"
+                            src="https://www.youtube.com/embed/ygl0PdDj93c?si=D9ZbKvrsY04N08MP"
                             title="Demo TeethSeg"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen

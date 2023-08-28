@@ -59,6 +59,7 @@ function VTKViewer() {
       setIsPredicted(true);
       loadVTPTest(vtpFilePath);
       setIsLoading(false);
+      toast.success("Segmentation is Done");
     } catch(err) {
       setIsLoading(false);
       toast.error("Oups! Something went wrong.");
@@ -348,7 +349,7 @@ function VTKViewer() {
               </div>
             </button>
             <div className="text-center items-center text-white mb-12">
-                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100">
                   <Microscope width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Visualization
                 </div>
             </div>
@@ -405,7 +406,7 @@ function VTKViewer() {
               </div>
             </button>
             <div className="text-center items-center text-white mb-12">
-                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100">
                   <Crop width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Segmentation
                 </div>
             </div>
@@ -541,7 +542,7 @@ function VTKViewer() {
             </div>
             <div>
               <p className="text-md font-medium text-slate-100 pt-8">
-                  TeethSeg is predicting...
+                  TeethSeg is segmenting...
               </p>
             </div>
           </div>
@@ -587,7 +588,7 @@ function VTKViewer() {
               >
                 <div className='flex items-center'>
                   <FaDownload className="mx-2"/>
-                  <span className='mx-1'>Download Predicted File</span>
+                  <span className='mx-1'>Download Segmented File</span>
                 </div>
           </button> 
         </div> : "" }
