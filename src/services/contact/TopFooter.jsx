@@ -2,24 +2,24 @@ import { Mail, MapPin } from "lucide-react";
 
 function TopFooter() {
   return (
-    <div className="w-full top-footer flex-box justify-around flex-col md:flex-row mx-12 mb-12">
+    <div className="w-full top-footer flex-box justify-around flex-col md:flex-row lg:px-32 px-4 mx-12 mb-12">
       <div className="text-white text-3xl font-medium leading-10">
         Please feel free to
         <br />
         get in touch with us
       </div>
-      <div className="py-5 flex-box flex-col gap-6 px-12">
+      <div className="py-5 flex-box flex-col gap-4 px-4">
         <MapPin size={28} strokeWidth={2.5} color="white" />
-        <div className="py-1 text-white text-lg font-semibold leading-normal">
+        <div className=" text-white text-lg font-semibold leading-normal">
           Our Location
         </div>
         <div className="py-1 w-64 text-slate-400 text-base font-normal leading-normal">
           Villa Num 75 Lotissement la gare Mohammedia Maroc
         </div>
       </div>
-      <div className="py-5 flex-box flex-col">
+      <div className="flex-box flex-col px-4">
         <Mail size={28} strokeWidth={2.5} color="white" className="mb-4"/>
-        <div className="py-1 text-white text-lg font-semibold leading-normal mb-4">
+        <div className=" text-white text-lg font-semibold leading-normal mb-4">
           How Can We Help?
         </div>
         <div className="py-1 w-52 text-slate-400 text-base font-normal leading-normal">

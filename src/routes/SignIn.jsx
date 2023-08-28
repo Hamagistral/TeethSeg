@@ -126,7 +126,7 @@ function SignIn() {
 																formik.errors
 																	.email
 																	? "border-red-500 border-2  dark:border-red-500 text-sm rounded-lg focus:ring-primary bg-slate-600 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-slate-600 border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
+																	: "border border-slate-700 text-sm rounded-lg focus:ring-primary bg-slate-700 dark:text-neutral-200 block w-full p-2.5"
 															}`}
 															placeholder="Username"
 															value={
@@ -172,7 +172,7 @@ function SignIn() {
 																formik.errors
 																	.email
 																	? "border-red-500 border-2 dark:border-red-500 text-sm rounded-lg focus:ring-primary bg-slate-600 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary bg-slate-600 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
+																	: "border border-slate-700 text-sm rounded-lg focus:ring-primary bg-slate-700 dark:text-neutral-200 block w-full p-2.5"
 															}`}
 															placeholder="Password"
 															value={

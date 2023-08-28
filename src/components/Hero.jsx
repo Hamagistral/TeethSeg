@@ -91,7 +91,7 @@ function Hero() {
                             title="Demo TeethSeg"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
-                            className="lg:w-content w-full rounded-lg max-h-72 lg:max-h-screen"
+                            className="lg:w-content w-full rounded-lg max-h-72 lg:max-h-screen shadow-lg shadow-teal-400/50 "
                         ></iframe>
                     </div>
                 </div>

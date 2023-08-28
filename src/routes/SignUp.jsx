@@ -91,7 +91,7 @@ function SignUp() {
 																formik.errors
 																	.email
 																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
+																	: "border border-slate-700 text-sm rounded-lg focus:ring-primary bg-slate-700 dark:text-neutral-200 block w-full p-2.5"
 															}`}
 															id="email"
 															placeholder="Email"
@@ -130,7 +130,7 @@ function SignUp() {
 																formik.errors
 																	.password
 																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
+																	: "border border-slate-700 text-sm rounded-lg focus:ring-primary bg-slate-700 dark:text-neutral-200 block w-full p-2.5"
 															}`}
 															id="password"
 															placeholder="Password"
@@ -170,7 +170,7 @@ function SignUp() {
 																formik.errors
 																	.confirmPassword
 																	? "border-red-500 border-2 bg-white dark:border-red-500 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
-																	: "bg-white border border-neutral-300 dark:border-neutral-700 text-sm rounded-lg focus:ring-primary dark:bg-gray-700 dark:text-neutral-200 dark:placeholder-neutral-400 dark:focus:ring-primary dark:border-primary block w-full p-2.5"
+																	: "border border-slate-700 text-sm rounded-lg focus:ring-primary bg-slate-700 dark:text-neutral-200 block w-full p-2.5"
 															}`}
 															id="confirmPassword"
 															placeholder="Confirm Password"
