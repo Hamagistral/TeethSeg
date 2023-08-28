@@ -106,7 +106,14 @@ function VTKViewer() {
         
         // Get the materialid array from the VTP data
         const materialidArray = vtpOutput.getCellData().getArrayByName("Label");
-  
+
+        if (!materialidArray) {
+          toast.error(
+            "The VTP file must be segmented first before visualizing. Please go back and segment the file, or try again to see if the issue has been resolved."
+          );
+          return;
+        }
+
         // Map scalar array through the lookup table
         materialidArray.setName("Scalars"); // Make sure the array has a name
         vtpOutput.getCellData().setScalars(materialidArray);
