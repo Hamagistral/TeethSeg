@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.10.1",
+    "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@kitware/vtk.js": "^28.7.0",
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
