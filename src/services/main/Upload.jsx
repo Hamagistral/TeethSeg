@@ -312,7 +312,7 @@ function VTKViewer() {
           </div>
           <div>  
             <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
-              <div className='text-center grid lg:grid-cols-2 gap-4 grid-col'>
+              <div className='text-center flex-box flex-col md:flex-row gap-4 w-full'>
                 <button 
                   onClick={handleVisualizeBtn} 
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
