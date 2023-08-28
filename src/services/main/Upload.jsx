@@ -59,7 +59,8 @@ function VTKViewer() {
       setIsPredicted(true);
       loadVTPTest(vtpFilePath);
       setIsLoading(false);
-    } catch (err) {
+      toast.success("Segmentation is Done");
+    } catch(err) {
       setIsLoading(false);
       toast.error("Oups! Something went wrong.");
     }
@@ -323,18 +324,18 @@ function VTKViewer() {
                 <button
                   onClick={handleVisualizeBtn}
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                  <div className='flex items-center'>
-                    <Microscope className='mx-2' />
-                    Visualize VTP File
-                  </div>
+                    <div className='flex items-center whitespace-nowrap'>
+                      <Microscope className='mx-2'/>
+                      Visualize VTP File
+                    </div>
                 </button>
                 <button
                   onClick={handleSegmentBtn}
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                  <div className='flex items-center'>
-                    <Crop className='mx-2' />
-                    Segment OBJ File
-                  </div>
+                    <div className='flex items-center whitespace-nowrap'>
+                      <Crop className='mx-2'/>
+                      Segment OBJ File
+                    </div>
                 </button>
               </div>
             </div>
@@ -355,9 +356,9 @@ function VTKViewer() {
               </div>
             </button>
             <div className="text-center items-center text-white mb-12">
-              <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
-                <Microscope width={20} className="mr-2" style={{ display: 'inline-block' }} /> Start Visualization
-              </div>
+                <div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100">
+                  <Microscope width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Visualization
+                </div>
             </div>
             <button
               className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
@@ -415,9 +416,9 @@ function VTKViewer() {
               </div>
             </button>
             <div className="text-center items-center text-white mb-12">
-              <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
-                <Crop width={20} className="mr-2" style={{ display: 'inline-block' }} /> Start Segmentation
-              </div>
+                <div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100">
+                  <Crop width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Segmentation
+                </div>
             </div>
             <button
               className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
@@ -554,7 +555,7 @@ function VTKViewer() {
             </div>
             <div>
               <p className="text-md font-medium text-slate-100 pt-8">
-                TeethSeg is predicting...
+                  TeethSeg is segmenting...
               </p>
             </div>
           </div>
@@ -594,16 +595,16 @@ function VTKViewer() {
 
       {isPredicted ?
         <div className='flex justify-center pb-12 mb-24'>
-          <button
-            onClick={hanldeDownloadVtpFile}
-            className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg transition ease-linear"
-          >
-            <div className='flex items-center'>
-              <FaDownload className="mx-2" />
-              <span className='mx-1'>Download Predicted File</span>
-            </div>
-          </button>
-        </div> : ""}
+          <button 
+                onClick={hanldeDownloadVtpFile} 
+                className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-600 hover:text-white leading-tight rounded-lg transition ease-linear"
+              >
+                <div className='flex items-center'>
+                  <FaDownload className="mx-2"/>
+                  <span className='mx-1'>Download Segmented File</span>
+                </div>
+          </button> 
+        </div> : "" }
     </>
   );
 }
