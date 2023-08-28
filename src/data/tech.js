@@ -16,42 +16,43 @@ import {
   render,
   python,
   fastAPI,
-  pytorch, 
+  pytorch,
   numpy,
   sklearn,
 } from "../assets";
 
 const techs = [
+  // {
+  //   name: "html",
+  //   icon: html,
+  // },
+  // {
+  //   name: "css",
+  //   icon: css,
+  // },
+
+  // {
+  //   name: "typescript",
+  //   icon: typescript,
+  // },
   {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
+    name: "reactjs",
     icon: reactjs,
+  },
+  {
+    name: "javascript",
+    icon: javascript,
   },
   {
     name: "Vercel",
     icon: vercel,
   },
   {
-    name: "Tailwind CSS",
+    name: "tailwindcss",
     icon: tailwind,
   },
   {
-    name: "Python",
+    name: "python",
     icon: python,
   },
   {
@@ -70,16 +71,16 @@ const techs = [
     name: "sklearn",
     icon: sklearn,
   },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
+  // {
+  //   name: "nodejs",
+  //   icon: nodejs,
+  // },
   {
     name: "Firebase",
     icon: firebase,
   },
   {
-    name: "Three JS",
+    name: "threejs",
     icon: threejs,
   },
   {
