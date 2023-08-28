@@ -5,13 +5,20 @@ import {
   git,
   html,
   javascript,
-  mongodb,
+  vercel,
   nodejs,
   reactjs,
-  redux,
   tailwind,
   threejs,
   typescript,
+  firebase,
+  aws,
+  render,
+  python,
+  fastAPI,
+  pytorch, 
+  numpy,
+  sklearn,
 } from "../assets";
 
 const techs = [
@@ -35,22 +42,42 @@ const techs = [
     name: "React JS",
     icon: reactjs,
   },
-  // {
-  //   name: "Redux Toolkit",
-  //   icon: redux,
-  // },
+  {
+    name: "Vercel",
+    icon: vercel,
+  },
   {
     name: "Tailwind CSS",
     icon: tailwind,
   },
   {
+    name: "Python",
+    icon: python,
+  },
+  {
+    name: "fastAPI",
+    icon: fastAPI,
+  },
+  {
+    name: "pytorch",
+    icon: pytorch,
+  },
+  {
+    name: "numpy",
+    icon: numpy,
+  },
+  {
+    name: "sklearn",
+    icon: sklearn,
+  },
+  {
     name: "Node JS",
     icon: nodejs,
   },
-  // {
-  //   name: "MongoDB",
-  //   icon: mongodb,
-  // },
+  {
+    name: "Firebase",
+    icon: firebase,
+  },
   {
     name: "Three JS",
     icon: threejs,
@@ -66,6 +93,14 @@ const techs = [
   {
     name: "docker",
     icon: docker,
+  },
+  {
+    name: "aws",
+    icon: aws,
+  },
+  {
+    name: "render",
+    icon: render,
   },
 ];
 
