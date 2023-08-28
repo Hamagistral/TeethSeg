@@ -28,7 +28,7 @@ function Hero() {
     return (
         <>
             <div className="bg-slate-800">
-                <div className="grid max-w-screen-xl py-8 mt-12 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
+                <div className="grid max-w-screen-xl py-8 mb-12 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
                         <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl pb-6 font-extrabold text-transparent sm:text-5xl">
                             TeethSeg
@@ -69,7 +69,7 @@ function Hero() {
                         </a>
                         <a
                             href="#demo"
-                            className="bg-slate-100 font-semibold transition ease-linear text-slate-700 py-3 px-6 hover:bg-slate-200 rounded-lg cursor-pointer inline-flex items-center justify-center text-center"
+                            className="bg-slate-100 font-semibold transition ease-linear text-slate-700 py-3 px-6 hover:bg-slate-300 rounded-lg cursor-pointer inline-flex items-center justify-center text-center"
                         >
                             <Play className="w-3 h-3 mr-2" fill="currentColor" />
                             See Demo

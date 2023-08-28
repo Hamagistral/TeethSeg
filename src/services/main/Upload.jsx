@@ -308,7 +308,7 @@ function VTKViewer() {
         </div>
         <div className="text-center flex-box flex-col">
           <div className="text-white p-12 text-3xl font-semibold text-center">
-            Please choose an option to start
+            Please choose an option to Start
           </div>
           <div>  
             <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
@@ -347,6 +347,11 @@ function VTKViewer() {
                 Back
               </div>
             </button>
+            <div className="text-center items-center text-white mb-12">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
+                  <Microscope width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Visualization
+                </div>
+            </div>
             <button 
               className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
               onClick={handleResizeWindow}  
@@ -399,6 +404,11 @@ function VTKViewer() {
                 Back
               </div>
             </button>
+            <div className="text-center items-center text-white mb-12">
+                <div className="bg-slate-900 py-4 px-8 max-w-xl mx-auto rounded-lg font-medium text-xl text-slate-100">
+                  <Crop width={20} className="mr-2" style={{display: 'inline-block'}}/> Start Segmentation
+                </div>
+            </div>
             <button 
               className='bg-slate-100 font-semibold text-slate-800 py-2 px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear'
               onClick={handleResizeWindow}  
@@ -470,7 +480,7 @@ function VTKViewer() {
           </div>
 
           <div className="text-white p-4 text-3xl font-semibold text-center">
-            Your Uploaded VTP File:
+            Your uploaded VTP File:
           </div>
 
           <div id="vtk-container" className="w-full mb-8"></div>
