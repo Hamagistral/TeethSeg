@@ -107,7 +107,14 @@ function VTKViewer() {
         
         // Get the materialid array from the VTP data
         const materialidArray = vtpOutput.getCellData().getArrayByName("Label");
-  
+
+        if (!materialidArray) {
+          toast.error(
+            "The VTP file must be segmented first before visualizing. Please go back and segment the file, or try again to see if the issue has been resolved."
+          );
+          return;
+        }
+
         // Map scalar array through the lookup table
         materialidArray.setName("Scalars"); // Make sure the array has a name
         vtpOutput.getCellData().setScalars(materialidArray);
@@ -313,11 +320,11 @@ function VTKViewer() {
           </div>
           <div>  
             <div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
-              <div className='text-center grid lg:grid-cols-2 gap-4 grid-col'>
+              <div className='text-center flex-box flex-col md:flex-row gap-4 w-full'>
                 <button 
                   onClick={handleVisualizeBtn} 
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                    <div className='flex items-center'>
+                    <div className='flex items-center whitespace-nowrap'>
                       <Microscope className='mx-2'/>
                       Visualize VTP File
                     </div>
@@ -325,7 +332,7 @@ function VTKViewer() {
                 <button 
                   onClick={handleSegmentBtn} 
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                    <div className='flex items-center'>
+                    <div className='flex items-center whitespace-nowrap'>
                       <Crop className='mx-2'/>
                       Segment OBJ File
                     </div>
