@@ -323,7 +323,7 @@ function VTKViewer() {
                 <button 
                   onClick={handleVisualizeBtn} 
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                    <div className='flex items-center'>
+                    <div className='flex items-center whitespace-nowrap'>
                       <Microscope className='mx-2'/>
                       Visualize VTP File
                     </div>
@@ -331,7 +331,7 @@ function VTKViewer() {
                 <button 
                   onClick={handleSegmentBtn} 
                   className="bg-slate-100 font-semibold text-slate-800 py-4 px-8 hover:bg-slate-800 hover:text-white leading-tight rounded-lg transition ease-linear">
-                    <div className='flex items-center'>
+                    <div className='flex items-center whitespace-nowrap'>
                       <Crop className='mx-2'/>
                       Segment OBJ File
                     </div>
