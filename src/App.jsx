@@ -12,7 +12,7 @@ import Chatbot from "./routes/Chatbot";
 import { Bot } from "lucide-react";
 import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
-
+ 
 
 function App() {
   const [user, setUser] = useState(null);
@@ -60,7 +60,7 @@ function NavigateToChatbotButton() {
 
   return (
     <div
-      className="fixed bottom-0 right-0 p-5 z-[100]"
+      className="fixed bottom-0 right-0 p-5 z-100"
     >
       <Bot
         onClick={() => navigate("/chatbot")}
