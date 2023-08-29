@@ -8,13 +8,11 @@ import About from "./routes/About";
 import SignUp from "./routes/SignUp";
 import SignIn from "./routes/SignIn";
 import Contact from "./routes/Contact";
-import Chatbot from "./routes/Chatbot";
 import { MessageSquare, X } from "lucide-react";
 import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
-import ChatBot from "./routes/Chatbot";
 import { ThemeProvider } from "@/components/ThemeProvider"
-// import { ModeToggle } from "./components/ModeToggle";
+import ChatBot from "./routes/Chatbot";
 
 
 function App() {
@@ -33,7 +31,7 @@ function App() {
   }, []);
   return (
     <Router>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="dark" storageKey="vite-ui-theme" enableSystem>
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,12 +48,12 @@ function App() {
 
           <Route path="/contact" element={<Contact />} />
 
-          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
         {user ? (
           <>
             <NavigateToChatbotButton />
-            
+
           </>
         ) : (
           <></>
@@ -88,8 +86,8 @@ function NavigateToChatbotButton() {
           onClick={handleChatIconClick}
           style={{ cursor: "pointer" }}
         >
-          {!isChatOpen ? <MessageSquare className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" /> : 
-          <X className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" /> }
+          {!isChatOpen ? <MessageSquare className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" /> :
+            <X className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" />}
         </div>
         {isChatOpen && <ChatBot />}
       </div>

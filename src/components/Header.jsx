@@ -9,8 +9,8 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:pl-56 bg-slate-900 text-center">
-      <div className="header fixed-top flex-box justify-between w-full py-2 bg-slate-900 text-center">
+    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:pl-56 text-center bg-background text-foreground">
+      <div className="header fixed-top flex-box justify-between w-full py-2 bg-background text-foreground text-center">
         <Logo />
         <div className="hidden lg:block">
           <MenuItems />
@@ -20,13 +20,13 @@ function Header() {
         </div>
         {/* <ModeToggle /> */}
         <div
-          className="text-white border p-2 rounded-md hover:text-slate-900 hover:bg-white cursor-pointer block lg:hidden"
+          className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden"
           onClick={() => {
             setMenuOpen((open) => !open);
           }}
         >
-          <Menu />
-          <div className="absolute top-20 left-0 bg-slate-900 flex-box flex-col pb-8 w-full z-100">
+          <Menu  />
+          <div className="absolute top-20 left-0  flex-box flex-col pb-8 w-full z-100">
             {menuOpen ? (
               <>
                 {" "}
