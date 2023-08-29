@@ -9,9 +9,10 @@ import SignUp from "./routes/SignUp";
 import SignIn from "./routes/SignIn";
 import Contact from "./routes/Contact";
 import Chatbot from "./routes/Chatbot";
-import { Bot } from "lucide-react";
+import { MessageSquare, X } from "lucide-react";
 import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
+import ChatBot from "./routes/Chatbot";
 
 
 function App() {
@@ -55,8 +56,13 @@ function App() {
     </Router>
   );
 }
+
 function NavigateToChatbotButton() {
-  const navigate = useNavigate();
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const handleChatIconClick = () => {
+    setIsChatOpen(!isChatOpen);
+  };
 
   return (
     <div
@@ -67,12 +73,18 @@ function NavigateToChatbotButton() {
         padding: "20px",
         zIndex: 1,
       }}
+      className="p-4"
     >
-      <Bot
-        style={{ cursor: "pointer" }}
-        onClick={() => navigate("/chatbot")}
-        className="bg-white rounded-full w-[50px] h-[50px] p-1 border  border-white"
-      />
+      <div className="flex justify-end fixed bottom-4 right-4">
+        <div
+          onClick={handleChatIconClick}
+          style={{ cursor: "pointer" }}
+        >
+          {!isChatOpen ? <MessageSquare className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" /> : 
+          <X className="bg-blue-500 hover:bg-blue-600 rounded-full w-[60px] h-[60px] p-3 text-white border-2 border-white fill-white" /> }
+        </div>
+        {isChatOpen && <ChatBot />}
+      </div>
     </div>
   );
 }

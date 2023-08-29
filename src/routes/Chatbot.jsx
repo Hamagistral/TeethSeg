@@ -1,4 +1,6 @@
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
+    Avatar,
     ChatContainer,
     MainContainer,
     Message,
@@ -6,18 +8,18 @@ import {
     MessageList,
     TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { getAuth } from "firebase/auth";
+import { Bot } from "lucide-react";
 
-function Chatbot() {
+const ChatBot = () => {
     const [typing, setTyping] = useState(false);
     const [messages, setMessages] = useState([
         {
-            message: "Hello, I am TeethSeg, How can I assist you today ? ",
+            message: "👋 Hi, I am TeethSegBot, How can I help you?",
             sentTime: "just now",
             sender: "ChatGPT",
+            role: "system"
         },
     ]);
 
@@ -26,7 +28,6 @@ function Chatbot() {
 
 
     const generateChat = async (message) => {
-        // e.preventDefault();
         const newMessage = {
             message: message,
             sender: "UserGPT",
@@ -37,7 +38,6 @@ function Chatbot() {
 
         // update our messages state
         setMessages(newMessages);
-        // console.log(newMessages)
 
         // set a typing indicator for chatgpt is typing
         setTyping(true);
@@ -50,9 +50,6 @@ function Chatbot() {
 
     async function sendMessage(chatMessages) {
 
-        // chatMessages = {sender: 'UserGPT' or "ChatGPT" , message: chatMessage}
-        // apiMessages = {role: 'user' or 'assistant', content: chatMessage}
-
         let apiMessages = chatMessages.map((messageObject) => {
             let role = "";
             if (messageObject.sender === "ChatGPT") {
@@ -64,10 +61,10 @@ function Chatbot() {
             }
             return { role: role, content: messageObject.message };
         });
+
         const systemMessage = {
-            // define how chatgpt talks in initial message
             role: "system",
-            content: 'You are a TeethSeg chatbot, Explain all concepts about MeshSegNet for segmenting the 3D model of Teeths like AI based fully Automated',
+            content: "You are an AI Assistant chatbot of TeethSeg a website that helps users segment their 3d obj files of teeths. TeethSeg is a summer 2023 internship project done for '3D SMART FACTORY' a company based in Mohammedia, Morocco. TeethSeg uses the deep learning model MeshSegNet to do the segmentation. In the front end it's build using Vite with Reactjs and librairies for 3D like ThreeJS and VTKjs. In the backend, its using a RESTful API created with FastAPI (Python) and deployed to the AWS Cloud (AWS ECR + LAMBDA + API GATEWAY). When asked how does TeethSeg work  explain briefly how MeshSegNet works for segmenting the 3D model of Teeths. To Get Started please create an account or sign in using either Google or Github, then head to the Start page, there you have two options either to upload an OBJ file and get a segmentation of the file, after that you can visualize the segmentation and download the file as VTP. The second option is to visualize that VTP file by clicking 'Visualize File'. Answer as short and concise as possible"
         }
 
         const apiRequestBody = {
@@ -75,9 +72,7 @@ function Chatbot() {
             messages: [
                 systemMessage,
                 ...apiMessages,
-                // [msg1, msg2, ..., msg]
-            ],
-            "temperature": 0.7,
+            ]
         };
 
 
@@ -92,61 +87,73 @@ function Chatbot() {
         })
             .then((data) => data.json())
             .then((data) => {
-                // console.log(data);
                 const response = data.choices[0].message.content;
                 setMessages([
                     ...chatMessages,
                     {
                         message: response,
                         sender: "ChatGPT",
+                        role: "system"
                     },
                 ]);
                 setTyping(false);
             })
             .catch((error) => {
-                // console.error(error);
                 console.log(error.message);
             });
     }
 
-    return (
-        <>
-            <Header />
-            <div className="text-center text-white w-full py-10 flex-box flex-col scroll-smooth bg-gray-900">
-                <div
-                    className="relative w-full"
-                >
-                    <MainContainer
-                        className="md:h-[80vh]"
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const photoURL = user.photoURL;
 
+    return (
+        <div className="bg-white fixed bottom-4 right-4 w-80 border-4 border-white rounded-lg shadow-lg mb-20">
+            <div className="h-16 flex items-center justify-center text-center text-white bg-blue-500 rounded-lg ">
+                <Bot className="text-white" size={28}/>
+                <h2 className="text-white px-2 font-bold text-xl">TeethSeg<span className="font-normal">Bot</span></h2>
+            </div>
+            <div className="h-96 overflow-y-auto mb-4 mt-2">
+                    <MainContainer
+                        className="md:h-full border-0"
                     >
                         <ChatContainer>
                             <MessageList
                                 scrollBehavior="smooth"
                                 typingIndicator={
                                     typing ? (
-                                        <TypingIndicator content="TeethSeg is typing" />
+                                        <TypingIndicator content="TeethSegBot is typing" />
                                     ) : null
                                 }
-                                className="h-[50vh]"
-
+                                className="text-white"
                             >
                                 {messages.map((message, i) => {
-                                    return <Message key={i} model={message} />;
+                                    if (message.role === "system") {
+                                        return <>
+                                            <Message key={i} model={message} className="pt-2" avatarPosition="tl">
+                                                <Avatar src="https://cdn-icons-png.flaticon.com/512/4712/4712009.png" className="p-1" size="md" status="available"/>
+                                            </Message>
+                                        </>
+                                        
+                                    } else {
+                                        return <>
+                                            <Message key={i} model={message} className="pt-2 rounded">
+                                                <Avatar src={photoURL} size="md" status="available"/>
+                                            </Message>
+                                        </>
+                                    }
                                 })}
                             </MessageList>
                             <MessageInput
                                 placeholder="Type message here"
                                 onSend={generateChat}
+                                attachButton={false}
                             />
                         </ChatContainer>
-                    </MainContainer>
-                </div>
+                </MainContainer>
             </div>
-
-            <Footer />
-        </>
+        </div>
     );
-}
+};
 
-export default Chatbot;
+export default ChatBot;
