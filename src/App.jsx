@@ -12,12 +12,9 @@ import Chatbot from "./routes/Chatbot";
 import { MessageSquare, X } from "lucide-react";
 import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
-<<<<<<< HEAD
 import ChatBot from "./routes/Chatbot";
-=======
 import { ThemeProvider } from "@/components/ThemeProvider"
 // import { ModeToggle } from "./components/ModeToggle";
->>>>>>> 95709055508dfbae9b633df37050d1b432c597a7
 
 
 function App() {
