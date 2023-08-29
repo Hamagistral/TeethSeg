@@ -125,10 +125,10 @@ function Chatbot() {
                                 scrollBehavior="smooth"
                                 typingIndicator={
                                     typing ? (
-                                        <TypingIndicator content="TeethSeg is typing" />
+                                        <TypingIndicator className="bg-slate-900" content="TeethSeg is typing" />
                                     ) : null
                                 }
-                                className="h-[50vh]"
+                                className="h-[50vh] md:h-full bg-slate-800"
 
                             >
                                 {messages.map((message, i) => {
@@ -136,6 +136,7 @@ function Chatbot() {
                                 })}
                             </MessageList>
                             <MessageInput
+                                className="bg-slate-600"
                                 placeholder="Type message here"
                                 onSend={generateChat}
                             />

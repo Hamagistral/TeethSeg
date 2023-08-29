@@ -60,18 +60,11 @@ function NavigateToChatbotButton() {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        bottom: 0,
-        right: 0,
-        padding: "20px",
-        zIndex: 1,
-      }}
+      className="fixed bottom-0 right-0 p-5 z-[100]"
     >
       <Bot
-        style={{ cursor: "pointer" }}
         onClick={() => navigate("/chatbot")}
-        className="bg-white rounded-full w-[50px] h-[50px] p-1 border  border-white"
+        className="text-slate-900 bg-white rounded-full w-[50px] h-[50px] p-1 border border-slate-900 cursor-pointer"
       />
     </div>
   );

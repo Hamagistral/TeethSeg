@@ -6,6 +6,9 @@ export default {
       backgroundImage: {
         "bg-home": "url('3d-room.png')",
       },
+      zIndex: {
+        100: "100",
+      },
     },
   },
   plugins: [],
