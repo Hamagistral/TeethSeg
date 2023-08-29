@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'; 
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'; 
 import { Stage } from "@react-three/drei";
 
 

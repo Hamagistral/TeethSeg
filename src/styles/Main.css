@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .file > input[type="file"] {
     opacity: 0;
     top: 0;
@@ -26,3 +30,25 @@
   .file > label:hover {
     background-color: #334155;
   }
+  
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 0px;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}

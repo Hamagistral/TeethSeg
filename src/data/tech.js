@@ -22,74 +22,49 @@ import {
 } from "../assets";
 
 const techs = [
-  // {
-  //   name: "html",
-  //   icon: html,
-  // },
-  // {
-  //   name: "css",
-  //   icon: css,
-  // },
-
-  // {
-  //   name: "typescript",
-  //   icon: typescript,
-  // },
   {
-    name: "reactjs",
-    icon: reactjs,
+    name: "figma",
+    icon: figma,
   },
   {
     name: "javascript",
     icon: javascript,
   },
   {
-    name: "Vercel",
-    icon: vercel,
+    name: "reactjs",
+    icon: reactjs,
   },
   {
     name: "tailwindcss",
     icon: tailwind,
   },
   {
-    name: "python",
-    icon: python,
+    name: "threejs",
+    icon: threejs,
   },
   {
-    name: "fastAPI",
-    icon: fastAPI,
+    name: "Firebase",
+    icon: firebase,
+  },
+  {
+    name: "Vercel",
+    icon: vercel,
+  },
+  {
+    name: "python",
+    icon: python,
   },
   {
     name: "pytorch",
     icon: pytorch,
   },
   {
-    name: "numpy",
-    icon: numpy,
-  },
-  {
-    name: "sklearn",
-    icon: sklearn,
-  },
-  // {
-  //   name: "nodejs",
-  //   icon: nodejs,
-  // },
-  {
-    name: "Firebase",
-    icon: firebase,
-  },
-  {
-    name: "threejs",
-    icon: threejs,
+    name: "fastAPI",
+    icon: fastAPI,
   },
   {
     name: "git",
     icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
   },
   {
     name: "docker",
