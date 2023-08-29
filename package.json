@@ -13,10 +13,13 @@
     "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@kitware/vtk.js": "^28.7.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
     "autoprefixer": "^10.4.14",
     "axios": "^1.4.0",
+    "class-variance-authority": "^0.7.0",
     "firebase": "^10.2.0",
     "formik": "^2.4.3",
     "framer-motion": "^10.16.1",
@@ -38,6 +41,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.5.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

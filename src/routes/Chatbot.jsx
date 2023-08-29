@@ -145,6 +145,7 @@ const ChatBot = () => {
                                 })}
                             </MessageList>
                             <MessageInput
+                                className="bg-slate-600"
                                 placeholder="Type message here"
                                 onSend={generateChat}
                                 attachButton={false}

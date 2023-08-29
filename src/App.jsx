@@ -12,7 +12,12 @@ import Chatbot from "./routes/Chatbot";
 import { MessageSquare, X } from "lucide-react";
 import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
+<<<<<<< HEAD
 import ChatBot from "./routes/Chatbot";
+=======
+import { ThemeProvider } from "@/components/ThemeProvider"
+// import { ModeToggle } from "./components/ModeToggle";
+>>>>>>> 95709055508dfbae9b633df37050d1b432c597a7
 
 
 function App() {
@@ -31,28 +36,34 @@ function App() {
   }, []);
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      {/* <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem> */}
 
-        <Route path="/faq" element={<Faq />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/start" element={<Start />} />
+          <Route path="/faq" element={<Faq />} />
 
-        <Route path="/about" element={<About />} />
+          <Route path="/start" element={<Start />} />
 
-        <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
 
-        <Route path="/contact" element={<Contact />} />
+          <Route path="/sign-up" element={<SignUp />} />
 
-        <Route path="/chatbot" element={<Chatbot />} />
-      </Routes>
-      {user ? (
-        <NavigateToChatbotButton />
-      ) : (
-        <></>
-      )}
+          <Route path="/contact" element={<Contact />} />
+
+          <Route path="/chatbot" element={<Chatbot />} />
+        </Routes>
+        {user ? (
+          <>
+            <NavigateToChatbotButton />
+            
+          </>
+        ) : (
+          <></>
+        )}
+      {/* </ThemeProvider> */}
     </Router>
   );
 }
