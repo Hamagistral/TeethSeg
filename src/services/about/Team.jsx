@@ -11,7 +11,7 @@ function Team() {
           <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {team.map((person) => (
                 <div key={person.name} className="text-center text-md text-slate-300">
-                    <img className="mx-auto mb-4 w-36 h-36 rounded-full" src={person.image} alt="img" />
+                    <img className="mx-auto mb-4 w-36 h-36 rounded-full border border-slate-900" src={person.image} alt="img" />
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-white">
                         {person.name}
                     </h3>

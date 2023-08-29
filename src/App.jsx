@@ -32,7 +32,7 @@ function App() {
   }, []);
   return (
     <Router>
-      {/* <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem> */}
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme" enableSystem>
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -59,7 +59,7 @@ function App() {
         ) : (
           <></>
         )}
-      {/* </ThemeProvider> */}
+      </ThemeProvider>
     </Router>
   );
 }
