@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "jsx": "react"
+    // "forceConsistentCasingInFileNames": true,
+    // "strict": true
+  }
+}

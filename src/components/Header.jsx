@@ -3,12 +3,13 @@ import Logo from "../services/header/Logo";
 import Sign from "../services/header/Sign";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { ModeToggle } from "./ModeToggle";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:px-72 bg-slate-900 text-center">
+    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:pl-56 bg-slate-900 text-center">
       <div className="header fixed-top flex-box justify-between w-full py-2 bg-slate-900 text-center">
         <Logo />
         <div className="hidden lg:block">
@@ -17,6 +18,9 @@ function Header() {
         <div className="hidden lg:block">
           <Sign />
         </div>
+        <ModeToggle
+          // className="fixed bottom-0 left-0 p-5 z-100" 
+          />
         <div
           className="text-white border p-2 rounded-md hover:text-slate-900 hover:bg-white cursor-pointer block lg:hidden"
           onClick={() => {
