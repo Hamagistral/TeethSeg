@@ -16,7 +16,7 @@ const ChatBot = () => {
     const [typing, setTyping] = useState(false);
     const [messages, setMessages] = useState([
         {
-            message: "👋 Hi, I am TeethSegBot, How can I help you?",
+            message: "👋🏻 Hi, I am TeethSegBot! How can I help you?",
             sentTime: "just now",
             sender: "ChatGPT",
             role: "system"
@@ -109,9 +109,14 @@ const ChatBot = () => {
 
     return (
         <div className="bg-white fixed bottom-4 right-4 w-80 border-4 border-white rounded-lg shadow-lg mb-20">
-            <div className="h-16 flex items-center justify-center text-center text-white bg-blue-500 rounded-lg ">
-                <Bot className="text-white" size={28}/>
-                <h2 className="text-white px-2 font-bold text-xl">TeethSeg<span className="font-normal">Bot</span></h2>
+            <div className="h-24 py-5 text-center text-white bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg ">
+                <div className="flex items-center justify-center t">
+                   <Bot className="text-white" size={28}/>
+                    <h2 className="text-white px-2 font-bold text-xl">TeethSeg<span className="font-normal">Bot</span></h2> 
+                </div>
+                <div>
+                    <p className="text-muted pt-2 ">Do you have any questions?</p>
+                </div>
             </div>
             <div className="h-96 overflow-y-auto mb-4 mt-2">
                     <MainContainer
@@ -146,7 +151,7 @@ const ChatBot = () => {
                             </MessageList>
                             <MessageInput
                                 className="bg-slate-600"
-                                placeholder="Type message here"
+                                placeholder="Your message here..."
                                 onSend={generateChat}
                                 attachButton={false}
                             />
