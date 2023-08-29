@@ -18,7 +18,7 @@ const Faq = () => {
           className={`faq-btn flex w-full text-left`}
           onClick={() => handleToggle()}
         >
-          <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-primary bg-opacity-5 text-primary">
+          <div className="mr-5 flex h-10 w-full max-w-[40px] items-center justify-center rounded-lg bg-opacity-5 text-white">
             <svg
               className={`duration-200 ease-in-out fill-primary stroke-primary ${active ? "rotate-180" : ""
                 }`}
@@ -53,7 +53,7 @@ const Faq = () => {
   return (
     <>
       <Header />
-      <div className="relative z-20 overflow-hidden bg-slate-800 p-16">
+      <div className="relative z-10 overflow-hidden bg-slate-800 p-16">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
