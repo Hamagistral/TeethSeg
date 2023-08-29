@@ -1,6 +1,6 @@
 import "./styles/App.css";
 
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import Faq from "./routes/FAQ";
 import Start from "./routes/Start";
