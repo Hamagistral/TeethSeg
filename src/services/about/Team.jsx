@@ -8,22 +8,22 @@ function Team() {
           <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
             <h2 className="mb-24 text-4xl tracking-tight font-bold text-white">Our team</h2>
           </div> 
-          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
               {team.map((person) => (
                 <div key={person.name} className="text-center text-md text-slate-300">
-                    <img className="mx-auto mb-4 w-36 h-36 rounded-full border border-slate-900" src={person.image} alt="img" />
+                    <img className="mx-auto mb-4 w-36 h-36 rounded-full border-2 border-blue-400/75" src={person.image} alt="img" />
                     <h3 className="mb-1 text-2xl font-bold tracking-tight text-white">
                         {person.name}
                     </h3>
                     <p className="py-2">{person.job}</p>
                     <ul className="flex justify-center mt-4 space-x-4">
                         <li>
-                            <a href={person.github} className="text-[#f1f1f1] hover:text-blue-500">
+                            <a href={person.github} className="text-white hover:text-blue-500">
                                 <Github />
                             </a>
                         </li>
                         <li>
-                            <a href={person.linkedIn} className="text-[#3e66d3] hover:text-white">
+                            <a href={person.linkedIn} className="text-blue-500 hover:text-white">
                                 <Linkedin />
                             </a>
                         </li>
