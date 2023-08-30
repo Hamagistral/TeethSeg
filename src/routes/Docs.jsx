@@ -131,7 +131,7 @@ function Docs() {
                                 </p>
                             </div>
 
-                            <h3 className="text-3xl font-bold mt-8 ml-4">IV. Configuation</h3>
+                            <h3 className="text-3xl font-bold mt-8 ml-4">IV. Configuration</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
                                 <p><strong>API Configuration:</strong>
                                 <br />
