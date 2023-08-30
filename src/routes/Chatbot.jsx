@@ -111,7 +111,7 @@ const ChatBot = () => {
           </h2>
         </div>
         <div>
-          <p className="text-muted pt-2 ">Do you have any questions?</p>
+          <p className="text-blue-100 pt-2">Do you have any questions?</p>
         </div>
       </div>
       <div className="h-96 overflow-y-auto mb-4 mt-2">

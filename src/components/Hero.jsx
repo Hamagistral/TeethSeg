@@ -30,13 +30,13 @@ function Hero() {
             <div className="bg-slate-800">
                 <div className="grid max-w-screen-xl py-8 mb-12 px-4 lg:px-0 flex-box flex-row md:flex-col mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
                     <div className="mr-auto place-self-center lg:col-span-7">
-                        <h1 className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent text-5xl pb-6 font-extrabold sm:text-5xl">
+                        <h1 className="bg-gradient-to-r from-blue-400 to-green-500 bg-clip-text text-transparent text-5xl pb-6 font-extrabold sm:text-5xl">
                             TeethSeg
                         </h1>
                         <p className="max-w-2xl mb-6 font-light pb-3 text-slate-300 lg:mb-8 md:text-lg lg:text-xl">
                             Say goodbye to manual teeth segmentation! Our AI-powered technology ensures precise and efficient dental care. Join the revolution and experience the future of oral health with TeethSeg.
                         </p>
-                        <h2 className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-2xl pb-6 font-bold text-transparent lg:text-2xl">
+                        <h2 className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent text-2xl pb-6 font-bold  lg:text-2xl">
                             <TypewriterComponent
                                 options={{
                                 strings: [

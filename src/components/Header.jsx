@@ -9,7 +9,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:pl-56 text-center bg-background text-foreground">
+    <div className="header flex-box lg:h-full h-24 justify-between w-full px-8 lg:px-72 text-center bg-background text-foreground">
       <div className="header fixed-top flex-box justify-between w-full py-2 bg-background text-foreground text-center">
         <Logo />
         <div className="hidden lg:block">

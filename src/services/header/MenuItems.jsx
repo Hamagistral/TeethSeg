@@ -1,4 +1,4 @@
-import { Contact, HelpCircle, Home, Info, Play } from "lucide-react";
+import { Contact, FileText, Home, Info, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
@@ -23,16 +23,16 @@ function MenuItems() {
 
 	return (
 		<div className="flex p-5 sm:flex-row flex-col">
-			<div onClick={() => navigate("/")} className={cn("menu-item", location.pathname === '/' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div onClick={() => navigate("/")} className={cn("menu-item transition ease-linear", location.pathname === '/' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
 				<Home />
 				<span className="px-2">Home</span>
 			</div>
-			<div onClick={() => navigate("/faq")} className={cn("menu-item", location.pathname === '/faq' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
-				<HelpCircle />
-				<span className="px-2">FAQ</span>
+			<div onClick={() => navigate("/docs")} className={cn("menu-item transition ease-linear", location.pathname === '/docs' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+				<FileText/>
+				<span className="px-2">Docs</span>
 			</div>
 			{ user ? (
-				<div onClick={() => navigate("/start")} className={cn("menu-item", location.pathname === '/start' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+				<div onClick={() => navigate("/start")} className={cn("menu-item transition ease-linear", location.pathname === '/start' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
 					<Play />
 					<span className="px-2">Start</span>
 				</div>
@@ -40,11 +40,11 @@ function MenuItems() {
 				<></>
 			)}
 
-			<div onClick={() => navigate("/about")} className={cn("menu-item", location.pathname === '/about' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div onClick={() => navigate("/about")} className={cn("menu-item transition ease-linear", location.pathname === '/about' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
 				<Info />
 				<span className="px-2">About</span>
 			</div>
-			<div onClick={() => navigate("/contact")} className={cn("menu-item", location.pathname === '/contact' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div onClick={() => navigate("/contact")} className={cn("menu-item transition ease-linear", location.pathname === '/contact' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
 				<Contact />
 				<span className="px-2">Contact</span>
 			</div>
