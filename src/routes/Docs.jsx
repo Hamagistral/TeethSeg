@@ -28,7 +28,7 @@ function Docs() {
     return (
         <div className="flex-box flex-col">
         <Header />
-        <div className="text-white h-full w-full py-10 scroll-smooth bg-slate-800">
+        <div className="text-white h-full w-full py-10 scroll-smooth bg-primary-background">
             <div>
                 <div className="text-center flex-box flex-col md:flex-row gap-12 w-full">
                     <button
@@ -55,7 +55,7 @@ function Docs() {
             <div className="lg:px-72 px-4">
                 {frontend && 
                     <>  
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row justify-between">
                             <div className="flex mt-12 ml-2">
                                 <AppWindow className="mr-4 text-blue-500" size={42}/>
                                 <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
@@ -66,7 +66,7 @@ function Docs() {
                                     onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
                                     className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl " : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
                                 >
-                                    <div className="flex items-center whitespace-nowrap">
+                                    <div className="flex items-center">
                                         <Download className="mx-2" />
                                         {loading ? "Downloading the file..." : "Download as PDF"}
                                     </div>
@@ -75,9 +75,9 @@ function Docs() {
                         </div>
                         
 
-                        <div className="mt-12">
+                        <div className="mt-12 text-primary">
                             <h3 className="text-3xl font-bold ml-4">I. Front End Description</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>
                                 TeethSeg is a web application built using Vite with ReactJS and 3D libraries like Three.js and VTK.js. It utilizes the MeshSegNet deep learning model for 3D tooth segmentation. Users can create an account, sign in with Google or Github, and access the segmentation tools in the <a className="text-blue-500 hover:text-blue-400" href="/start">Start</a> page. The application provides two primary features:<br/><br/>
                                 </p>
@@ -91,7 +91,7 @@ function Docs() {
                             
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">II. Directory Structure</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>
                                 The front end directory includes the following elements:
                                 </p>
@@ -128,7 +128,7 @@ function Docs() {
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">III. Installation</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>
                                 To install the application, clone the project repository using the following command:
 
@@ -192,7 +192,7 @@ function Docs() {
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">IV. Configuration</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p><strong>API Configuration:</strong>
                                 <br />
                                 <br />
@@ -217,7 +217,7 @@ function Docs() {
 
                 {backend && 
                     <>
-                        <div className="flex justify-between">
+                        <div className="flex flex-col md:flex-row justify-between">
                             <div className="flex mt-12 ml-2">
                                 <Database className="mr-4 text-blue-500" size={42}/>
                                 <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
@@ -238,9 +238,9 @@ function Docs() {
                         </div>
                         
 
-                        <div className="mt-12">
+                        <div className="mt-12 text-primary">
                             <h3 className="text-3xl font-bold mt-8 ml-4">I. Back End Structure</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>
                                 The backend of TeethSeg is a RESTful API developed using Python FastAPI, ensuring robust functionality and reliability. For deployment we used the AWS Cloud using the Amazon Elastic Container Registry (ECR), Lambda and API Gateway services. Here's the architecture of the backend in the AWS Cloud.
                                 </p>
@@ -251,7 +251,7 @@ function Docs() {
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">II. Project Structure</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 .<br />
                                 ├── <strong>model/ :</strong> Stores pre-trained MeshSegNet models.<br />
                                 ├── <strong>temp/ :</strong> Temporary file storage during processing.<br />
@@ -272,7 +272,7 @@ function Docs() {
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">IV. Installation</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>To set up and run the backend locally:
                                 <br />
                                 <br />
@@ -382,7 +382,7 @@ function Docs() {
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">V. API Endpoints</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
+                            <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>Here's the available endpoints and the methods to call them:
                                     <br />
                                     <br />
@@ -390,9 +390,9 @@ function Docs() {
                                     - <strong>POST "/api/v1/predict":</strong> Without post-proccessing (this will not give a good result)<br />
                                     - <strong>POST "/api/v1/predict/post_processing":</strong> With post-proccessing (The segmentation with post proccessing is more precise) <br />
                                     <br />
-                                    Go to <strong>http://localhost:8000/</strong> if you see a message like  <code className="rounded-lg p-1 bg-slate-900">"message": "Hi 3DSF Interns!"</code> everything is working correctly.
+                                    Go to <strong>http://localhost:8000/</strong> if you see a message like  <code className="rounded-lg p-1 bg-slate-900 text-white">"message": "TeethSeg MeshSegNet API by 3DSF Interns! Route possible: "/api/v1/predict/post_processing" Prediction with post-processing."</code> everything is working correctly.
                                 </p>
-                                <p className="text-red-400 mt-4">
+                                <p className="text-red-500 mt-4">
                                     Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method.
                                 </p>
                             </div>

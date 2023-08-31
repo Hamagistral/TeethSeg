@@ -18,9 +18,9 @@ function Header() {
         <div className="hidden lg:block">
           <Sign />
         </div>
-        {/* <div className="z-100">
+        <div className="z-100">
           <ModeToggle />
-        </div> */}
+        </div>
         <div
           className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden z-10"
           onClick={() => {

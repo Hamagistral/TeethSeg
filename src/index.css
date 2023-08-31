@@ -83,7 +83,7 @@
 		--border: 186, 94%, 82%;
 		--input: 213, 97%, 87%;
 
-		--primary: 229, 84%, 5%; /* text-slate-950 */
+		--primary: 222 47% 11%; /* text-slate-900 */
 		--primary-foreground: 217 33% 17%;
 		--primary-background: 214 32% 91%;
 
@@ -102,9 +102,9 @@
 
 	.dark {
 		/* --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%; */
+    	--foreground: 210 40% 98%; */
 		--background: 222.222 47% 11%;
-		--foreground: 213 31% 91%;
+		--foreground: 210 40% 98%;
 
 		--muted: 222.222 47% 11%;
 		--muted-foreground: 0, 0%, 100%;

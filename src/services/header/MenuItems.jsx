@@ -28,8 +28,8 @@ function MenuItems() {
 				className={cn(
 					"menu-item",
 					location.pathname === "/"
-						? "bg-foreground text-background  hover:bg-background hover:text-foreground font-semibold"
-						: "hover:bg-foreground"
+						? "bg-foreground text-background hover:bg-foreground hover:text-background font-semibold"
+						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 				)}
 			>
 				<Home />
@@ -40,7 +40,7 @@ function MenuItems() {
 				className={cn(
 					"menu-item",
 					location.pathname === "/docs"
-						? "bg-foreground text-background font-semibold hover:text-foreground"
+						? "bg-foreground text-background font-semibold hover:bg-foreground hover:text-background"
 						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 				)}
 			>
@@ -53,7 +53,7 @@ function MenuItems() {
 					className={cn(
 						"menu-item",
 						location.pathname === "/start"
-							? "bg-foreground text-background hover:text-foreground font-semibold"
+							? "bg-foreground text-background hover:bg-foreground hover:text-background font-semibold"
 							: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 					)}
 				>
@@ -69,7 +69,7 @@ function MenuItems() {
 				className={cn(
 					"menu-item",
 					location.pathname === "/about"
-						? "bg-foreground text-background hover:text-foreground font-semibold"
+						? "bg-foreground text-background hover:bg-foreground hover:text-background font-semibold"
 						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 				)}
 			>
@@ -81,7 +81,7 @@ function MenuItems() {
 				className={cn(
 					"menu-item",
 					location.pathname === "/contact"
-						? "bg-foreground text-background hover:text-foreground font-semibold"
+						? "bg-foreground text-background hover:bg-foreground hover:text-background font-semibold"
 						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 				)}
 			>

@@ -6,9 +6,11 @@ import { loadVTP } from "../helpers/helpers";
 import TypewriterComponent from "typewriter-effect";
 import { getAuth } from "firebase/auth";
 
-function Hero() {
-	const navigate = useNavigate();
+import {useTheme} from './ThemeProvider'
 
+function Hero(){
+	const navigate = useNavigate();
+    const currentTheme = useTheme()
 	const auth = getAuth();
 	const user = auth.currentUser;
 
@@ -21,8 +23,13 @@ function Hero() {
 	};
 
 	useEffect(() => {
-		loadVTP("/TeethsSegmented.vtp", "MaterialIds");
-	}, []);
+
+        if(currentTheme.theme == "light"){
+            loadVTP("/TeethsSegmented.vtp", "Label", [0.903, 0.904, 0.918]);
+        }else{
+            loadVTP("/TeethsSegmented.vtp", "Label", [0.118, 0.161, 0.231]);
+        }
+	}, [currentTheme]);
 
 	return (
 		<>
@@ -95,7 +102,7 @@ function Hero() {
 						</h2>
 						<iframe
 							height="720"
-							src="https://www.youtube.com/embed/ygl0PdDj93c?si=D9ZbKvrsY04N08MP"
+							src="https://www.youtube.com/embed/zOI1ZxMHlhk?si=D9ZbKvrsY04N08MP"
 							title="Demo TeethSeg"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen

@@ -42,7 +42,7 @@ function Sign() {
 					onClick={() => navigate("/sign-in")}
 					className="flex-box w-40 h-12 cursor-pointer uppercase text-center"
 				>
-					<div className="px-6 py-3 transition ease-linear   bg-opacity-25 rounded-lg justify-start items-start gap-2.5 inline-flex hover:bg-foreground hover:text-background text-foreground bg-background">
+					<div className="px-6 py-3 transition ease-linear  bg-opacity-25 rounded-lg justify-start items-start gap-2.5 inline-flex hover:bg-foreground hover:text-background text-background bg-foreground/90">
 						<div className="flex-box text-base font-semibold leading-tight">
 							Sign In &nbsp;
 							<LogIn />

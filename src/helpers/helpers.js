@@ -5,7 +5,7 @@ import vtkMapper from "@kitware/vtk.js/Rendering/Core/Mapper";
 import vtkActor from "@kitware/vtk.js/Rendering/Core/Actor";
 import vtkColorTransferFunction from "@kitware/vtk.js/Rendering/Core/ColorTransferFunction";
 
-export const loadVTP = (objData) => {
+export const loadVTP = (objData, label, colorArray) => {
 	const container = document.querySelector("#teeth-segmented");
 	
 	// Remove any previous rendering if it exists
@@ -14,7 +14,7 @@ export const loadVTP = (objData) => {
 	}
 	const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
 		container: container,
-		background: [0.1176, 0.1607, 0.2313],
+		background: colorArray,
 	});
 
 	// Create a VTP reader
@@ -27,7 +27,7 @@ export const loadVTP = (objData) => {
 		const vtpOutput = reader.getOutputData();
 
 		// Get the materialid array from the VTP data
-		const materialidArray = vtpOutput.getCellData().getArrayByName("Label");
+		const materialidArray = vtpOutput.getCellData().getArrayByName(label);
 
 		// Map scalar array through the lookup table
 		materialidArray.setName("Scalars"); // Make sure the array has a name
