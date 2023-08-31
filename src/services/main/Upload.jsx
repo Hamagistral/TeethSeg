@@ -17,6 +17,7 @@ import vtkActor from "@kitware/vtk.js/Rendering/Core/Actor";
 import vtkAxesActor from "@kitware/vtk.js/Rendering/Core/AxesActor";
 import vtkOrientationMarkerWidget from "@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget";
 import vtkScalarBarActor from "@kitware/vtk.js/Rendering/Core/ScalarBarActor";
+
 import ThreeDRenderer from "./../../components/ThreeRenderer";
 import { FileUploader } from "react-drag-drop-files";
 
