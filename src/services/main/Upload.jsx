@@ -17,6 +17,7 @@ import vtkActor from "@kitware/vtk.js/Rendering/Core/Actor";
 import vtkAxesActor from "@kitware/vtk.js/Rendering/Core/AxesActor";
 import vtkOrientationMarkerWidget from "@kitware/vtk.js/Interaction/Widgets/OrientationMarkerWidget";
 import vtkScalarBarActor from "@kitware/vtk.js/Rendering/Core/ScalarBarActor";
+
 import ThreeDRenderer from "./../../components/ThreeRenderer";
 import { FileUploader } from "react-drag-drop-files";
 
@@ -39,7 +40,8 @@ function VTKViewer() {
 			setIsLoading(true);
 			const formData = new FormData(event.target);
 			const response = await fetch(
-				"http://localhost:8000/api/v1/predict/post_processing",
+				// "http://localhost:8000/api/v1/predict/post_processing", LOCAL SERVER
+				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing",
 				{
 					method: "POST",
 					body: formData,

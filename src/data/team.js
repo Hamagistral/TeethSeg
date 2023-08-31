@@ -14,14 +14,14 @@ const team = [
     github: "http://github.com/mohamed2020m",
   },
   {
-    name: "Hamza ElBelghiti",
+    name: "Hamza El Belghiti",
     job: "Data Science & Engineering Student (FSR)",
     image: "team/belghiti.jpg",
     linkedIn: "http://linkedin.com/in/hamza-elbelghiti",
     github: "http://github.com/Hamagistral",
   },
   {
-    name: "Tariq ElQessouar",
+    name: "Tariq El Qessouar",
     job: "BD & Cloud Engineering Student (ENSET)",
     image: "team/qessouar.jpg",
     linkedIn: "http://linkedin.com/in/tariqelqessouar",
@@ -33,20 +33,6 @@ const team = [
     image: "team/rochdi.jpg",
     linkedIn: "http://linkedin.com/in/yahya-rochdi-51187b218",
     github: "http://github.com/YahyaRochdi",
-  },
-  {
-    name: "Abdelmajid Habouch",
-    job: "Data Engineering Student (INPT)",
-    image: "team/habouch.jpg",
-    linkedIn: "http://linkedin.com/in/abdelmajid-habouch-a89125212",
-    github: "http://github.com/mjiid",
-  },
-  {
-    name: "Mohamed El Haddioui",
-    job: "BD & Cloud Engineering Student (ENSET)",
-    image: "team/haddioui.jpg",
-    linkedIn: "http://linkedin.com/in/mohamed-el-haddioui-ba8ba8170",
-    github: "http://github.com/MOHAMED-EL-HADDIOUI",
-  },
+  }
 ];
 export default team;

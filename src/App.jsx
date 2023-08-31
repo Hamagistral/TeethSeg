@@ -2,9 +2,9 @@ import "./styles/App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
-import Faq from "./routes/FAQ";
 import Start from "./routes/Start";
 import About from "./routes/About";
+import Docs from "./routes/Docs";
 import SignUp from "./routes/SignUp";
 import SignIn from "./routes/SignIn";
 import Contact from "./routes/Contact";
@@ -13,7 +13,6 @@ import { auth } from "./config/firebase";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "@/components/ThemeProvider"
 import ChatBot from "./routes/Chatbot";
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/faq" element={<Faq />} />
+          <Route path="/docs" element={<Docs />} />
 
           <Route path="/start" element={<Start />} />
 
@@ -72,13 +71,6 @@ function NavigateToChatbotButton() {
 
   return (
     <div
-      // style={{
-      //   position: "fixed",
-      //   bottom: 0,
-      //   right: 0,
-      //   padding: "20px",
-      //   zIndex: 1,
-      // }}
       className="fixed bottom-0 right-0 p-10 z-100"
     >
       <div className="flex justify-end fixed bottom-4 right-4">

@@ -1,28 +1,23 @@
 const faqs = [
   {
-    question: "User-friendly",
+    question: "What is TeethSeg?",
     answer:
-      "Discover the cutting-edge of Teeth segmentation through our radiologist-designed, user-friendly tool. Enjoy streamlined workflows and enhanced precision thanks to our gaming-inspired controls and radiology expertise.",
+      "TeethSeg is a summer 2023 internship project developed for '3D SMART FACTORY' in Morocco. It employs MeshSegNet, a deep learning model, for precise segmentation of 3D teeth models.",
   },
   {
-    question: "3D Segmentation",
+    question: "What technologies power TeethSeg's front end?",
     answer:
-      "TeethSeg offers advanced 3D dental segmentation functionalities This allows users to obtain accurate and detailed results for their three-dimensional dental models.",
+      "TeethSeg's front end is built using Vite, ReactJS, and incorporates libraries like ThreeJS and VTKjs to enhance the 3D visualization experience.",
   },
   {
-    question: "Time-saving",
+    question: "How is the backend of TeethSeg structured?",
     answer:
-      "With TeethSeg, you can save valuable time in you dental workflow. Our automated end-to-end 3D teeth segmentation approach eliminates the need for manual segmentation, which can be time-consuming and prone to errors.",
+      "TeethSeg's backend utilizes a FastAPI-based RESTful API, coded in Python. This API is seamlessly deployed on the AWS Cloud using AWS ECR, Lambda, and API Gateway services.",
   },
   {
-    question: "Continuous Improvement",
+    question: "Can you explain the working principle of MeshSegNet?",
     answer:
-      "At TeethSeg, we are committed to continuous improvement and innovation. We regularly update our algorithms and features to ensure the highest accuracy and efficiency in teeth segmentation. By choosing TeethSeg, you benefit from ongoing advancements in the field, keeping you at the forefront of dental technology.",
-  },
-  {
-    question: "Exceptional Support",
-    answer:
-      "We pride ourselves on providing exceptional customer support. Our team is dedicated to assisting you throughout your TeethSeg experience, addressing any questions or concerns you may have. We value your feedback and strive to deliver a seamless and satisfactory user experience.",
+      "MeshSegNet, the core of TeethSeg, is a deep learning model. It achieves tooth segmentation by analyzing the 3D mesh structure of teeth models, enabling accurate identification and differentiation of different tooth components.",
   },
 ];
 export default faqs;

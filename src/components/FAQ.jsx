@@ -1,5 +1,3 @@
-import Footer from "../components/Footer";
-import Header from "./../components/Header";
 import { useState } from "react";
 import { faqs } from "../data";
 
@@ -59,7 +57,7 @@ const Faq = () => {
 		<>
 			<Header />
 			<div className="relative z-10 overflow-hidden bg-primary-background p-16">
-				<div className="container mx-auto">
+				<div className="container mx-auto mb-24 w-full">
 					<div className="-mx-4 flex flex-wrap">
 						<div className="w-full px-4">
 							<div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">

@@ -13,7 +13,7 @@ const team = [
     },
     {
       name: "Mr. Amine Kassimi",
-      job: "Data, ML & 3D  Engineer",
+      job: "ML & 3D  Engineer",
       image: "supervisors/kassimi.jpg",
      
     },
