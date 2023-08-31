@@ -40,13 +40,13 @@ function VTKViewer() {
 			setIsLoading(true);
 			const formData = new FormData(event.target);
 			const response = await fetch(
-				// "http://localhost:8000/api/v1/predict/post_processing", LOCAL SERVER
-				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing",
+				"http://localhost:8000/api/v1/predict/post_processing", //LOCAL SERVER
+				// "https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing",
 				{
 					method: "POST",
 					body: formData,
 				}
-			).catch((err) => {
+			).catch(() => {
 				setIsLoading(false);
 			});
 
@@ -436,6 +436,7 @@ function VTKViewer() {
 											handleChange={handleVisualize}
 											name="file"
 											types={fileVTPTypes}
+											// eslint-disable-next-line react/no-children-prop
 											children={style}
 										/>
 									</div>
@@ -520,6 +521,7 @@ function VTKViewer() {
 												handleChange={handleChange}
 												name="file"
 												types={fileOBJTypes}
+												// eslint-disable-next-line react/no-children-prop
 												children={style}
 											/>
 										</div>
