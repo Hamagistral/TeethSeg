@@ -76,7 +76,7 @@ function Docs() {
                         
 
                         <div className="mt-12">
-                            <h3 className="text-3xl font-bold ml-4">I. Description</h3>
+                            <h3 className="text-3xl font-bold ml-4">I. Front End Description</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
                                 <p>
                                 TeethSeg is a web application built using Vite with ReactJS and 3D libraries like Three.js and VTK.js. It utilizes the MeshSegNet deep learning model for 3D tooth segmentation. Users can create an account, sign in with Google or Github, and access the segmentation tools in the <a className="text-blue-500 hover:text-blue-400" href="/start">Start</a> page. The application provides two primary features:<br/><br/>
@@ -95,6 +95,34 @@ function Docs() {
                                 <p>
                                 The front end directory includes the following elements:
                                 </p>
+
+                                <div>
+                                    .<br />
+                                    ├───<strong>node_modules/:</strong> Le répertoire où sont stockés les bibliothèques et les modules externes nécessaires pour exécuter et développer votre projet Vite. <br/>
+                                    ├───<strong>public/:</strong> Ce répertoire contient des fichiers statiques qui seront directement accessibles par le navigateur. <br/>
+                                    │   ├───<strong>supervisors/:</strong> Contient les images des encadrants.<br/>
+                                    │   └───<strong>team/:</strong> Contenient les images des membres de notre équipe.<br/>
+                                    └───<strong>src/:</strong> Le répertoire source principal de notre application.<br/>
+                                    │   ├───<strong>assets/:</strong> Les ressources statiques de votre application; images et des polices.<br/>
+                                    │   │   |───<strong>tech/:</strong> Contient des images liées aux technologies utilisées.<br/>
+                                    │   ├───<strong>components/:</strong> Les composants réutilisables de notre application.<br/>
+                                    │   │   ├───<strong>shared/:</strong> Composants partagés à travers toute l'application.<br/>
+                                    │   │   └───<strong>ui/:</strong>/ Composants d'interface utilisateur spécifiques à notre application.<br/>
+                                    │   ├───<strong>config/:</strong> Fichiers de configuration de l'application.<br/>
+                                    │   ├───<strong>data/:</strong> Données statiques ou fichiers JSON utilisés dans notre application.<br/>
+                                    │   ├───<strong>helpers/:</strong> Fonctions utilitaires utilisées dans diverses parties de l'application.<br/>
+                                    │   ├───<strong>lib/:</strong> Bibliothèques ou modules personnalisés utilisés dans l'application.<br/>
+                                    │   ├───<strong>routes/:</strong> Fichiers représentent la structure de routage entre les pages.<br/>
+                                    │   ├───<strong>services/:</strong> Services organisés en fonction des différentes sections de l'app.<br/>
+                                    │   │   ├───<strong>about/:</strong> Sous-dossiers correspondant à la partie de A propos.<br/>
+                                    │   │   ├───<strong>contact/:</strong> Sous-dossiers correspondant à la partie de contact.<br/>
+                                    │   │   ├───<strong>footer/:</strong> Sous-dossiers correspondant à la partie du pied des pages.<br/>
+                                    │   │   ├───<strong>header/:</strong> Sous-dossiers correspondant à la partie d’en-tête des pages.<br/>
+                                    │   │   └───<strong>main/:</strong> Sous-dossiers correspondant à la partie des fonctionnalités.<br/>
+                                    │   └───<strong>styles/:</strong> Fichiers CSS ou préprocesseurs pour la mise en forme.<br/>
+                                    └── <strong>.gitignore:</strong> Les fichiers et dossiers qu'on ignore lors du push sur Github.<br/>
+                                    └── <strong>.env:</strong> Stores environment variables.<br/>
+                                </div>
 
                                 <img className="rounded-lg mt-4 w-full h-full" src="./frontend-directory.PNG"/>
                             </div>

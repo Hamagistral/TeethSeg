@@ -65,7 +65,7 @@ const Faq = () => {
 								<span className="mb-2 block text-xl font-semibold bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent">
 									FAQs
 								</span>
-								<h2 className="text-slate-100 text-3xl font-bold sm:text-5xl pb-14">
+								<h2 className="text-primary text-3xl font-bold sm:text-5xl pb-14">
 									Any Questions ?
 								</h2>
 							</div>
