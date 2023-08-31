@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { faqs } from "../data";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Faq = () => {
 	const AccordionItem = ({ header, text }) => {
