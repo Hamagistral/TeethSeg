@@ -315,7 +315,7 @@ function VTKViewer() {
 	return (
 		<>
 			<div
-				className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${
+				className={`w-full h-screen scroll-smooth bg-primary-background mt-4 ${
 					!isLoading &&
 					!isPredicted &&
 					!file &&
@@ -344,7 +344,7 @@ function VTKViewer() {
 					</button>
 				</div>
 				<div className="text-center flex-box flex-col">
-					<div className="text-white p-12 text-3xl font-semibold text-center">
+					<div className="text-primary p-12 text-3xl font-semibold text-center">
 						Please choose an option to Start
 					</div>
 					<div>
@@ -376,7 +376,7 @@ function VTKViewer() {
 
 			{visualize && (
 				<div
-					className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${
+					className={`w-full h-screen scroll-smooth bg-primary-background mt-4 ${
 						!isLoading && !isPredicted && !file ? "block" : "hidden"
 					}`}
 				>
@@ -422,7 +422,7 @@ function VTKViewer() {
 						</button>
 					</div>
 					<div className="text-center flex-box flex-col">
-						<div className="text-white p-12 text-3xl font-semibold text-center">
+						<div className="text-primary p-12 text-3xl font-semibold text-center">
 							Please choose a file to start the Visualization
 						</div>
 						<div>
@@ -454,7 +454,7 @@ function VTKViewer() {
 
 			{segment && (
 				<div
-					className={`w-full h-screen scroll-smooth bg-slate-800 mt-4 ${
+					className={`w-full h-screen scroll-smooth bg-primary-background mt-4 ${
 						!isLoading && !isPredicted && !file ? "block" : "hidden"
 					}`}
 				>
@@ -500,7 +500,7 @@ function VTKViewer() {
 						</button>
 					</div>
 					<div className="text-center flex-box flex-col">
-						<div className="text-white p-12 text-3xl font-semibold text-center">
+						<div className="text-primary p-12 text-3xl font-semibold text-center">
 							Please choose a file to start the Segmentation
 						</div>
 						<div>
@@ -538,7 +538,7 @@ function VTKViewer() {
 			)}
 
 			{file && visualize && (
-				<div className="w-full h-screen scroll-smooth bg-slate-800 mt-2">
+				<div className="w-full h-screen scroll-smooth bg-primary-background mt-2">
 					<div className="p-3 m-4 flex justify-between max-h-20">
 						<button
 							className="bg-slate-100 font-semibold text-slate-800 py-4 px-2 md:px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear"
@@ -583,7 +583,7 @@ function VTKViewer() {
 						</button>
 					</div>
 
-					<div className="text-white p-4 text-3xl font-semibold text-center">
+					<div className="text-primary p-4 text-3xl font-semibold text-center">
 						Your uploaded VTP File:
 					</div>
 
@@ -592,7 +592,7 @@ function VTKViewer() {
 			)}
 
 			{file && segment && (
-				<div className="w-full h-screen scroll-smooth bg-slate-800 mt-2">
+				<div className="w-full h-screen scroll-smooth bg-primary-background mt-2">
 					<div className="p-3 m-4 flex justify-between max-h-20">
 						<button
 							className="bg-slate-100 font-semibold text-slate-800 py-4 px-2 md:px-4 hover:bg-slate-600 hover:text-white rounded-lg transition ease-linear"
@@ -655,13 +655,13 @@ function VTKViewer() {
 
 			{/* Loading Section */}
 			{isLoading ? (
-				<div className="p-8 w-full h-screen flex-box bg-slate-800">
+				<div className="p-8 w-full h-screen flex-box bg-primary-background">
 					<div className="flex flex-col items-center">
 						<div>
 							<HashLoader color="#36d7b7" />
 						</div>
 						<div>
-							<p className="text-md font-medium text-slate-100 pt-8">
+							<p className="text-md font-medium text-primary pt-8">
 								TeethSeg is segmenting...
 							</p>
 						</div>
@@ -673,7 +673,7 @@ function VTKViewer() {
 			<div
 				className={`${
 					isPredicted ? "block" : "hidden"
-				} w-full scroll-smooth bg-slate-800`}
+				} w-full scroll-smooth bg-primary-background`}
 			>
 				<div className="p-3 m-4 flex justify-between h-20">
 					<button
@@ -707,7 +707,7 @@ function VTKViewer() {
 					</button>
 				</div>
 
-				<div className="text-white text-3xl font-semibold text-center pt-2 pb-8">
+				<div className="text-primary text-3xl font-semibold text-center pt-2 pb-8">
 					Predicted Segmentation:
 				</div>
 			</div>
