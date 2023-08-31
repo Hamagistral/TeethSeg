@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { faqs } from "../data";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 
 const Faq = () => {
 	const AccordionItem = ({ header, text }) => {
@@ -57,7 +56,7 @@ const Faq = () => {
 
 	return (
 		<>
-			<Header />
+			
 			<div className="relative z-10 overflow-hidden bg-primary-background p-16">
 				<div className="container mx-auto mb-24 w-full">
 					<div className="-mx-4 flex flex-wrap">
@@ -128,7 +127,7 @@ const Faq = () => {
 					</svg>
 				</div>
 			</div>
-			<Footer />
+			
 		</>
 	);
 };
