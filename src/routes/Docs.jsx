@@ -42,7 +42,7 @@ function Docs() {
                     </button>
                     <button
                         onClick={() => {setFrontend(false); setBackend(true);}}
-                        className={cn("bg-slate-900 font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                        className={cn("bg-slate-900 font-semibold py-4 px-8 hover:bg-background hover:text-primary leading-tight rounded-lg transition ease-linear", backend ? "bg-white text-slate-900 hover:bg-white" : "")}
                     >
                         <div className="flex items-center whitespace-nowrap">
                             <Database className="mx-2" />
@@ -61,7 +61,7 @@ function Docs() {
                                 <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
                             </div>
                             
-                            <div className="flex justify-center mt-12 grow">
+                            <div className="flex justify-between flex-col mt-12">
                                 <button
                                     onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
                                     className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl " : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
@@ -224,7 +224,7 @@ function Docs() {
                             </div>
                             
                             
-                            <div className="flex justify-center mt-12 grow">
+                            <div className="flex justify-between flex-col mt-12">
                                 <button
                                     onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
                                     className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
