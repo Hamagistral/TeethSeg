@@ -14,7 +14,7 @@ export const loadVTP = (objData) => {
 	}
 	const vtkRenderScreen = vtkFullScreenRenderWindow.newInstance({
 		container: container,
-		background: [0.118, 0.161, 0.231],
+		background: [0.1176, 0.1607, 0.2313],
 	});
 
 	// Create a VTP reader

@@ -29,7 +29,7 @@ function MenuItems() {
 					"menu-item",
 					location.pathname === "/"
 						? "bg-foreground text-background  hover:bg-background hover:text-foreground font-semibold"
-						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+						: "hover:bg-foreground"
 				)}
 			>
 				<Home />
