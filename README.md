@@ -1,18 +1,5 @@
-# TeethSeg
+## Deploying TeethSeg App on AWS
 
-Welcome to TeethSeg Web App! 
+If you want to deploy the TeethSeg App using AWS, please ensure you use the `aws_lambda` branch.
 
-![app_image](app_secreen.png)
-
-## Demo
-
-Watch our demo of TeethSeg web App
-
-## Frontend 
-
-You'll find source code of our Frontend in `Fronted Branch`
-
-## Backend
-
-You'll find source code of our backend in `Backend Branch`
 
