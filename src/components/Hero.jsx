@@ -79,20 +79,22 @@ function Hero() {
                 </div>
             </div>
 
-            <div id="demo" className="bg-slate-800 w-full pt-12">
+            <div id="demo" className="bg-slate-800 w-full h-screen pt-12">
                 <div className="mx-auto max-w-screen-xl px-4 py-24 lg:flex lg:h-screen lg:items-center">
                     <div className="mx-auto text-center w-full">
                         <h2 className="bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl pb-14">
                             Demo
                         </h2>
-                        <iframe
-                            height="720"
-                            src="https://www.youtube.com/embed/ygl0PdDj93c?si=D9ZbKvrsY04N08MP"
-                            title="Demo TeethSeg"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="lg:w-content w-full rounded-lg max-h-72 lg:max-h-screen shadow-lg shadow-teal-400/50 "
-                        ></iframe>
+                        <div className="flex" style={{marginBottom: "100px"}}>
+                            <iframe
+                                style={{zIndex:1}} 
+                                src="https://www.youtube.com/embed/zOI1ZxMHlhk"
+                                title="Demo TeethSeg"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                className="z-1000 lg:w-content w-full h-screen rounded-lg max-h-72 lg:max-h-screen shadow-lg shadow-teal-400/50 "
+                            ></iframe>
+                        </div>
                     </div>
                 </div>
             </div>

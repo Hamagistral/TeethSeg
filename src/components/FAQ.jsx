@@ -50,8 +50,8 @@ const Faq = () => {
 
   return (
     <>
-      <div className="relative z-10 overflow-hidden bg-slate-800 px-2 lg:px-72">
-        <div className="container mx-auto mb-24">
+      <div className="relative z-10 overflow-hidden bg-slate-800 px-2 lg:px-72 w-full">
+        <div className="container mx-auto mb-24 w-full">
           <div className="mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
