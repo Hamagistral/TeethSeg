@@ -1,4 +1,4 @@
-import { Contact, FileText, Home, Info, Play, HelpCircle } from "lucide-react";
+import { Contact, FileText, Home, Info, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
@@ -36,16 +36,16 @@ function MenuItems() {
 				<span className="px-2">Home</span>
 			</div>
 			<div
-				onClick={() => navigate("/faq")}
+				onClick={() => navigate("/docs")}
 				className={cn(
 					"menu-item",
-					location.pathname === "/faq"
+					location.pathname === "/docs"
 						? "bg-foreground text-background font-semibold hover:text-foreground"
 						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
 				)}
 			>
-				<HelpCircle />
-				<span className="px-2">FAQ</span>
+				<FileText />
+				<span className="px-2">Docs</span>
 			</div>
 			{user ? (
 				<div
