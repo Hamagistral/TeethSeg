@@ -54,11 +54,26 @@ function Docs() {
 
             <div className="lg:px-72 px-4">
                 {frontend && 
-                    <>
-                        <div className="flex mt-12 ml-2">
-                            <AppWindow className="mr-4 text-blue-500" size={42}/>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
+                    <>  
+                        <div className="flex justify-between">
+                            <div className="flex mt-12 ml-2">
+                                <AppWindow className="mr-4 text-blue-500" size={42}/>
+                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
+                            </div>
+                            
+                            <div className="flex justify-center mt-12">
+                                <button
+                                    onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
+                                    className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl " : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                >
+                                    <div className="flex items-center whitespace-nowrap">
+                                        <Download className="mx-2" />
+                                        {loading ? "Downloading the file..." : "Download as PDF"}
+                                    </div>
+                                </button>
+                            </div>
                         </div>
+                        
 
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold ml-4">I. Description</h3>
@@ -168,10 +183,23 @@ function Docs() {
                                 </p>
                             </div>
 
-                            <div className="flex justify-center my-6">
+                        </div>
+                    </>
+                }
+
+                {backend && 
+                    <>
+                        <div className="flex justify-between">
+                            <div className="flex mt-12 ml-2">
+                                <Database className="mr-4 text-blue-500" size={42}/>
+                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
+                            </div>
+                            
+                            
+                            <div className="flex justify-center mt-12">
                                 <button
-                                    onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
-                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                    onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
+                                    className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
                                 >
                                     <div className="flex items-center whitespace-nowrap">
                                         <Download className="mx-2" />
@@ -179,17 +207,8 @@ function Docs() {
                                     </div>
                                 </button>
                             </div>
-
                         </div>
-                    </>
-                }
-
-                {backend && 
-                    <>
-                        <div className="flex mt-12 ml-2">
-                            <Database className="mr-4 text-blue-500" size={42}/>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
-                        </div>
+                        
 
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold mt-8 ml-4">I. Back End Structure</h3>
@@ -348,18 +367,6 @@ function Docs() {
                                 <p className="text-red-400 mt-4">
                                     Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method.
                                 </p>
-                            </div>
-
-                            <div className="flex justify-center my-6">
-                                <button
-                                    onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
-                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
-                                >
-                                    <div className="flex items-center whitespace-nowrap">
-                                        <Download className="mx-2" />
-                                        {loading ? "Downloading the file..." : "Download as PDF"}
-                                    </div>
-                                </button>
                             </div>
                         </div>
                     </>
