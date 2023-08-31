@@ -41,7 +41,7 @@ function VTKViewer() {
 			const formData = new FormData(event.target);
 			const response = await fetch(
 				// "http://localhost:8000/api/v1/predict/post_processing", LOCAL SERVER
-				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing",
+				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing", 
 				{
 					method: "POST",
 					body: formData,
@@ -300,14 +300,14 @@ function VTKViewer() {
 	};
 
 	const style = (
-		<div className="container border-2 border-slate-400 bg-slate-600 hover:bg-slate-700 transition ease-linear rounded-xl px-8 py-6 lg:mx-8 md:px-24 cursor-pointer flex-box flex-col">
+		<div className="container border-2 border-primary/50 bg-background text-primary hover:bg-primary/10 transition ease-linear rounded-xl px-8 py-6 lg:mx-8 md:px-24 cursor-pointer flex-box flex-col">
 			<div className="flex-box box-1">
-				<div className="w-12 h-12 mx-auto text-white">
+				<div className="w-12 h-12 mx-auto ">
 					<UploadCloud size={32} strokeWidth={2.5} />
 				</div>
 			</div>
 			<div className="flex-box box-2">
-				<p className="font-medium text-slate-200">
+				<p className="font-medium 0">
 					Upload or Drag and Drop a File
 				</p>
 			</div>
@@ -350,7 +350,7 @@ function VTKViewer() {
 						Please choose an option to Start
 					</div>
 					<div>
-						<div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
+						<div className="bg-background flex-box flex-col md:flex-row w-full px-24 py-32 lg:px-96 rounded-md">
 							<div className="text-center flex-box flex-col md:flex-row gap-4 w-full">
 								<button
 									onClick={handleVisualizeBtn}
@@ -393,7 +393,7 @@ function VTKViewer() {
 							</div>
 						</button>
 						<div className="text-center items-center text-white mb-12">
-							<div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100 whitespace-nowrap">
+							<div className="bg-background text-primary py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2  whitespace-nowrap">
 								<Microscope
 									width={20}
 									className="mr-2"
@@ -428,7 +428,7 @@ function VTKViewer() {
 							Please choose a file to start the Visualization
 						</div>
 						<div>
-							<div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md ">
+							<div className="bg-background text-primary flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md ">
 								<div className="w-full py-12 file flex-box flex-col">
 									<div>
 										<FileUploader
@@ -440,10 +440,10 @@ function VTKViewer() {
 										/>
 									</div>
 									<div className="lg:ml-16">
-										<div className="text-center pt-8 text-slate-100 text-xl font-semibold">
+										<div className="text-center pt-8 text-xl font-semibold">
 											Supported files
 										</div>
-										<div className="text-center text-slate-300 text-md py-3">
+										<div className="text-center text-md py-3">
 											Only VTP files are supported
 										</div>
 									</div>
@@ -471,7 +471,7 @@ function VTKViewer() {
 							</div>
 						</button>
 						<div className="text-center items-center text-white mb-12">
-							<div className="bg-slate-900 py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 text-slate-100 whitespace-nowrap">
+							<div className="bg-background text-primary py-4 px-8 max-w-xl lg:mx-auto rounded-lg font-medium lg:text-xl text-md mx-2 whitespace-nowrap">
 								<Crop
 									width={20}
 									className="mr-2"
@@ -506,7 +506,7 @@ function VTKViewer() {
 							Please choose a file to start the Segmentation
 						</div>
 						<div>
-							<div className="bg-slate-700 flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md">
+							<div className="bg-background text-primary flex-box flex-col md:flex-row w-full px-24 lg:px-96 rounded-md">
 								<form
 									ref={formRef}
 									id="upload-form"
@@ -524,10 +524,10 @@ function VTKViewer() {
 											/>
 										</div>
 										<div className="lg:ml-16">
-											<div className="text-center pt-8 text-slate-100 text-xl font-semibold">
+											<div className="text-center pt-8 text-xl font-semibold">
 												Supported files
 											</div>
-											<div className="text-center text-slate-300 text-md py-3">
+											<div className="text-center text-md py-3">
 												Only OBJ files are supported
 											</div>
 										</div>
