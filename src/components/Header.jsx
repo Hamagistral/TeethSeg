@@ -18,7 +18,7 @@ function Header() {
         <div className="hidden lg:block">
           <Sign />
         </div>
-        <div className="z-90">
+        <div className="z-100">
           <ModeToggle />
         </div>
         <div
