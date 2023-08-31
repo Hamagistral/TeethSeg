@@ -25,9 +25,9 @@ function Hero(){
 	useEffect(() => {
 
         if(currentTheme.theme == "light"){
-            loadVTP("/TeethsSegmented.vtp", "Label", [0.903, 0.904, 0.918]);
+            loadVTP("/TeethsSegmented.vtp", "Label", [0.796, 0.835, 0.882]);
         }else{
-            loadVTP("/TeethsSegmented.vtp", "Label", [0.118, 0.161, 0.231]);
+            loadVTP("/TeethsSegmented.vtp", "Label", [0.117, 0.160, 0.231]);
         }
 	}, [currentTheme]);
 
