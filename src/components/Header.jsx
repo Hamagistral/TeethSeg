@@ -18,15 +18,17 @@ function Header() {
         <div className="hidden lg:block">
           <Sign />
         </div>
-        {/* <ModeToggle /> */}
+        <div className="z-100">
+          <ModeToggle />
+        </div>
         <div
-          className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden"
+          className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden z-10"
           onClick={() => {
             setMenuOpen((open) => !open);
           }}
         >
           <Menu />
-          <div className="bg-background text-foreground absolute top-20 left-0 flex-box flex-col pb-8 w-full z-100">
+          <div className="bg-background text-foreground  absolute top-20 left-0 flex-box flex-col pb-8 w-full ">
             {menuOpen ? (
               <>
                 {" "}

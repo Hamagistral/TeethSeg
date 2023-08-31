@@ -42,7 +42,7 @@ function Sign() {
 					onClick={() => navigate("/sign-in")}
 					className="flex-box w-40 h-12 cursor-pointer uppercase text-center"
 				>
-					<div className="px-6 py-3 transition ease-linear bg-background text-foreground bg-slate-700 rounded-lg justify-start items-start gap-2.5 inline-flex hover:bg-slate-100 hover:text-slate-900">
+					<div className="px-6 py-3 transition ease-linear   bg-opacity-25 rounded-lg justify-start items-start gap-2.5 inline-flex hover:bg-foreground hover:text-background text-foreground bg-background">
 						<div className="flex-box text-base font-semibold leading-tight">
 							Sign In &nbsp;
 							<LogIn />
@@ -51,10 +51,12 @@ function Sign() {
 				</div>
 			) : (
 				<>
-					<button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white text-white"
-					onClick={() => handleLogOut()}>
-						<span className="relative px-6 py-3 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-						Log Out 
+					<button
+						className="relative inline-flex items-center justify-center mb-2 mr-2 p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-blue-500 to-green-400 group-hover:from-blue-500 group-hover:to-gren-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 hover:shadow-lg  hover:scale-105 transition-all duration-300 ease-in-out"
+						onClick={() => handleLogOut()}
+					>
+						<span className="flex-box text-base font-semibold  transition ease-linear leading-tight relative px-6 py-3 bg-background text-foreground rounded items-start gap-3 group-hover:bg-opacity-0 whitespace-nowrap">
+							Log Out
 						</span>
 					</button>
 				</>

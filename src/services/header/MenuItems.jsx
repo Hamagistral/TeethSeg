@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 function MenuItems() {
 	const navigate = useNavigate();
-	const location = useLocation()
+	const location = useLocation();
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
@@ -23,16 +23,40 @@ function MenuItems() {
 
 	return (
 		<div className="flex p-5 sm:flex-row flex-col">
-			<div onClick={() => navigate("/")} className={cn("menu-item transition ease-linear", location.pathname === '/' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div
+				onClick={() => navigate("/")}
+				className={cn(
+					"menu-item",
+					location.pathname === "/"
+						? "bg-foreground text-background  hover:bg-background hover:text-foreground font-semibold"
+						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+				)}
+			>
 				<Home />
 				<span className="px-2">Home</span>
 			</div>
-			<div onClick={() => navigate("/docs")} className={cn("menu-item transition ease-linear", location.pathname === '/docs' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
-				<FileText/>
+			<div
+				onClick={() => navigate("/docs")}
+				className={cn(
+					"menu-item",
+					location.pathname === "/docs"
+						? "bg-foreground text-background font-semibold hover:text-foreground"
+						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+				)}
+			>
+				<FileText />
 				<span className="px-2">Docs</span>
 			</div>
-			{ user ? (
-				<div onClick={() => navigate("/start")} className={cn("menu-item transition ease-linear", location.pathname === '/start' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			{user ? (
+				<div
+					onClick={() => navigate("/start")}
+					className={cn(
+						"menu-item",
+						location.pathname === "/start"
+							? "bg-foreground text-background hover:text-foreground font-semibold"
+							: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+					)}
+				>
 					<Play />
 					<span className="px-2">Start</span>
 				</div>
@@ -40,11 +64,27 @@ function MenuItems() {
 				<></>
 			)}
 
-			<div onClick={() => navigate("/about")} className={cn("menu-item transition ease-linear", location.pathname === '/about' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div
+				onClick={() => navigate("/about")}
+				className={cn(
+					"menu-item",
+					location.pathname === "/about"
+						? "bg-foreground text-background hover:text-foreground font-semibold"
+						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+				)}
+			>
 				<Info />
 				<span className="px-2">About</span>
 			</div>
-			<div onClick={() => navigate("/contact")} className={cn("menu-item transition ease-linear", location.pathname === '/contact' ? "bg-white text-slate-900 font-semibold" : "bg-slate-900")}>
+			<div
+				onClick={() => navigate("/contact")}
+				className={cn(
+					"menu-item",
+					location.pathname === "/contact"
+						? "bg-foreground text-background hover:text-foreground font-semibold"
+						: "hover:bg-foreground hover:text-background  bg-background text-foreground"
+				)}
+			>
 				<Contact />
 				<span className="px-2">Contact</span>
 			</div>

@@ -54,14 +54,29 @@ function Docs() {
 
             <div className="lg:px-72 px-4">
                 {frontend && 
-                    <>
-                        <div className="flex mt-12 ml-2">
-                            <AppWindow className="mr-4 text-blue-500" size={42}/>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
+                    <>  
+                        <div className="flex justify-between">
+                            <div className="flex mt-12 ml-2">
+                                <AppWindow className="mr-4 text-blue-500" size={42}/>
+                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
+                            </div>
+                            
+                            <div className="flex justify-center mt-12">
+                                <button
+                                    onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
+                                    className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl " : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                >
+                                    <div className="flex items-center whitespace-nowrap">
+                                        <Download className="mx-2" />
+                                        {loading ? "Downloading the file..." : "Download as PDF"}
+                                    </div>
+                                </button>
+                            </div>
                         </div>
+                        
 
                         <div className="mt-12">
-                            <h3 className="text-3xl font-bold ml-4">I. Description</h3>
+                            <h3 className="text-3xl font-bold ml-4">I. Front End Description</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
                                 <p>
                                 TeethSeg is a web application built using Vite with ReactJS and 3D libraries like Three.js and VTK.js. It utilizes the MeshSegNet deep learning model for 3D tooth segmentation. Users can create an account, sign in with Google or Github, and access the segmentation tools in the <a className="text-blue-500 hover:text-blue-400" href="/start">Start</a> page. The application provides two primary features:<br/><br/>
@@ -80,6 +95,34 @@ function Docs() {
                                 <p>
                                 The front end directory includes the following elements:
                                 </p>
+
+                                <div>
+                                    .<br />
+                                    ├───<strong>node_modules/:</strong> This directory where the libraries and external modules needed to run and develop our Vite project are stored. <br/>
+                                    ├───<strong>public/:</strong> This directory contains static files which will be directly accessible by the browser. <br/>
+                                    │   ├───<strong>supervisors/:</strong> Contains images of supervisors.<br/>
+                                    │   └───<strong>team/:</strong> Contains images of our team members.<br/>
+                                    └───<strong>src/:</strong> The main source directory of our application.<br/>
+                                    │   ├───<strong>assets/:</strong> The static resources of your application; images and fonts.<br/>
+                                    │   │   |───<strong>tech/:</strong> Contains images related to the technologies used.<br/>
+                                    │   ├───<strong>components/:</strong> The reusable components of our application.<br/>
+                                    │   │   ├───<strong>shared/:</strong> Components shared across the entire application.<br/>
+                                    │   │   └───<strong>ui/:</strong>/ UI components specific to our application.<br/>
+                                    │   ├───<strong>config/:</strong> Application configuration files.<br/>
+                                    │   ├───<strong>data/:</strong> Static data or JSON files used in our application.<br/>
+                                    │   ├───<strong>helpers/:</strong> Utility functions used in various parts of the application.<br/>
+                                    │   ├───<strong>lib/:</strong> Libraries or custom modules used in the application.<br/>
+                                    │   ├───<strong>routes/:</strong> Files represent the routing structure between pages.<br/>
+                                    │   ├───<strong>services/:</strong> Services organized according to the different sections of the app.<br/>
+                                    │   │   ├───<strong>about/:</strong> Subfolder corresponding to the About part.<br/>
+                                    │   │   ├───<strong>contact/:</strong> Subfolder corresponding to the contact part.<br/>
+                                    │   │   ├───<strong>footer/:</strong> Subfolder corresponding to the footer part of the pages.<br/>
+                                    │   │   ├───<strong>header/:</strong> Subfolder corresponding to the header part of the pages.<br/>
+                                    │   │   └───<strong>main/:</strong> Subfolder corresponding to the functionalities part.<br/>
+                                    │   └───<strong>styles/:</strong> CSS files or preprocessors for formatting.<br/>
+                                    └── <strong>.gitignore:</strong> Files and folders that are ignored when pushing to Github.<br/>
+                                    └── <strong>.env:</strong> Stores environment variables.<br/>
+                                </div>
 
                                 <img className="rounded-lg mt-4 w-full h-full" src="./frontend-directory.PNG"/>
                             </div>
@@ -168,10 +211,23 @@ function Docs() {
                                 </p>
                             </div>
 
-                            <div className="flex justify-center my-6">
+                        </div>
+                    </>
+                }
+
+                {backend && 
+                    <>
+                        <div className="flex justify-between">
+                            <div className="flex mt-12 ml-2">
+                                <Database className="mr-4 text-blue-500" size={42}/>
+                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
+                            </div>
+                            
+                            
+                            <div className="flex justify-center mt-12">
                                 <button
-                                    onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
-                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                    onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
+                                    className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
                                 >
                                     <div className="flex items-center whitespace-nowrap">
                                         <Download className="mx-2" />
@@ -179,17 +235,8 @@ function Docs() {
                                     </div>
                                 </button>
                             </div>
-
                         </div>
-                    </>
-                }
-
-                {backend && 
-                    <>
-                        <div className="flex mt-12 ml-2">
-                            <Database className="mr-4 text-blue-500" size={42}/>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
-                        </div>
+                        
 
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold mt-8 ml-4">I. Back End Structure</h3>
@@ -348,18 +395,6 @@ function Docs() {
                                 <p className="text-red-400 mt-4">
                                     Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method.
                                 </p>
-                            </div>
-
-                            <div className="flex justify-center my-6">
-                                <button
-                                    onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
-                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
-                                >
-                                    <div className="flex items-center whitespace-nowrap">
-                                        <Download className="mx-2" />
-                                        {loading ? "Downloading the file..." : "Download as PDF"}
-                                    </div>
-                                </button>
                             </div>
                         </div>
                     </>
