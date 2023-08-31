@@ -25,6 +25,7 @@ function Hero() {
         loadVTP('/TeethsSegmented.vtp', "MaterialIds")
     }, [])
 
+
     return (
         <>
             <div className="bg-slate-800">
@@ -79,7 +80,7 @@ function Hero() {
                 </div>
             </div>
 
-            <div id="demo" className="bg-slate-800 w-full h-screen pt-12">
+            <div id="demo" className="bg-slate-800 w-full pt-12">
                 <div className="mx-auto max-w-screen-xl px-4 py-24 lg:flex lg:h-screen lg:items-center">
                     <div className="mx-auto text-center w-full">
                         <h2 className="bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl pb-14">
