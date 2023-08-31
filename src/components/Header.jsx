@@ -22,7 +22,7 @@ function Header() {
           <ModeToggle />
         </div>
         <div
-          className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden z-90"
+          className="bg-background text-foreground border p-2 rounded-md hover:text-background hover:bg-foreground cursor-pointer block lg:hidden -z-100"
           onClick={() => {
             setMenuOpen((open) => !open);
           }}
