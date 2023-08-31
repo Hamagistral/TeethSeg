@@ -61,7 +61,7 @@ function Docs() {
                                 <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
                             </div>
                             
-                            <div className="flex justify-center mt-12">
+                            <div className="flex justify-center mt-12 grow">
                                 <button
                                     onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
                                     className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl " : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
@@ -93,37 +93,37 @@ function Docs() {
                             <h3 className="text-3xl font-bold mt-8 ml-4">II. Directory Structure</h3>
                             <div className="bg-background/50 rounded-lg p-4 mt-4">
                                 <p>
-                                The front end directory includes the following elements:
+                                    The front end directory includes the following elements:
                                 </p>
 
-                                <div>
+                                <code>
                                     .<br />
-                                    ├───<strong>node_modules/:</strong> This directory where the libraries and external modules needed to run and develop our Vite project are stored. <br/>
-                                    ├───<strong>public/:</strong> This directory contains static files which will be directly accessible by the browser. <br/>
-                                    │   ├───<strong>supervisors/:</strong> Contains images of supervisors.<br/>
-                                    │   └───<strong>team/:</strong> Contains images of our team members.<br/>
-                                    └───<strong>src/:</strong> The main source directory of our application.<br/>
-                                    │   ├───<strong>assets/:</strong> The static resources of your application; images and fonts.<br/>
-                                    │   │   |───<strong>tech/:</strong> Contains images related to the technologies used.<br/>
-                                    │   ├───<strong>components/:</strong> The reusable components of our application.<br/>
-                                    │   │   ├───<strong>shared/:</strong> Components shared across the entire application.<br/>
-                                    │   │   └───<strong>ui/:</strong>/ UI components specific to our application.<br/>
-                                    │   ├───<strong>config/:</strong> Application configuration files.<br/>
-                                    │   ├───<strong>data/:</strong> Static data or JSON files used in our application.<br/>
-                                    │   ├───<strong>helpers/:</strong> Utility functions used in various parts of the application.<br/>
-                                    │   ├───<strong>lib/:</strong> Libraries or custom modules used in the application.<br/>
-                                    │   ├───<strong>routes/:</strong> Files represent the routing structure between pages.<br/>
-                                    │   ├───<strong>services/:</strong> Services organized according to the different sections of the app.<br/>
-                                    │   │   ├───<strong>about/:</strong> Subfolder corresponding to the About part.<br/>
-                                    │   │   ├───<strong>contact/:</strong> Subfolder corresponding to the contact part.<br/>
-                                    │   │   ├───<strong>footer/:</strong> Subfolder corresponding to the footer part of the pages.<br/>
-                                    │   │   ├───<strong>header/:</strong> Subfolder corresponding to the header part of the pages.<br/>
-                                    │   │   └───<strong>main/:</strong> Subfolder corresponding to the functionalities part.<br/>
-                                    │   └───<strong>styles/:</strong> CSS files or preprocessors for formatting.<br/>
-                                    └── <strong>.gitignore:</strong> Files and folders that are ignored when pushing to Github.<br/>
-                                    └── <strong>.env:</strong> Stores environment variables.<br/>
-                                </div>
-
+                                    ├── <strong>node_modules/</strong> : Directory for external project modules.<br/>
+                                    ├── <strong>public/</strong> : Folder with browser-accessible static files.<br />
+                                    │   ├── <strong>supervisors/</strong> : Contains images of supervisors.<br />
+                                    │   └── <strong>team/</strong> : Contains images of contributors of our group.<br />
+                                    ├── <strong>src/</strong> : The main source directory of our application.<br />
+                                    │   ├── <strong>assets/</strong> : The static resources of your application; images and fonts.<br />
+                                    │   │   └── <strong>tech/</strong> : Contains images related to the technologies used.<br />
+                                    │   ├── <strong>components/</strong> : The reusable components of our application.<br />
+                                    │   │   ├── <strong>shared/</strong> : Components shared throughout the application.<br />
+                                    │   │   └── <strong>ui/</strong> : UI components specific to our application.<br />
+                                    │   ├── <strong>config/</strong> : Application configuration files.<br />
+                                    │   ├── <strong>data/</strong> : Static data or JSON files used in our application.<br />
+                                    │   ├── <strong>helpers/</strong> : Utility functions used in various parts of the application.<br />
+                                    │   ├── <strong>lib/</strong> : Custom libraries or modules used in the application.<br />
+                                    │   ├── <strong>routes/</strong> : Files representing the routing structure between pages.<br />
+                                    │   ├── <strong>services/</strong> : Services organized based on different sections of the app.<br />
+                                    │   │   ├── <strong>about/</strong> : Subfolders corresponding to the about section.<br />
+                                    │   │   ├── <strong>contact/</strong> : Subfolders corresponding to the contact section.<br />
+                                    │   │   ├── <strong>footer/</strong> : Subfolders corresponding to the footer part of pages.<br />
+                                    │   │   ├── <strong>header/</strong> : Subfolders corresponding to the header part of pages.<br />
+                                    │   │   └── <strong>main/</strong> : Subfolders corresponding to the main functionality.<br />
+                                    │   └── <strong>styles/</strong> : CSS files or preprocessors for styling.<br />
+                                    ├── <strong>.gitignore</strong> : Git ignored files and folders.<br />
+                                    ├── <strong>.env</strong> : Stores environment variables.<br />
+                                    └── <strong>License</strong> : Project licensed under the MIT License.<br />
+                                </code>
                                 <img className="rounded-lg mt-4 w-full h-full" src="./frontend-directory.PNG"/>
                             </div>
 
@@ -224,7 +224,7 @@ function Docs() {
                             </div>
                             
                             
-                            <div className="flex justify-center mt-12">
+                            <div className="flex justify-center mt-12 grow">
                                 <button
                                     onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
                                     className={cn("text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2", loading? "hover:bg-gradient-to-bl" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
