@@ -17,7 +17,6 @@ config = AppConfig(app)
 def read_root():
     return {"message": "TeethSeg MeshSegNet API by 3DSF Interns!"}
 
-
 @app.post("/api/v1/predict")
 async def predict_and_send(file: UploadFile = File(...)):
 
@@ -56,7 +55,6 @@ async def predict_and_send(file: UploadFile = File(...)):
             os.remove(temp_filepath)
         except FileNotFoundError as e:
             pass 
-
         # Delete files in the OUTPUT folder
         delete_temp_file(config.OUTPUT_FOLDER, out_filename)
 
@@ -112,8 +110,7 @@ async def predict_and_sendPalpha(file: UploadFile = File(...)):
         try :
             os.remove(temp_filepath)
         except FileNotFoundError as e:
-            pass 
-        
+            pass     
         # Delete files in the OUTPUT folder
         for i in range(3):
             delete_temp_file(config.OUTPUT_FOLDER, out_filename[i])
