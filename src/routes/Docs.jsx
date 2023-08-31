@@ -1,12 +1,29 @@
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
-import { AppWindow, Database } from "lucide-react";
+import { AppWindow, Database, Download } from "lucide-react";
 import { useState } from "react";
 import { cn } from './../lib/utils';
+
 
 function Docs() {
     const [frontend, setFrontend] = useState(true);
     const [backend, setBackend] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const handleDownload = (filename) => {
+        setLoading(true)
+
+        setTimeout(() => {
+            const pdfUrl = `./docs/${filename}.pdf`;
+          
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.target = '_blank'; 
+            link.download = `${filename}.pdf`; 
+            link.click();
+            setLoading(false)
+        }, 2000)
+    };
 
     return (
         <div className="flex-box flex-col">
@@ -41,6 +58,18 @@ function Docs() {
                         <div className="flex mt-12 ml-2">
                             <AppWindow className="mr-4 text-blue-500" size={42}/>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
+                        </div>
+
+                        <div className="flex justify-center my-6">
+                            <button
+                                onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
+                                className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                            >
+                                <div className="flex items-center whitespace-nowrap">
+                                    <Download className="mx-2" />
+                                    {loading ? "Downloading the file..." : "Download as PDF"}
+                                </div>
+                            </button>
                         </div>
 
                         <div className="mt-12">
@@ -142,12 +171,12 @@ function Docs() {
                                 
                                 The application relies on environment variables for API access:<br /><br />
 
-                                - <strong>VITE_FIREBASE_KEY:</strong> Firebase API key<br />
-                                - <strong>VITE_MEASUREMENT_ID:</strong> Firebase measurement ID<br />
-                                - <strong>VITE_MESSAGING_SENDER_ID:</strong> Firebase messaging sender ID<br />
-                                - <strong>VITE_APP_ID:</strong> Firebase app ID<br />
-                                - <strong>VITE_OPENAI_KEY:</strong> OpenAI API key
-                                - <strong>VITE_ORGANIZATION_KEY:</strong> OpenAI organization key
+                                - <strong>VITE_FIREBASE_KEY:</strong> {'<'} Firebase API key {'>'}<br />
+                                - <strong>VITE_MEASUREMENT_ID:</strong> {'<'} Firebase measurement ID {'>'}<br />
+                                - <strong>VITE_MESSAGING_SENDER_ID:</strong> {'<'} Firebase messaging sender ID {'>'}<br />
+                                - <strong>VITE_APP_ID:</strong> {'<'} Firebase app ID {'>'}<br />
+                                - <strong>VITE_OPENAI_KEY:</strong> {'<'} OpenAI API key {'>'} <br />
+                                - <strong>VITE_ORGANIZATION_KEY:</strong> {'<'} OpenAI organization key {'>'}
                                 </p>
                             </div>
 
@@ -162,44 +191,48 @@ function Docs() {
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
                         </div>
 
+                        <div className="flex justify-center my-6">
+                            <button
+                                onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
+                                className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                            >
+                            <div className="flex items-center whitespace-nowrap">
+                                <Download className="mx-2" />
+                                {loading ? "Downloading the file..." : "Download as PDF"}
+                            </div>
+                        </button>
+                        </div>
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold mt-8 ml-4">I. Back End Structure</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
                                 <p>
                                 The backend of TeethSeg is a RESTful API developed using Python FastAPI, ensuring robust functionality and reliability. For deployment we used the AWS Cloud using the Amazon Elastic Container Registry (ECR), Lambda and API Gateway services. Here's the architecture of the backend in the AWS Cloud.
                                 </p>
-                                <img className="rounded-lg mt-4 w-full h-full" src="./architecture-backend.png"/>
-                            </div>
-
-                            <h3 className="text-3xl font-bold mt-8 ml-4">II. Directory Structure</h3>
-                            <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
-                                <p>
-                                The backend directory includes the following elements:
-                                <br />
-                                <br />
-                                - <strong>model:</strong> Stores pre-trained MeshSegNet models.<br />
-                                - <strong>temp:</strong> Temporary file storage during processing.<br />
-                                - <strong>output:</strong> Stores files generated by the model for API responses.
+                                <img className="rounded-lg mt-4 w-full h-full" src="./designBackend.png"/>
+                                <p className=" mt-4 w-full h-full">
+                                    Note: You can deploy the backend on your own server by following the installation instructions provided below.
                                 </p>
                             </div>
 
-                            <h3 className="text-3xl font-bold mt-8 ml-4">III. Files and Functions</h3>
+                            <h3 className="text-3xl font-bold mt-8 ml-4">II. Project Structure</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
-                                <p>
-                                - <strong>config.py:</strong> Configuration and model loading.<br />
-                                - <strong>helper.py:</strong> Utility functions for APIs.<br />
-                                - <strong>main.py:</strong> Defines API endpoints.<br />
-                                - <strong>meshsegnet.py:</strong> Encapsulates MeshSegNet's architecture and methods.<br />
-                                - <strong>model.py:</strong> Contains `predict` and `predict_alpha` functions for 3D segmentation.<br />
-                                - <strong>setup.py:</strong> Installs required packages and configures the workspace.<br />
-                                - <strong>install-requirements.ps1:</strong> Configures the project on Windows.<br />
-                                - <strong>install-requirements.sh:</strong> Configures the project on Linux/macOS.<br />
-                                - <strong>Dockerfile:</strong> Used for deployment to Render hosting.<br />
-                                - <strong>requirements.txt:</strong> Lists backend package dependencies.<br />
-                                - <strong>README:</strong> Provides installation, configuration, and project information.<br />
-                                - <strong>venv:</strong> Isolated environment for Python projects.<br />
-                                - <strong>License:</strong> Project licensed under MIT License.
-                                </p>
+                                .<br />
+                                ├── <strong>model/ :</strong> Stores pre-trained MeshSegNet models.<br />
+                                ├── <strong>temp/ :</strong> Temporary file storage during processing.<br />
+                                ├── <strong>output/ :</strong> Stores files generated by the model for API responses.<br />
+                                ├── <strong>config.py:</strong> Configuration and model loading.<br />
+                                ├── <strong>helper.py:</strong>  Utility functions for APIs.<br />
+                                ├── <strong>main.py:</strong> Defines API endpoints.<br />
+                                ├── <strong>meshsegnet.py:</strong> Encapsulates MeshSegNet's architecture and methods.<br />
+                                ├── <strong>model.py:</strong> Contains `predict` and `predict_alpha` functions for 3D segmentation.<br />
+                                ├── <strong>setup.py:</strong>Installs required packages and configures the workspace.<br />
+                                ├── <strong>install-requirements.ps1:</strong> Configures the project on Windows.<br />
+                                ├── <strong>install-requirements.sh:</strong> Configures the project on Linux/macOS.<br />
+                                ├── <strong>Dockerfile:</strong> Used for deployment to Render hosting.<br />
+                                ├── <strong>requirements.txt:</strong>  Lists backend package dependencies.<br />
+                                ├── <strong>README:</strong> Provides installation, configuration, and project information.<br />
+                                ├── <strong>venv:</strong> Isolated environment for Python projects.<br />
+                                └── <strong>License:</strong> Project licensed under MIT License.
                             </div>
 
                             <h3 className="text-3xl font-bold mt-8 ml-4">IV. Installation</h3>
@@ -315,14 +348,18 @@ function Docs() {
                             <h3 className="text-3xl font-bold mt-8 ml-4">V. API Endpoints</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
                                 <p>Here's the available endpoints and the methods to call them:
-                                <br />
-                                <br />
-                                - <strong>GET "/":</strong> Description of the API and its routes<br />
-                                - <strong>POST "/api/v1/predict":</strong> Without post-proccessing (this will not give a good result)<br />
-                                - <strong>POST "/api/v1/predict/post_processing":</strong> With post-proccessing (The segmentation with post proccessing is more precise) <br />
-                                <br />
-                                You can use <strong>http://localhost:8000/api/v1/post_processing</strong> make sure to call this endpoint with the post method.
+                                    <br />
+                                    <br />
+                                    - <strong>GET "/":</strong> Description of the API and its routes<br />
+                                    - <strong>POST "/api/v1/predict":</strong> Without post-proccessing (this will not give a good result)<br />
+                                    - <strong>POST "/api/v1/predict/post_processing":</strong> With post-proccessing (The segmentation with post proccessing is more precise) <br />
+                                    <br />
+                                    Go to http://localhost:8000/ if you see a message like  <code> "message": "Hi 3DSF Interns!"</code> everything is working correctly.
                                 </p>
+                                <p className="text-red-400 mt-4">
+                                    Make sure to call api/v1/predict and api/v1/predict/post_processing endpoints with the POST method.
+                                </p>
+
                             </div>
                         </div>
                     </>
