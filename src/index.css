@@ -65,7 +65,6 @@
 		color: white;
 	}
 }
-
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -84,7 +83,7 @@
 		--border: 186, 94%, 82%;
 		--input: 213, 97%, 87%;
 
-		--primary: 210, 40%, 98%; /* text-slate-950 */
+		--primary: 229, 84%, 5%; /* text-slate-950 */
 		--primary-foreground: 217 33% 17%;
 		--primary-background: 214 32% 91%;
 
@@ -137,6 +136,7 @@
 		--radius: 0.5rem;
 	}
 }
+
 @layer base {
 	* {
 		@apply border-border;
