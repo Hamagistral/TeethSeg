@@ -8,7 +8,7 @@ function About() {
   return (
     <div className="flex-box flex-col">
       <Header />
-      <div className="text-center text-white h-full w-full py-10 flex-box flex-col scroll-smooth bg-slate-800">
+      <div className="text-center text-primary h-full w-full py-10 flex-box flex-col scroll-smooth bg-primary-background">
         <h1 className="mb-8 mt-12 text-5xl tracking-tight font-extrabold text-center bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent pb-4t">About Us</h1>
         <Team />
         <Supervisors />
