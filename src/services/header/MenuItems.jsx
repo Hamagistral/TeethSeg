@@ -1,4 +1,4 @@
-import { Contact, FileText, Home, Info, Play } from "lucide-react";
+import { Contact, FileText, Home, Info, Play, HelpCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebase";
