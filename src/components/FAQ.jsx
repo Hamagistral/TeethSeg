@@ -50,9 +50,9 @@ const Faq = () => {
 
   return (
     <>
-      <div className="relative z-10 overflow-hidden bg-slate-800 px-24 lg:px-72">
+      <div className="relative z-10 overflow-hidden bg-slate-800 px-2 lg:px-72">
         <div className="container mx-auto mb-24">
-          <div className="-mx-4 flex flex-wrap">
+          <div className="mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
                 <span className="mb-2 block text-xl font-semibold bg-gradient-to-r from-blue-600 to-green-400 bg-clip-text text-transparent">
@@ -65,7 +65,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="px-3 -mx-4 flex-box flex-wrap w-full">
+          <div className="px-3 mx-4 flex-box flex-wrap w-full">
             <div className="w-full px-4 grid md:grid-cols-2 gap-8">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index}
