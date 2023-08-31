@@ -98,29 +98,29 @@ function Docs() {
 
                                 <div>
                                     .<br />
-                                    ├───<strong>node_modules/:</strong> Le répertoire où sont stockés les bibliothèques et les modules externes nécessaires pour exécuter et développer votre projet Vite. <br/>
-                                    ├───<strong>public/:</strong> Ce répertoire contient des fichiers statiques qui seront directement accessibles par le navigateur. <br/>
-                                    │   ├───<strong>supervisors/:</strong> Contient les images des encadrants.<br/>
-                                    │   └───<strong>team/:</strong> Contenient les images des membres de notre équipe.<br/>
-                                    └───<strong>src/:</strong> Le répertoire source principal de notre application.<br/>
-                                    │   ├───<strong>assets/:</strong> Les ressources statiques de votre application; images et des polices.<br/>
-                                    │   │   |───<strong>tech/:</strong> Contient des images liées aux technologies utilisées.<br/>
-                                    │   ├───<strong>components/:</strong> Les composants réutilisables de notre application.<br/>
-                                    │   │   ├───<strong>shared/:</strong> Composants partagés à travers toute l'application.<br/>
-                                    │   │   └───<strong>ui/:</strong>/ Composants d'interface utilisateur spécifiques à notre application.<br/>
-                                    │   ├───<strong>config/:</strong> Fichiers de configuration de l'application.<br/>
-                                    │   ├───<strong>data/:</strong> Données statiques ou fichiers JSON utilisés dans notre application.<br/>
-                                    │   ├───<strong>helpers/:</strong> Fonctions utilitaires utilisées dans diverses parties de l'application.<br/>
-                                    │   ├───<strong>lib/:</strong> Bibliothèques ou modules personnalisés utilisés dans l'application.<br/>
-                                    │   ├───<strong>routes/:</strong> Fichiers représentent la structure de routage entre les pages.<br/>
-                                    │   ├───<strong>services/:</strong> Services organisés en fonction des différentes sections de l'app.<br/>
-                                    │   │   ├───<strong>about/:</strong> Sous-dossiers correspondant à la partie de A propos.<br/>
-                                    │   │   ├───<strong>contact/:</strong> Sous-dossiers correspondant à la partie de contact.<br/>
-                                    │   │   ├───<strong>footer/:</strong> Sous-dossiers correspondant à la partie du pied des pages.<br/>
-                                    │   │   ├───<strong>header/:</strong> Sous-dossiers correspondant à la partie d’en-tête des pages.<br/>
-                                    │   │   └───<strong>main/:</strong> Sous-dossiers correspondant à la partie des fonctionnalités.<br/>
-                                    │   └───<strong>styles/:</strong> Fichiers CSS ou préprocesseurs pour la mise en forme.<br/>
-                                    └── <strong>.gitignore:</strong> Les fichiers et dossiers qu'on ignore lors du push sur Github.<br/>
+                                    ├───<strong>node_modules/:</strong> This directory where the libraries and external modules needed to run and develop our Vite project are stored. <br/>
+                                    ├───<strong>public/:</strong> This directory contains static files which will be directly accessible by the browser. <br/>
+                                    │   ├───<strong>supervisors/:</strong> Contains images of supervisors.<br/>
+                                    │   └───<strong>team/:</strong> Contains images of our team members.<br/>
+                                    └───<strong>src/:</strong> The main source directory of our application.<br/>
+                                    │   ├───<strong>assets/:</strong> The static resources of your application; images and fonts.<br/>
+                                    │   │   |───<strong>tech/:</strong> Contains images related to the technologies used.<br/>
+                                    │   ├───<strong>components/:</strong> The reusable components of our application.<br/>
+                                    │   │   ├───<strong>shared/:</strong> Components shared across the entire application.<br/>
+                                    │   │   └───<strong>ui/:</strong>/ UI components specific to our application.<br/>
+                                    │   ├───<strong>config/:</strong> Application configuration files.<br/>
+                                    │   ├───<strong>data/:</strong> Static data or JSON files used in our application.<br/>
+                                    │   ├───<strong>helpers/:</strong> Utility functions used in various parts of the application.<br/>
+                                    │   ├───<strong>lib/:</strong> Libraries or custom modules used in the application.<br/>
+                                    │   ├───<strong>routes/:</strong> Files represent the routing structure between pages.<br/>
+                                    │   ├───<strong>services/:</strong> Services organized according to the different sections of the app.<br/>
+                                    │   │   ├───<strong>about/:</strong> Subfolder corresponding to the About part.<br/>
+                                    │   │   ├───<strong>contact/:</strong> Subfolder corresponding to the contact part.<br/>
+                                    │   │   ├───<strong>footer/:</strong> Subfolder corresponding to the footer part of the pages.<br/>
+                                    │   │   ├───<strong>header/:</strong> Subfolder corresponding to the header part of the pages.<br/>
+                                    │   │   └───<strong>main/:</strong> Subfolder corresponding to the functionalities part.<br/>
+                                    │   └───<strong>styles/:</strong> CSS files or preprocessors for formatting.<br/>
+                                    └── <strong>.gitignore:</strong> Files and folders that are ignored when pushing to Github.<br/>
                                     └── <strong>.env:</strong> Stores environment variables.<br/>
                                 </div>
 
