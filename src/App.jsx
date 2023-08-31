@@ -71,13 +71,6 @@ function NavigateToChatbotButton() {
 
   return (
     <div
-      // style={{
-      //   position: "fixed",
-      //   bottom: 0,
-      //   right: 0,
-      //   padding: "20px",
-      //   zIndex: 1,
-      // }}
       className="fixed bottom-0 right-0 p-10 z-100"
     >
       <div className="flex justify-end fixed bottom-4 right-4">

@@ -60,18 +60,6 @@ function Docs() {
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent">Front End Documentation</h2>
                         </div>
 
-                        <div className="flex justify-center my-6">
-                            <button
-                                onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
-                                className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
-                            >
-                                <div className="flex items-center whitespace-nowrap">
-                                    <Download className="mx-2" />
-                                    {loading ? "Downloading the file..." : "Download as PDF"}
-                                </div>
-                            </button>
-                        </div>
-
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold ml-4">I. Description</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
@@ -180,6 +168,18 @@ function Docs() {
                                 </p>
                             </div>
 
+                            <div className="flex justify-center my-6">
+                                <button
+                                    onClick={() => {handleDownload("FrontEnd Documentation - TeethSeg")}}
+                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" , backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                >
+                                    <div className="flex items-center whitespace-nowrap">
+                                        <Download className="mx-2" />
+                                        {loading ? "Downloading the file..." : "Download as PDF"}
+                                    </div>
+                                </button>
+                            </div>
+
                         </div>
                     </>
                 }
@@ -191,17 +191,6 @@ function Docs() {
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent ">Back End Documentation</h2>
                         </div>
 
-                        <div className="flex justify-center my-6">
-                            <button
-                                onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
-                                className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
-                            >
-                            <div className="flex items-center whitespace-nowrap">
-                                <Download className="mx-2" />
-                                {loading ? "Downloading the file..." : "Download as PDF"}
-                            </div>
-                        </button>
-                        </div>
                         <div className="mt-12">
                             <h3 className="text-3xl font-bold mt-8 ml-4">I. Back End Structure</h3>
                             <div className="bg-slate-700/50 rounded-lg p-4 mt-4">
@@ -354,12 +343,23 @@ function Docs() {
                                     - <strong>POST "/api/v1/predict":</strong> Without post-proccessing (this will not give a good result)<br />
                                     - <strong>POST "/api/v1/predict/post_processing":</strong> With post-proccessing (The segmentation with post proccessing is more precise) <br />
                                     <br />
-                                    Go to http://localhost:8000/ if you see a message like  <code> "message": "Hi 3DSF Interns!"</code> everything is working correctly.
+                                    Go to <strong>http://localhost:8000/</strong> if you see a message like  <code className="rounded-lg p-1 bg-slate-900">"message": "Hi 3DSF Interns!"</code> everything is working correctly.
                                 </p>
                                 <p className="text-red-400 mt-4">
-                                    Make sure to call api/v1/predict and api/v1/predict/post_processing endpoints with the POST method.
+                                    Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method.
                                 </p>
+                            </div>
 
+                            <div className="flex justify-center my-6">
+                                <button
+                                    onClick={() => {handleDownload("BackEnd Documentation - TeethSeg")}}
+                                    className={cn("justify-center border-red font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", loading? "bg-slate-400" : "bg-slate-900" ,frontend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                                >
+                                    <div className="flex items-center whitespace-nowrap">
+                                        <Download className="mx-2" />
+                                        {loading ? "Downloading the file..." : "Download as PDF"}
+                                    </div>
+                                </button>
                             </div>
                         </div>
                     </>
