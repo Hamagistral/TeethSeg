@@ -26,7 +26,7 @@ function Header() {
           }}
         >
           <Menu />
-          <div className="bg-background text-foreground  absolute top-20 left-0 flex-box flex-col pb-8 w-full z-100">
+          <div className="bg-background text-foreground  absolute top-20 left-0 flex-box flex-col pb-8 w-full z-99">
             {menuOpen ? (
               <>
                 {" "}
