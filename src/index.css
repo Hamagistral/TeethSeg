@@ -65,7 +65,6 @@
 		color: white;
 	}
 }
-
 @layer base {
 	:root {
 		--background: 0 0% 100%;
@@ -137,6 +136,7 @@
 		--radius: 0.5rem;
 	}
 }
+
 @layer base {
 	* {
 		@apply border-border;
