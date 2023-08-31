@@ -9,7 +9,7 @@ export default {
 			},
 			zIndex: {
 				100: "100",
-				99: "99",
+				90: "90",
 			},
 			colors: {
 				border: "hsl(var(--border))",
