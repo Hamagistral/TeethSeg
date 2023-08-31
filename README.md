@@ -50,7 +50,12 @@ Without post-proccessing (this will not give a good result)
 
 ### /api/v1/predict/post_processing
 
-With post-proccessing (the segmentation with post=proccessing will be mush precise)
+Here's the available endpoints and the methods to call them:
 
+- GET "/": Description of the API and its routes
+- POST "/api/v1/predict": Without post-proccessing (this will not give a good result)
+- POST "/api/v1/predict/post_processing": With post-proccessing (The segmentation with post proccessing is more precise)
 
-so you can use `localhost:8000/api/v1/predict` make sure to call this endpoit with post method.
+Go to http://localhost:8000/ if you see a message like "message": "Hi 3DSF Interns!" everything is working correctly.
+
+Make sure to call "/api/v1/predict" and "/api/v1/predict/post_processing" endpoints with the POST method.
