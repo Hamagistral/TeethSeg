@@ -102,7 +102,7 @@ function Hero(){
 						</h2>
 						<iframe
 							height="720"
-							src="https://www.youtube.com/embed/zOI1ZxMHlhk?si=D9ZbKvrsY04N08MP"
+							src="https://www.youtube.com/embed/vv0G7nkHsVo?si=sXLYo7sRr3lQJs_F"
 							title="Demo TeethSeg"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen

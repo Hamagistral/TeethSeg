@@ -8,23 +8,22 @@ function TopFooter() {
 				<br />
 				get in touch with us
 			</div>
-			<div className="py-5 flex-box flex-col gap-4 px-4">
-				<MapPin size={28} strokeWidth={2.5} color="white" />
-				<div className=" text-primary  text-lg font-semibold leading-normal">
+			<div className="py-5 flex-box flex-col gap-4 px-4 text-primary">
+				<MapPin size={28} strokeWidth={2.5} />
+				<div className="text-lg font-semibold leading-normal">
 					Our Location
 				</div>
-				<div className="py-1 w-64 text-slate-400 text-base font-normal leading-normal">
+				<div className="py-1 w-64 text-secondary text-base font-normal leading-normal">
 					Villa Num 75 Lotissement la gare Mohammedia Maroc
 				</div>
 			</div>
-			<div className="flex-box flex-col px-4">
+			<div className="flex-box flex-col px-4 text-primary">
 				<Mail
 					size={28}
 					strokeWidth={2.5}
-					color="white"
 					className="mb-4"
 				/>
-				<div className=" text-primary text-lg font-semibold leading-normal mb-4">
+				<div className="text-primary text-lg font-semibold leading-normal mb-4">
 					How Can We Help?
 				</div>
 				<div className="py-1 w-52 text-secondary text-base font-normal leading-normal">

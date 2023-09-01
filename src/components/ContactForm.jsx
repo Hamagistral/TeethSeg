@@ -14,7 +14,7 @@ function ContactForm() {
                         </div>
                         <div>
                             <label htmlFor="subject" className="block mb-2 text-sm font-medium text-primary">Subject</label>
-                            <input type="text" id="subject" className="block p-4 w-full text-sm text-secondary bg-input rounded-lg  shadow-sm" placeholder="Let us know how we can help you" required />
+                            <input type="text" id="subject" className="block p-4 w-full text-sm text-primary bg-input rounded-lg  shadow-sm" placeholder="Let us know how we can help you" required />
                         </div>
                         <div className="sm:col-span-2">
                             <label htmlFor="message" className="block mb-2 text-sm font-medium text-primary">Your message</label>
