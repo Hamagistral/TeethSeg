@@ -46,7 +46,7 @@ function VTKViewer() {
 					method: "POST",
 					body: formData,
 				}
-			).catch((err) => {
+			).catch(() => {
 				setIsLoading(false);
 			});
 
@@ -436,6 +436,7 @@ function VTKViewer() {
 											handleChange={handleVisualize}
 											name="file"
 											types={fileVTPTypes}
+											// eslint-disable-next-line react/no-children-prop
 											children={style}
 										/>
 									</div>
@@ -520,6 +521,7 @@ function VTKViewer() {
 												handleChange={handleChange}
 												name="file"
 												types={fileOBJTypes}
+												// eslint-disable-next-line react/no-children-prop
 												children={style}
 											/>
 										</div>
