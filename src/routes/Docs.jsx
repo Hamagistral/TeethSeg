@@ -42,7 +42,7 @@ function Docs() {
                     </button>
                     <button
                         onClick={() => {setFrontend(false); setBackend(true);}}
-                        className={cn("bg-slate-900 font-semibold py-4 px-8 hover:bg-background hover:text-primary leading-tight rounded-lg transition ease-linear", backend ? "bg-white text-slate-900 hover:bg-white" : "")}
+                        className={cn("bg-slate-900 font-semibold py-4 px-8 hover:bg-slate-100 hover:text-slate-900 leading-tight rounded-lg transition ease-linear", backend ? "bg-white text-slate-900 hover:bg-white" : "")}
                     >
                         <div className="flex items-center whitespace-nowrap">
                             <Database className="mx-2" />
@@ -390,10 +390,10 @@ function Docs() {
                                     - <strong>POST "/api/v1/predict":</strong> Without post-proccessing (this will not give a good result)<br />
                                     - <strong>POST "/api/v1/predict/post_processing":</strong> With post-proccessing (The segmentation with post proccessing is more precise) <br />
                                     <br />
-                                    Go to <strong>http://localhost:8000/</strong> if you see a message like  <code className="rounded-lg p-1 bg-slate-900 text-white">"message": "Hi 3DSF Interns!"</code> everything is working correctly.
+                                    Go to <strong>http://localhost:8000/</strong> if you see a message like  <code className="rounded-lg p-1 bg-slate-900 text-white">message: "TeethSeg MeshSegNet API by 3DSF Interns! Routee possible: '/api/v1/predict/post_processing' Prediction with post-processing."</code>, then everything is working correctly.
                                 </p>
                                 <p className="text-red-500 mt-4">
-                                    Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method.
+                                    Make sure to call <strong>"/api/v1/predict"</strong> and <strong>"/api/v1/predict/post_processing"</strong> endpoints with the POST method. (Note: "/api/v1/predict" does not exist in the deployed version.)
                                 </p>
                             </div>
                         </div>

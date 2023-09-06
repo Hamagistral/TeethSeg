@@ -41,7 +41,7 @@ function VTKViewer() {
 			const formData = new FormData(event.target);
 			const response = await fetch(
 				// "http://localhost:8000/api/v1/predict/post_processing", LOCAL SERVER
-				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing", 
+				"https://7bo0eldhj4.execute-api.us-east-1.amazonaws.com/prod/api/v1/predict/post_processing",  // AWS API ENDPOINT
 				{
 					method: "POST",
 					body: formData,

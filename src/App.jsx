@@ -70,9 +70,9 @@ function NavigateToChatbotButton() {
   };
 
   return (
-    <div
-      className="fixed bottom-0 right-0 p-10 z-100"
-    >
+
+    // Chatbot
+    <div className="fixed bottom-0 right-0 p-10 z-100">
       <div className="flex justify-end fixed bottom-4 right-4">
         <div
           onClick={handleChatIconClick}
