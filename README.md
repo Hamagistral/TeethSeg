@@ -1,40 +1,46 @@
-# SegTeeth-api
+# 💻 TeethSeg BackEnd Locally
 
 
-## installation (new)
+## Installation 
 
-Simply you can run the setup.py script to configure you're project.
+- You can run the setup.py script to configure you're project.
 
 ```bash
 python setup.py
 ```
 
-## Or by following these instruction (old way)
+## Or follow these instructions
 
-Follow these instruction to config you're project this is the old way.
+Follow these instruction to config your project:
 
-### create a new venv
+1. Create a new venv
 
 ```bash
 py -m venv venv
 ```
 
-### activate venv
+2. Activate venv:
 
-only for windows
+Windows:
 
 ```bash
 ./venv/Scripts/activate
 ```
 
-### install dependencies
+Linux: 
+
+```
+source venv/Scripts/activate
+```
+
+3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 pip install pygco
 ```
 
-## Run server
+4. Run server
 
 After configuring you're project now you can run the app using uvicorn.
 
@@ -52,7 +58,7 @@ Without post-proccessing (this will not give a good result)
 
 Here's the available endpoints and the methods to call them:
 
-- GET "/": Description of the API and its routes
+- GET "/": Description of the API and its routes  
 - POST "/api/v1/predict": Without post-proccessing (this will not give a good result)
 - POST "/api/v1/predict/post_processing": With post-proccessing (The segmentation with post proccessing is more precise)
 
