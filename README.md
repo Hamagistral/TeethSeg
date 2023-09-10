@@ -54,8 +54,8 @@ With TeethSeg, dental professionals can save valuable time and enhance their dia
 
 There are two back-end branches:
 
-- [Back end locally](https://github.com/Hamagistral/TeethSeg/tree/backend_local)
-- [Back end in the cloud](https://github.com/Hamagistral/TeethSeg/tree/backend_aws)
+- [Back end Locally](https://github.com/Hamagistral/TeethSeg/tree/backend_local)
+- [Back end in AWS Cloud](https://github.com/Hamagistral/TeethSeg/tree/backend_aws)
 
 ### 🎨 Front End
 
@@ -65,16 +65,21 @@ For more see the [front end branch](https://github.com/Hamagistral/TeethSeg/tree
 
 ### 🛠️ Technologies Used
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 ![ChatGPT](https://img.shields.io/badge/OpenAI-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Threejs](https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-%23FF9900.svg?style=for-the-badge&logo=Firebase&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 <a name="usage"></a>
 ## 💻 Usage
