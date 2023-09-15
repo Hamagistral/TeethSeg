@@ -26,9 +26,9 @@
 6. [ Contact ](#contact)
 
 <a name="introduction"></a>
-## 🔬 Project Overview :
+## 🔬 Project Overview 
 
-TeethSeg is a summer Internship Project made for "3D SMART FACTORY" a Moroccan company specializing in the 3D field. This project is a revolutionary solution that simplifies the complex task of 3D dental scan segmentation. In the field of dentistry, analyzing intraoral scans is a critical component of treatment planning and evaluation. Traditionally, this process has been time-consuming and prone to errors. TeethSeg addresses these challenges by harnessing the power of deep learning and modern web technologies. Our team was charged with the task of first deploying the model as a REST API to be able to communicate with it via the web, and then building an interactive web application with a stylish and simple-to-use UI with integrated 3D visualizations.  
+**TeethSeg** is a summer Internship Project made for "*3D SMART FACTORY*" a Moroccan company specializing in the 3D field. This project is a revolutionary solution that simplifies the complex task of 3D dental scan segmentation. In the field of dentistry, analyzing intraoral scans is a critical component of treatment planning and evaluation. Traditionally, this process has been time-consuming and prone to errors. TeethSeg addresses these challenges by harnessing the power of deep learning and modern web technologies. Our team was charged with the task of first deploying the model as a REST API to be able to communicate with it via the web, and then building an interactive web application with a stylish and simple-to-use UI with integrated 3D visualizations.  
 
 <a name="features"></a>
 ## 🔌 Key Features
