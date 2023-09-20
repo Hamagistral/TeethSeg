@@ -10,7 +10,7 @@
   </div>
   
   <p>AI Based Automated Teeth Segmentation using MeshSegNet</p>
-    <a href="https://teethseg.vercel.app/" target="_blank">Live Preview</a>
+    <a href="https://teethseg-ai.vercel.app/" target="_blank">Live Preview</a>
     🦷
     <a href="https://github.com/Hamagistral/TeethSeg/issues" target="_blank">Request Feature</a>
 </div>
